@@ -1,0 +1,24 @@
+name: direct_codex_antigravity
+title: Direct Codex and Antigravity
+description: Direct Codex to build once and Antigravity to review and fix code in an existing local repository, with verified results.
+category: Work and knowledge
+include_in_prompt: false
+skill_improvement:
+  managed: true
+  status: active
+  evidence_handles:
+  - ~/workspace/custom-skills/direct_codex_antigravity/SKILL.md
+  - ~/workspace/custom-skills/direct_codex_antigravity/skill.yaml
+  - 9f71e9e7
+  - beb31e4245a4dc9b5beeccb21e3f7c19ed04e526
+  - c51bbd5195f3e364361904c1e6b4848a4223deb8
+  - a916088c590785e4cc8e1f428c7583e2a50ef7987faf6e1f94a4b2c2d426ba5a
+  measurement:
+    proxy_metric_id: objective_success_rate
+    success_criterion: At least two subsequent Codex builds on this machine finish without a zero-output sandboxed first call when bubblewrap is missing, with bypass approved before the first call and test output verified before reporting, or no relevant delegated build occurs in the window and the result is recorded as inconclusive rather than a failure.
+    window_days: 30
+  needs_review: false
+  rationale: 'The skill as published on 2026-11-08 prescribes --dangerously-bypass-approvals-and-sandbox only as a narrow retry after a sandbox failure, with --skip-git-repo-check and closed stdin on the first call. After publication, three Codex builds on 2026-11-09 repeated the same shape: funding burned 29089 tokens on a zero-output sandbox failure then succeeded on a 22093-token bypass retry, stocks burned 21313 then succeeded on 16415, and the stocks rebuild burned 14185 then succeeded on 10326. Bubblewrap is missing on this machine, so the sandboxed first call predictably fails and the retry-only rule guarantees one wasted call per build while Codex quota is scarce. The update adds a bubblewrap preflight check and moves the approved bypass to the first call only when bubblewrap is missing, keeping the approval gate, the tight brief, and Antigravity review. No other proposal is made: the YouTube transcript batches and the J Law catalog work are still in progress with Batch 4 and the Gemini Pullback Buy extraction pending, and the handoff-suppression hypotheses are policy-level and out of scope for managed documents.'
+  review_after: 2026-12-09T08:50:16.084702+00:00
+  reviewed_at: 2026-11-09T08:50:16.084702+00:00
+  run_id: sirun_5e0b03d78a59446aab6725b7d9b77da0
