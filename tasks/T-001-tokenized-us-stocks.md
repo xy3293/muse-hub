@@ -6,7 +6,7 @@
 - **标题**：代币化美股研究
 - **负责人**：node-1（1 号研究员）
 - **状态**：待领
-- **Issue**：待建（总控创建后填链接）
+- **Issue**：https://github.com/xy3293/muse-hub/issues/1
 
 ## 背景
 
