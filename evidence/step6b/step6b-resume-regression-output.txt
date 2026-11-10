@@ -1,0 +1,210 @@
+[01-pass/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS 01-pass: state=ACKED; warnings=0; BOARD fetches=1; legacy unchanged
+[02-sha-mismatch/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+warning: {"at": "2026-11-10T08:13:28Z", "ack_commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "event_id": "result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc", "failed_condition": "2", "detail": "task, node or source SHA mismatch"}
+PASS 02-sha-mismatch: state=DETECTED; warnings=1; BOARD fetches=0; legacy unchanged
+[03-unrelated-T15/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS 03-unrelated-T15: state=DETECTED; warnings=0; BOARD fetches=0; legacy unchanged
+[04-reject-terminal/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS 04-reject-terminal: state=REJECTED; warnings=0; BOARD fetches=1; legacy unchanged
+[05-unknown-event/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+warning: {"at": "2026-11-10T08:13:29Z", "ack_commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "event_id": "result:T-015:node-2:dddddddddddddddddddddddddddddddddddddddd", "failed_condition": "1", "detail": "event_id not found"}
+PASS 05-unknown-event: state=DETECTED; warnings=1; BOARD fetches=0; legacy unchanged
+[06-board-mismatch/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+warning: {"at": "2026-11-10T08:13:29Z", "ack_commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "event_id": "result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc", "failed_condition": "5", "detail": "BOARD.md task row does not match verdict"}
+PASS 06-board-mismatch: state=DETECTED; warnings=1; BOARD fetches=1; legacy unchanged
+[07-repeated/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+[07-repeated/repeated] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS 07-repeated: state=ACKED; warnings=0; BOARD fetches=1; legacy unchanged
+[08-missing-board-file/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+warning: {"at": "2026-11-10T08:13:30Z", "ack_commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "event_id": "result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc", "failed_condition": "4", "detail": "commit does not change BOARD.md"}
+PASS 08-missing-board-file: state=DETECTED; warnings=1; BOARD fetches=0; legacy unchanged
+[09-wrong-author/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+warning: {"at": "2026-11-10T08:13:30Z", "ack_commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "event_id": "result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc", "failed_condition": "6", "detail": "commit author login is not xy3293"}
+PASS 09-wrong-author: state=DETECTED; warnings=1; BOARD fetches=1; legacy unchanged
+[10-task-mismatch/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+warning: {"at": "2026-11-10T08:13:30Z", "ack_commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "event_id": "result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc", "failed_condition": "2", "detail": "task, node or source SHA mismatch"}
+PASS 10-task-mismatch: state=DETECTED; warnings=1; BOARD fetches=0; legacy unchanged
+[11-node-mismatch/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+warning: {"at": "2026-11-10T08:13:30Z", "ack_commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "event_id": "result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc", "failed_condition": "2", "detail": "task, node or source SHA mismatch"}
+PASS 11-node-mismatch: state=DETECTED; warnings=1; BOARD fetches=0; legacy unchanged
+[12-reject-complete-row/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+warning: {"at": "2026-11-10T08:13:31Z", "ack_commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "event_id": "result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc", "failed_condition": "5", "detail": "BOARD.md task row does not match verdict"}
+PASS 12-reject-complete-row: state=DETECTED; warnings=1; BOARD fetches=1; legacy unchanged
+[13-reject-rework/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS 13-reject-rework: state=REJECTED; warnings=0; BOARD fetches=1; legacy unchanged
+[14-exact-task-row/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+warning: {"at": "2026-11-10T08:13:31Z", "ack_commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "event_id": "result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc", "failed_condition": "5", "detail": "BOARD.md task row does not match verdict"}
+PASS 14-exact-task-row: state=DETECTED; warnings=1; BOARD fetches=1; legacy unchanged
+[15-malformed/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+warning: {"at": "2026-11-10T08:13:31Z", "ack_commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "event_id": "", "failed_condition": "format", "detail": "invalid MUSE-ACK line"}
+PASS 15-malformed: state=DETECTED; warnings=1; BOARD fetches=0; legacy unchanged
+[16-board-http-error/first] exit=0
+RESULT {"decision":"silent","reason":"api-failure","payload":{"kind":"ack-board-fetch-failed"}}
+[16-board-http-error/retry-failure] exit=0
+RESULT {"decision":"silent","reason":"api-failure","payload":{"kind":"ack-board-fetch-failed"}}
+PASS failure retry: cursor unchanged; failures=2; health-exceptions=1
+[16-board-http-error/recovered] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS recovery: same ACK retried and ACKED; cursor advanced; failures=0
+[17-multiple-ack-lines/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS 17-multiple-ack-lines: state=ACKED; warnings=0; BOARD fetches=1; legacy unchanged
+[18-preserve-ACKED/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS 18-preserve-ACKED: state=ACKED; warnings=0; BOARD fetches=0; legacy unchanged
+[18-preserve-REJECTED/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS 18-preserve-REJECTED: state=REJECTED; warnings=0; BOARD fetches=0; legacy unchanged
+[18-preserve-SUPERSEDED/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS 18-preserve-SUPERSEDED: state=SUPERSEDED; warnings=0; BOARD fetches=0; legacy unchanged
+[19-legacy-ack-line/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS 19-legacy-ack-line: state=DETECTED; warnings=0; BOARD fetches=0; legacy unchanged
+[20-compare-range/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS 20-compare-range: state=DETECTED; warnings=0; BOARD fetches=0; legacy unchanged
+[21-crlf-ack/first] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS 21-crlf-ack: state=ACKED; warnings=0; BOARD fetches=1; legacy unchanged
+ALL 23 CASES PASSED
+[retry-detected-due] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-detected-due
+[retry-detected-early] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS retry-detected-early
+[retry-reviewing-due] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-reviewing-due
+[retry-reviewing-early] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS retry-reviewing-early
+[retry-waiting-ack-due] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-waiting-ack-due
+[retry-waiting-ack-early] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS retry-waiting-ack-early
+[retry-failed-early] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS retry-failed-early
+[retry-failed-due] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-failed-due
+[retry-attention] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity","payload":{"events":[{"event_id":"result:T-016:node-3:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","kind":"result_revision","task_id":"T-016","node_id":"node-3","source_commit_sha":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","is_reminder":false,"is_transition":false}],"needs_attention":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc"}],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":1}}
+PASS retry-attention
+[retry-attention-silent] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":0,"needs_attention_count":1,"comments_total":0}}
+PASS retry-attention-silent
+[retry-reviewed-unknown] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"notify-only","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-reviewed-unknown
+[retry-reviewed-failed] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"notify-only","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-reviewed-failed
+[retry-reviewed-accepted] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-reviewed-accepted
+[retry-reviewed-no-path] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-reviewed-no-path
+[retry-reviewed-missing-file] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-reviewed-missing-file
+[retry-reviewed-early] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS retry-reviewed-early
+[retry-approval] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS retry-approval
+[retry-reconciliation] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS retry-reconciliation
+[retry-unknown-due] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-unknown-due
+[retry-unknown-early] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS retry-unknown-early
+[retry-empty-due] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-empty-due
+[retry-empty-early] exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0,"comments_total":0}}
+PASS retry-empty-early
+[retry-null-last] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-null-last
+[retry-missing-last] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":false}],"needs_attention":[],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":0}}
+PASS retry-missing-last
+[retry-transition-full] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"full","is_reminder":true,"is_transition":true}],"needs_attention":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc"}],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":1}}
+PASS retry-transition-full
+[retry-transition-notify] exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity-reminder","payload":{"events":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc","kind":"result_revision","task_id":"T-015","node_id":"node-2","source_commit_sha":"cccccccccccccccccccccccccccccccccccccccc","retry_kind":"notify-only","is_reminder":true,"is_transition":true}],"needs_attention":[{"event_id":"result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc"}],"head":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","unacked_count":1,"needs_attention_count":1}}
+PASS retry-transition-notify
+[list-attention explicit]
+Event: result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc | Task: T-015 | Node: node-2 | State: NEEDS_ATTENTION | Transition: 2026-01-01T00:00:00Z
+Event: second-event | Task: T-099 | Node: node-9 | State: NEEDS_ATTENTION | Transition: 2026-02-02T00:00:00Z
+[list-attention default]
+Event: result:T-015:node-2:cccccccccccccccccccccccccccccccccccccccc | Task: T-015 | Node: node-2 | State: NEEDS_ATTENTION | Transition: 2026-01-01T00:00:00Z
+Event: second-event | Task: T-099 | Node: node-9 | State: NEEDS_ATTENTION | Transition: 2026-02-02T00:00:00Z
+ALL 26 RETRY CASES AND LIST-ATTENTION PASSED
+PASS (a) valid receipt: legal JSON, all required fields, correct path
+PASS (b) duplicate via stdin: sha256 and mtime unchanged
+PASS (c) missing version_sha: exit=1, no receipt or tmp
+ERROR invalid or incomplete receipt
+PASS (d) simulated publication failure: exit=1, no partial REVIEWED file or tmp
+simulated mv write failure
+ERROR cannot publish receipt
+ALL 4 RECEIPT CASES PASSED
+PASS T05-sim: PASS/REJECT interrupted before save; validation count=2 each; same verdict; fault-T05-*/worker.jsonl
+PASS T06-sim: validation=1; receipt reused unchanged bytes/mtime; fault-T06/worker.jsonl
+PASS T07-sim: validation=1 push=1 notify=1; no ACK; fault-T07/worker.jsonl
+PASS T08-sim: validation=1 push=1 notify=2; no ACK; fault-T08/worker.jsonl
+PASS T09-sim: lost push response reconciled before reuse, push=1 approval request=1; unknown remote waits; fault-T09*/worker.jsonl
+PASS T10-sim: REJECTED/EXPIRED preserve files and WAITING_APPROVAL; no ACK/push; same operation reused
+PASS T11-sim+poll: two SHA-specific receipts and separate remote pushes; real poller ACKs only v1; v2 bytes unchanged after ACK and late v1 run
+PASS T12-403: cursor unchanged on 1 failure(s); recovered both deliveries; fault-T12-403/failure-*.stdout,recovered.stdout
+PASS T12-429: cursor unchanged on 1 failure(s); recovered both deliveries; fault-T12-429/failure-*.stdout,recovered.stdout
+PASS T12-500: cursor unchanged on 1 failure(s); recovered both deliveries; fault-T12-500/failure-*.stdout,recovered.stdout
+PASS T12-timeout: cursor unchanged on 1 failure(s); recovered both deliveries; fault-T12-timeout/failure-*.stdout,recovered.stdout
+PASS T13: two concurrent pairs exit 0; new event wakes=1, pending pair adds exactly 1; valid state; concurrent-*.stdout
+PASS T14: event retained, NEEDS_ATTENTION, wakes=12; fault-T14/hooks/state/muse-hub/events/event.json
+PASS T16-sim: untrusted text logged only; all state files byte-identical, no deletion/ACK; fault-T16/worker.jsonl
+PASS T17: 5 real process-group SIGKILLs at 5 rename timings; old/new JSON only; recovery retains exactly 2 events unchanged; fault-T17-*/kill-evidence.json
+PASS T18-sim: Compare 2 pages + comments 2 pages via Link; 2 results + 2 comment events; requests.jsonl case=T18-sim
+PASS T19: damaged COPY rejected by wrapper bash -n; script-health wake + health count=1 + exception row=1; fault-T19/
+PASS T20: cursor unchanged on 2 failure(s); recovered both deliveries; fault-T20/failure-*.stdout,recovered.stdout
+PASS five-branch-regression: unchanged=silent; self-push=silent; new=wake; pending-due=wake; pending-early=silent; fault-regression-*/poll.stdout
+PASS list-attention-corrupt: corrupt first file skipped; both later NEEDS_ATTENTION listed; default/explicit path exit 0, no writes
+T01 NOT TESTED: real public test repository muse-hub-test unavailable; no real GitHub/worker operations authorized
+T02 NOT TESTED: real public test repository muse-hub-test unavailable; no real GitHub/worker operations authorized
+T03 NOT TESTED: real public test repository muse-hub-test unavailable; no real GitHub/worker operations authorized
+T04 NOT TESTED: real public test repository muse-hub-test unavailable; no real GitHub/worker operations authorized
+T15 NOT TESTED: real public test repository muse-hub-test unavailable; no real GitHub/worker operations authorized
+T18-real NOT TESTED: real public test repository muse-hub-test unavailable; no real GitHub/worker operations authorized
+real-worker-interrupt-receipt-ACK-chain NOT TESTED: real public test repository muse-hub-test unavailable; no real GitHub/worker operations authorized
+SIM LIMIT: T05-T11/T16 validate deterministic prompt-flow logic + real save-receipt mechanics, NOT real Muse worker behavior.
+FAULT SUMMARY: 20 PASS, 0 FAIL, 7 NOT TESTED; artifacts=/home/hatch/workspace/muse-hub-tests/ack/run.wDtnvV
+Artifacts: /home/hatch/workspace/muse-hub-tests/ack/run.wDtnvV

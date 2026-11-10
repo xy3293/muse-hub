@@ -1,0 +1,340 @@
+--- /home/hatch/hooks/scripts/director-watch-poll.sh.last-good
++++ /home/hatch/hooks/scripts/director-watch-poll.sh
+@@ -7,7 +7,7 @@
+ # 约定：scan.json 的游标只在全部新事件可靠落盘后才推进；API 失败不推进游标。
+ set -euo pipefail
+ 
+-REPO="xy3293/muse-hub"
++REPO="${MUSE_HUB_REPO:-xy3293/muse-hub}"
+ API_BASE="${GITHUB_API_BASE:-https://api.github.com}"
+ STATE_DIR="$HOME/hooks/state/muse-hub"
+ SCAN_FILE="$STATE_DIR/scan.json"
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-real.py
+@@ -0,0 +1,95 @@
++#!/usr/bin/env python3
++"""Isolated real poll driver. Each command runs once; no automatic retries."""
++import argparse
++import datetime
++import json
++import os
++from pathlib import Path
++import re
++import subprocess
++
++ACK = Path(__file__).resolve().parent
++HOME = ACK.parent / 'real-home'
++STATE = HOME / 'hooks/state/muse-hub'
++POLL = '/home/hatch/hooks/scripts/director-watch-poll.sh'
++ENV = dict(os.environ, HOME=str(HOME), PATH='/usr/bin:/bin',
++           MUSE_HUB_REPO='xy3293/muse-hub-test',
++           GITHUB_API_BASE='https://api.github.com', HATCH_HOOK_DRY_RUN='0')
++
++
++def write(path, value):
++    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
++
++
++def run(argv):
++    result = subprocess.run(argv, env=ENV, text=True, capture_output=True, timeout=120)
++    if result.returncode or not result.stdout.strip():
++        raise SystemExit(f'FAIL exit={result.returncode}: {argv[0]}\n'
++                         f'{result.stdout}\n{result.stderr}')
++    return result.stdout
++
++
++def snapshot():
++    return dict(scan=json.loads((STATE / 'scan.json').read_text()),
++                events={p.name: json.loads(p.read_text())
++                        for p in sorted((STATE / 'events').glob('*.json'))})
++
++
++parser = argparse.ArgumentParser(description=__doc__)
++commands = parser.add_subparsers(dest='command', required=True)
++init = commands.add_parser('init', help='Initialize once using confirmed initial head')
++init.add_argument('sha')
++poll = commands.add_parser('poll', help='One real invocation, capturing all evidence')
++poll.add_argument('label')
++poll.add_argument('--min-remaining', type=int, default=10)
++args = parser.parse_args()
++
++if args.command == 'init':
++    if not re.fullmatch('[0-9a-f]{40}', args.sha):
++        raise SystemExit('FAIL expected full confirmed GitHub SHA')
++    if any(HOME.iterdir()):
++        raise SystemExit('FAIL real-home must be empty; never reset existing state')
++    template = json.loads(Path('/home/hatch/hooks/state/muse-hub/scan.json').read_text())
++    scan = {k: template[k] for k in ('schema_version', 'scan_cursor',
++                                    'scan_cursor_updated_at', 'comments')}
++    scan.update(schema_version=1, scan_cursor=args.sha, comments={},
++                scan_cursor_updated_at=datetime.datetime.now(datetime.timezone.utc).isoformat())
++    for name in ('events', 'receipts', 'logs'):
++        (STATE / name).mkdir(parents=True, exist_ok=True)
++    write(STATE / 'scan.json', scan)
++    print(f'PASS initialized {STATE} cursor={args.sha}')
++else:
++    if not re.fullmatch('[A-Za-z0-9_-]+', args.label):
++        raise SystemExit('FAIL invalid evidence label')
++    prefix = ACK / ('step6b-real-' + args.label)
++    if Path(str(prefix) + '.rate.json').exists():
++        raise SystemExit('FAIL label already used; inspect evidence, do not overwrite')
++    rate_text = run(['/usr/bin/curl', '-sS', '--fail', '--max-time', '15',
++                     'https://api.github.com/rate_limit'])
++    Path(str(prefix) + '.rate.json').write_text(rate_text)
++    remaining = json.loads(rate_text)['resources']['core']['remaining']
++    if remaining < max(10, args.min_remaining):
++        raise SystemExit(f'NOT TESTED rate remaining={remaining}; stopped before poll')
++    before = snapshot()
++    write(Path(str(prefix) + '.before.json'), before)
++    result = subprocess.run(['/bin/bash', POLL], env=ENV, text=True,
++                            capture_output=True, timeout=180)
++    Path(str(prefix) + '.stdout').write_text(result.stdout)
++    Path(str(prefix) + '.stderr').write_text(result.stderr)
++    after = snapshot()
++    health = json.loads((STATE / 'health.json').read_text()) if (STATE / 'health.json').exists() else {}
++    write(Path(str(prefix) + '.after.json'), dict(**after, health=health))
++    with (ACK / 'step6b-real-rounds.jsonl').open('a') as log:
++        log.write(json.dumps(dict(label=args.label, exit=result.returncode,
++                                 cursor_before=before['scan']['scan_cursor'],
++                                 cursor_after=after['scan']['scan_cursor'],
++                                 remaining=health.get('rate', {}).get('remaining'),
++                                 stdout=result.stdout)) + '\n')
++    lines = result.stdout.splitlines()
++    if result.returncode or len(lines) != 1 or not lines[0].startswith('RESULT '):
++        raise SystemExit(f'FAIL exit={result.returncode}; inspect {prefix}; no retry')
++    output = json.loads(lines[0][7:])
++    if output['reason'] == 'api-failure':
++        raise SystemExit(f'FAIL {result.stdout.strip()}; no retry')
++    print(result.stdout, end='')
++    print(f"health.remaining={health.get('rate', {}).get('remaining')} evidence={prefix}")
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-real-operations.md
+@@ -0,0 +1,29 @@
++# 真实阶段续跑说明（本轮未执行）
++
++首次额度证据：`step6b-rate-limit.json` / `.headers`；remaining=5，reset=2026-11-10 06:09:23 UTC。共享出口的后续额度可能变化；未等待、重查或重试。当前不能把下面的计划当成成功证据。
++
++源目录固定 `/home/hatch/workspace/muse-hub-tests/test-repo`，manifest 均在 ack/，以 NUL 分隔并以 NUL 结尾。同步元数据不在上传选择中，避免泄漏路径和其他同步信息。没有成功推送，因此没有建立同步记录。准备好的后续版本在 `step6b-fixtures/`；在对应提交前复制到源目录的同一路径，不能提前覆盖 v1。
++
++开始前重新读 `/opt/hatch/connectors/github/references/snapshot-push.md`。已保存完整 `github list-tools` 目录；有 push_files、issue_write、add_issue_comment、update_issue_comment，无删除 Issue 评论工具。删除评论部分必须 NOT TESTED。调用读工具用 `github call-read-tool --name list_commits --arguments-json '<JSON>'`；所有写操作严格使用指定的 push-files / call-tool，不能通过 curl 写远端。
++
++连续真实阶段按以下顺序执行；每步只调用一次，失败或零输出留下证据，不循环重试。过期审批记录后继续独立步骤，依赖失败步骤的测试标 NOT TESTED。
++
++1. 确认额度足以覆盖计划请求及余量。推送前 list_commits 核对 main；首次必须另用真实 `git ls-remote https://github.com/xy3293/muse-hub-test.git` 确认仍无 refs（无 refs 时 stdout 为空是协议含义，必须结合退出码与 list_commits 明确空仓响应，不能将普通失败当空仓）。若出现已有内容，停止并按规范对账。
++2. baseline manifest 只含 README.md 与 BOARD.md。提供方可能先生成 README 初始提交；本次选择的 README 会替换它，与空测试仓初始化用途一致。推送后 list_commits 读取实际头作为基线，记录是否存在额外初始化提交。
++3. 每个成功响应提供完整 SHA 后，将 owner/repo/branch/source_dir/commit_sha/paths 条目追加到源目录旁 `test-repo.muse-github-snapshot-sync.json` 数组；写 `.tmp-<unique-id>` 再原子替换。失败或不确定不推进。不能用稍后 list_commits 的头代替成功响应 SHA。每次后续推送前 list_commits 必须匹配预期头，选中路径按各自最近同步 SHA 与当前头核对内容/存在性；发生意外变化停止对账。
++4. `python3 ack/step6b-real.py init <实际基线完整SHA>`；再 `python3 ack/step6b-real.py poll baseline`。驱动只用 /usr/bin/git、/usr/bin/curl 和 api.github.com，HOME 固定隔离目录，每轮前检查额度、后保存完整事件/scan/health 快照及 remaining。首轮应 silent、零事件、游标不动。驱动执行成功不等于场景断言 PASS，须检查下述证据。
++5. T01：依次推 T-900、T-901、T-902 三个 manifest（分开提交），再 poll T01。核对三个实际 SHA 各有一个结果事件，payload 列全，游标从基线到第三个 SHA。
++6. T02：复制 fixtures/T-900-v2.md 覆盖对应源结果，推 T-900-v2 manifest，再 poll T02。新旧 event_id 按 SHA 区分，旧状态按当前规则保留。若验证旧收据隔离，用真实已核对的旧版本内容生成完整收据，save-receipt.sh 使用隔离 HOME，确认新 event_id 的收据路径不存在且不复用旧版；禁止伪造验收。已有 ACKED 事件须逐字节不动；没有该状态时相应子项标未覆盖。
++7. 使用 `issue_write` 与 `step6b-issue-create.arguments.json` 建唯一测试 Issue。T03 推 T-903 后、轮询前，使用 add_issue_comment 写 `T-903 node-1 version=<完整结果SHA>`，然后 poll T03。只建一个结果事件、signals 指向评论，不能额外建 issue_signal。
++8. T04：用 update_issue_comment 编辑同一评论，保留 task/node/SHA 并增加标记；确认 updated_at 与之前不同，再 poll T04。检查评论数量不变、索引的同一 id 更新 updated_at，事件信号含新时间戳。新增由 T03 覆盖；删除与增删抵消的总数不变场景因无删除工具标 NOT TESTED。
++9. T15：复制 BOARD-T15.md 到源 BOARD.md，推 T15 manifest（不含 MUSE-ACK 行）；确认 author.login=xy3293，再 poll T15。所有事件 main_ack 仍 false，终态不因无关提交改变。
++10. T18-real：脚本 Compare 与评论 per_page=100，需超过 100 项才能有第二页；Compare 超过 20 提交预算，直接 NOT TESTED，不批量造评论。
++11. 测试 7：推 T-904 manifest，poll test7，填齐 handoff 中实际证据，再由协调员启动真实链；此驱动不派 agent。
++
++推送形式（分别替换消息及 manifest）：
++
++```sh
++github push-files --owner xy3293 --repo muse-hub-test --branch main --message 'Step 6b T01: T-900 test result v1' --source-dir /home/hatch/workspace/muse-hub-tests/test-repo --paths-file /home/hatch/workspace/muse-hub-tests/ack/step6b-T-900.paths
++```
++
++评论参数均用 `--arguments-json`；新增为 owner/repo/issue_number/body，编辑为 owner/repo/comment_id/body，完整 schema 见保存的工具目录。未知 Issue 号、评论 id、SHA 必须来自实际响应，不能填写猜测值。
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-test7-handoff.md
+@@ -0,0 +1,28 @@
++# Step 6b 测试 7 交接：NOT TESTED / 场景未就绪
++
++**不能启动真实 agent 链。** 首次未鉴权额度检查只剩 5/60，按任务要求停止真实阶段。未推送、未建 Issue、未运行真实轮询；以下缺失项没有占位 SHA 或虚构 event_id。
++
++| 字段 | 实际值 |
++| --- | --- |
++| task id | T-904 |
++| node id | node-1 |
++| 测试仓库 / 分支 | xy3293/muse-hub-test / main |
++| 结果 SHA | 不存在：未推送 |
++| event_id | 不存在：未创建事件 |
++| 测试 Issue 号 | 不存在：未创建 Issue |
++| 测试 HOME | /home/hatch/workspace/muse-hub-tests/real-home（新建、空目录） |
++| 事件文件 / 收据 | 不存在 |
++| BOARD 当前状态 | 远端未读取；本地预备 BOARD.md 的 T-904 行为「待验收」 |
++| 结果路径 | results/node-1/T-904-step6b.md（仅本地预备） |
++
++本地结果文件位于 `/home/hatch/workspace/muse-hub-tests/test-repo/results/node-1/T-904-step6b.md`。任务验收标准：task 为 T-904，node 为 node-1，二者与路径一致；version 为 1；scope 为 isolated muse-hub-test fixture。逐项读取确切结果提交下的文件并提供 evidence；这些标准尚未执行验收。Issue 的待提交任务书在 `step6b-issue-create.arguments.json`，T03/T04 与测试 7 共用这一张 Issue。
++
++恢复真实阶段前先确认 API 额度；按照 `step6b-real-operations.md` 完成基线和前序场景。T-904 推送成功后，从提供方成功响应取得完整 SHA，确认 list_commits 的实际分支头，保存同步记录，再运行 `python3 ack/step6b-real.py poll test7`。确认事件文件存在、task/node/source_commit_sha/source_paths 精确匹配，记录 RESULT、游标前后值、health.remaining；把该 SHA、event_id、Issue 号及远端 BOARD 行补回本文件后才能交给协调员。
++
++协调员执行时必须读取 `WORKER_PROMPT.md` 与 `RECEIPT.md` 的全文；其中写死的生产仓库 `xy3293/muse-hub` 和生产 Issue #1 **必须替换为本次测试仓库与实际测试 Issue**。所有进程（包括 save-receipt.sh 与轮询器）显式使用上述测试 HOME；轮询器另设 `MUSE_HUB_REPO=xy3293/muse-hub-test`、`GITHUB_API_BASE=https://api.github.com`。不得启动 Hook，不得写生产状态或生产仓库。
++
++执行顺序：LOAD_EVENT → CHECK_RECEIPT → VALIDATE_IF_NEEDED → SAVE_RECEIPT → RECONCILE_REMOTE → HANDLE_APPROVAL → NOTIFY_IF_NEEDED → WAIT_FOR_EXACT_ACK。完整有效收据须绑定该 event_id 和完整 version_sha，使用真实 save-receipt.sh 持久化；在收据保存后、远端写入前中断，保留事件及收据。恢复时证明复用了同一收据（内容及 mtime 不变），跳过重复语义验收，先对账远端再处理审批；通知成功不等于 ACK。
++
++PASS 后的 BOARD 推送仍需 Chen 审批，必须使用 snapshot-push 规范。ACK 提交须修改 BOARD.md、作者 login 为 xy3293，任务唯一行变成「完成」，提交消息独占一行 `MUSE-ACK task=T-904 node=node-1 event=<实际完整 event_id> verdict=PASS`。只有真实轮询器核验并写入 ACKED 才算链路成功；不得手工设置终态。协调员保留中断前后事件、收据哈希/mtime、审批 operation_id、通知记录、实际 ACK SHA、轮询输出及游标证据。
++
++本轮没有派出子代理，也没有执行真实中断恢复链。
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-test-results.md
+@@ -0,0 +1,33 @@
++# Step 6b 测试结果
++
++真实仓库测试受限流阻断，**未完成**。本地改动与最终回归通过；没有远端写入，没有待点或过期审批，没有重试。
++
++首次 GET https://api.github.com/rate_limit 返回 HTTP 200，2026-11-10 05:31:14 UTC，core limit=60、used=55、remaining=5；reset=2026-11-10 06:09:23 UTC。证据：step6b-rate-limit.json、step6b-rate-limit.headers。T01 主轮询需 Compare 1 次、三次提交详情、评论列表 1 次，已经用满剩余 5 次，另需基线与后续场景。遵照“剩余不足就停”，未进入真实阶段，也未等待重置或再次查额度。
++
++| 检查 | 结果 | 证据与缺口 |
++| --- | --- | --- |
++| 任务 A | PASS | 改前刷新 director-watch-poll.sh.last-good；唯一差异 REPO="${MUSE_HUB_REPO:-xy3293/muse-hub}"；bash -n 退出 0。默认值保持 xy3293/muse-hub，其余脚本字节不变。 |
++| 真实驱动准备 | PASS（静态） | step6b-real.py 编译与 --help 退出 0；固定测试 HOME、真实 git/curl、api.github.com；保存每轮 RESULT、scan、完整事件、health.remaining；无自动重试。真实执行未验证。 |
++| T01 | NOT TESTED | 限流停止。基线 SHA、三次结果 SHA 均不存在；RESULT 未产生；事件未创建；游标前/后均不存在。 |
++| T02 | NOT TESTED | 未推 T-900 v1/v2，无新旧 SHA/event_id/收据可比较；RESULT 未产生；事件未创建；游标前/后均不存在。 |
++| T03 | NOT TESTED | 未推 T-903、未建 Issue/评论；SHA 无、RESULT 无、事件无、游标前/后无。 |
++| T04 新增/编辑 | NOT TESTED | 限流停止，未产生实际 comment_id/updated_at；SHA 无、RESULT 无、事件无、游标前/后无。 |
++| T04 删除/增删总数不变 | NOT TESTED | 完整 github list-tools 无删除 Issue 评论工具，不能执行真实删除或增删抵消；未伪造评论删除。 |
++| T15 | NOT TESTED | 未推 BOARD 无关提交，无法核实真实作者；SHA 无、RESULT 无、事件无、游标前/后无。 |
++| T18-real | NOT TESTED | 脚本 Compare/评论 per_page=100，真正多页需要超过 100 个提交/评论；Compare 超过允许的 20 提交预算，不造大量写入。T18-sim 本轮本地回归通过。 |
++| 测试 7 场景准备 | NOT TESTED | T-904 仅本地文件；未推送/轮询，无结果 SHA/event_id/Issue/RESULT；事件与游标前/后无。handoff 明确场景未就绪，不能启动真实链。 |
++| 五分支回归 | PASS | unchanged/self-push 静默，new/pending-due 唤醒，pending-early 静默；最终脚本运行。 |
++| ACK | PASS | ALL 23 CASES PASSED。 |
++| 重试 | PASS | ALL 26 RETRY CASES AND LIST-ATTENTION PASSED。 |
++| 收据 | PASS | ALL 4 RECEIPT CASES PASSED。 |
++| 故障回归 | PASS（模拟范围） | 20 PASS、0 FAIL；原 harness 固定打印 7 NOT TESTED。 |
++
++回归命令：bash ack/run.sh，退出码 0。完整输出 step6b-regression-output.txt，内部产物 ack/run.GoPwrW/（原 harness 生成目录名，未修改 run.sh）。其中“真实仓库不可用/未授权”来自旧 harness 固定提示；本轮真实操作已授权，实际阻断原因是限流，本表为准。模拟 worker 结果不代表真实 agent 链验证。
++
++真实 scan.json 与原 run.sh 的前后 SHA256 一致，见 step6b-protected-hashes.json 与 step6b-verification-output.txt。未写真实事件、收据或 Hook 配置，未调用任何本地 git 命令，未向生产仓库推送。real-home 新建且为空：没有实际初始提交 SHA，故没有伪造 scan.json。未执行真实轮询，所以没有 health.json 或每轮剩余额度记录。
++
++持久源 test-repo/ 已准备 README、BOARD、T-900 至 T-904 结果；8 个 NUL manifest 位于 ack/，v2 与 T15 变体在 step6b-fixtures/。同步元数据明确排除。未有确认成功推送，故未创建或推进同步记录。完整 GitHub 工具目录与 issue_write 创建参数已保存。
++
++精确改动见 step6b-exact.diff：轮询脚本、全部新 harness/说明/manifest、预备源文件；NUL manifest 在 diff 中保留原始 NUL。step6b-real-operations.md 记录按依赖续跑流程。step6b-test7-handoff.md 说明真实链尚不可交接，并给出测试仓库覆盖、任务标准及恢复证据要求。
++
++待解决：额度恢复后执行真实阶段并补足实际 SHA、事件、游标与结果；T04 删除缺少工具；T18-real 超出预算；测试 7 必须先建真实场景再由协调员跑链。本轮没有发出审批卡，Chen 无需重新点任何已发操作。
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-issue-create.arguments.json
+@@ -0,0 +1,7 @@
++{
++  "owner": "xy3293",
++  "repo": "muse-hub-test",
++  "method": "create",
++  "title": "Step 6b: T03/T04 comments and T-904 recovery acceptance",
++  "body": "Isolated Step 6b test issue. T-903 and T-904 node-1: inspect exact result SHA and path. Acceptance: task and node match path, version is 1, scope is isolated muse-hub-test fixture. T-904 recovery must save a complete receipt before remote writes; exact MUSE-ACK required. No production repository operations."
++}
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-T-900-v2.paths
+@@ -0,0 +1 @@
++results/node-1/T-900-step6b.md --- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-T-900.paths
+@@ -0,0 +1 @@
++results/node-1/T-900-step6b.md --- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-T-901.paths
+@@ -0,0 +1 @@
++results/node-1/T-901-step6b.md --- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-T-902.paths
+@@ -0,0 +1 @@
++results/node-1/T-902-step6b.md --- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-T-903.paths
+@@ -0,0 +1 @@
++results/node-1/T-903-step6b.md --- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-T-904.paths
+@@ -0,0 +1 @@
++results/node-1/T-904-step6b.md --- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-T15.paths
+@@ -0,0 +1 @@
++BOARD.md --- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-baseline.paths
+@@ -0,0 +1 @@
++README.md BOARD.md --- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-fixtures/BOARD-T15.md
+@@ -0,0 +1,11 @@
++# Step 6b 测试看板
++
++| 任务 | 状态 | 说明 |
++| --- | --- | --- |
++| T-900 | 待验收 | Step 6b 隔离测试 |
++| T-901 | 待验收 | Step 6b 隔离测试 |
++| T-902 | 待验收 | Step 6b 隔离测试 |
++| T-903 | 待验收 | Step 6b 隔离测试 |
++| T-904 | 待验收 | Step 6b 隔离测试 |
++
++Step 6b T15: unrelated director note; no acknowledgement.
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/ack/step6b-fixtures/T-900-v2.md
+@@ -0,0 +1,8 @@
++# T-900 Step 6b result v2
++
++task: T-900
++node: node-1
++version: 2
++scope: isolated muse-hub-test fixture
++
++Acceptance: task and node match the path; version is 2; scope is isolated.
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/test-repo/BOARD.md
+@@ -0,0 +1,9 @@
++# Step 6b 测试看板
++
++| 任务 | 状态 | 说明 |
++| --- | --- | --- |
++| T-900 | 待验收 | Step 6b 隔离测试 |
++| T-901 | 待验收 | Step 6b 隔离测试 |
++| T-902 | 待验收 | Step 6b 隔离测试 |
++| T-903 | 待验收 | Step 6b 隔离测试 |
++| T-904 | 待验收 | Step 6b 隔离测试 |
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/test-repo/README.md
+@@ -0,0 +1,3 @@
++# muse-hub-test
++
++Step 6b reliability test repository. All tasks use T-9xx.
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/test-repo/results/node-1/T-900-step6b.md
+@@ -0,0 +1,8 @@
++# T-900 Step 6b result v1
++
++task: T-900
++node: node-1
++version: 1
++scope: isolated muse-hub-test fixture
++
++Acceptance: task and node match the path; version is 1; scope is isolated.
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/test-repo/results/node-1/T-901-step6b.md
+@@ -0,0 +1,8 @@
++# T-901 Step 6b result v1
++
++task: T-901
++node: node-1
++version: 1
++scope: isolated muse-hub-test fixture
++
++Acceptance: task and node match the path; version is 1; scope is isolated.
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/test-repo/results/node-1/T-902-step6b.md
+@@ -0,0 +1,8 @@
++# T-902 Step 6b result v1
++
++task: T-902
++node: node-1
++version: 1
++scope: isolated muse-hub-test fixture
++
++Acceptance: task and node match the path; version is 1; scope is isolated.
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/test-repo/results/node-1/T-903-step6b.md
+@@ -0,0 +1,8 @@
++# T-903 Step 6b result v1
++
++task: T-903
++node: node-1
++version: 1
++scope: isolated muse-hub-test fixture
++
++Acceptance: task and node match the path; version is 1; scope is isolated.
+--- /dev/null
++++ /home/hatch/workspace/muse-hub-tests/test-repo/results/node-1/T-904-step6b.md
+@@ -0,0 +1,8 @@
++# T-904 Step 6b result v1
++
++task: T-904
++node: node-1
++version: 1
++scope: isolated muse-hub-test fixture
++
++Acceptance: task and node match the path; version is 1; scope is isolated.
