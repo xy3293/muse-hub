@@ -98,3 +98,9 @@
   临时验证的产物一律放这里，文件名带 T-TEST- 前缀。
 - 沙盒内容不被验收、不进 BOARD、不计入任何统计，总控可随时清空。
 - 沙盒只放宽「用途与编号」，不放宽 R3 的目录隔离，也不放宽 R5 的脱敏红线。
+
+## R16 推送走本地 shell（2026-11-11 起）
+- 所有 git 推送用本地 shell 的 `git push`，不要调 Muse 的 GitHub 写入工具——工具层弹审批卡，shell 层不会。
+- 写权限 PAT 只存在于各号本地 `~/.git-credentials`（600 权限），绝不进仓库、Issue 或任何 hub 文件。R5 不变。
+- PAT 只用 fine-grained，范围限定 xy3293/muse-hub，权限只给 Contents: write，90 天轮换。
+- R13 的发卡流程保留为兜底：shell 通道不可用时才回退工具层，并在私聊告知 Chen。
