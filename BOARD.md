@@ -10,6 +10,8 @@
 | T-003 | Kaggle 免费 GPU 接入 Muse 研究 | node-1 | 完成 | tasks/T-003-kaggle-free-gpu-for-muse.md | [#3](https://github.com/xy3293/muse-hub/issues/3) |
 | T-004 | 免费资源盘点：对 Chen 真正有用的有哪些 | node-1 | 完成 | tasks/T-004-free-resources-for-chen.md | [#4](https://github.com/xy3293/muse-hub/issues/4) |
 
+> 规则记录：R14/R15 生效于 2026-11-11，节点下次 Hook 巡逻自动继承。
+
 ## 状态说明
 
 - **待领**：任务书已写好，等负责人 Hook 发现并领取。
