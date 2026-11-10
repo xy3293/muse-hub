@@ -6,7 +6,7 @@
 | 编号 | 任务 | 负责人 | 状态 | 任务书 | Issue |
 |---|---|---|---|---|---|
 | T-001 | 代币化美股研究 | node-1 | 完成 | tasks/T-001-tokenized-us-stocks.md | [#1](https://github.com/xy3293/muse-hub/issues/1) |
-| T-002 | Step 6b 证据独立复核 | node-3 | 待领 | tasks/T-002-step6b-evidence-review.md | [#2](https://github.com/xy3293/muse-hub/issues/2) |
+| T-002 | Step 6b 证据独立复核 | node-3 | 完成 | tasks/T-002-step6b-evidence-review.md | [#2](https://github.com/xy3293/muse-hub/issues/2) |
 
 ## 状态说明
 
