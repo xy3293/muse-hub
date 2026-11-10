@@ -41,9 +41,9 @@ Kaggle 结论引用（T-003，不重做）：每周约 30 小时 GPU T4 x2，另
 |---|---|---|---|---|---|---|---|
 | AWS Free Tier | 新账号 $200 credits + 部分 Always Free 服务（Lambda 每月 100 万次请求、DynamoDB 25 GB 等，清单为文档/第三方转述） | $200 credits，**6 个月**内用完。经典 12 个月免费档（EC2 每月 750 小时等）仍见于旧文档，但官方 EC2 页明确写自 2025-07-15 起新客户改领 $200 credits——**新账号以 $200/6 个月为准** | **限时试用（6 个月）+ 部分永久 Always Free** | 官网原文：开户 6 个月后或 credits 用完时免费计划账号自动关闭，“不转付费不扣费”。若已转付费，超限部分按量计费 | 官网新版注册页称大多数新客户起步无需信用卡，但可能被要求额外验证；若被要求提供支付方式，会有 $1 临时预授权（3–5 天释放，不是扣款） | 免费计划本身有保护（不转付费不扣费）。风险在转付费后：超 credits / 超 Always Free 额度即按量计费，需自己设预算告警 | **中**——回测是 CPU 活，EC2 微实例（1 vCPU/1 GB）跑 pandas 偏小，但可作 24/7 常驻小服务（定时拉 Binance / yfinance 数据、跑轻量脚本）的免费宿主；$200 也可短期跑稍大实例。注意 6 个月后即到期，需规划迁移 |
 | Google Cloud Free Tier | 两部分：① 免费试用 $300 Welcome credit；② Free Tier（Always Free）：20+ 产品每月额度，包括 1 台 e2-micro VM、Cloud Run 每月 200 万次请求、BigQuery 每月 1 TiB 查询、Cloud Storage 5 GB 等 | 试用 $300，**90 天**（90 天或用完即止）。e2-micro 每月 1 台非抢占式（仅 us-west1 / us-central1 / us-east1 三个美国区域）、30 GB 标准持久盘、1 GB 北美出站流量——**该三项为第三方转述，未在本轮直接打开额度表原文**。试用期间不能给 VM 加 GPU | **$300/90 天是限时试用；Free Tier 无到期日** | 官网原文：90 天到或 $300 用完且未升级，试用账单账号关闭，资源全部停止，进入 30 天宽限期；宽限期内升级可恢复，过期则资源永久删除。升级后剩余 credit 在 90 天内仍可用，Free Tier 继续，超限按标准价计费 | **必须提供信用卡或其他有效支付方式**（官网原文），用于身份验证与防欺诈；会产生 $0–$1 临时预授权，不是扣款 | 试用期内不扣费。风险在升级付费后超 Free Tier 额度即计费；另注意 e2-micro 免费额度只覆盖标准盘，控制台默认建的 balanced 盘不免费（第三方 2026-08-12 核查） | **中**——e2-micro（1 vCPU/1 GB）同样偏小，但 Always Free 无到期日，适合挂一个长期轻量定时任务；$300 试用可短期租稍大 CPU 实例批量跑回测，但 90 天后即止。已有 Google AI Pro 账号不等于已有 GCP 账单账号，需另开 |
-| Oracle Cloud Always Free | Always Free：Arm Ampere A1 计算、2 台 AMD 微型 VM、200 GB 块存储、20 GB 对象存储、10 TB/月出站流量、2 个自治数据库、负载均衡器等（服务清单为官网原文） | A1 额度官网免费页正文未列数字；多家 2026 年指南转述 Oracle 文档称 1,500 OCPU 小时 + 9,000 GB 小时/月，相当于 2 OCPU + 12 GB 内存，另 2 台 AMD 微型 VM（各 1/8 OCPU + 1 GB）。**以上数字均为第三方转述，未在本轮直接打开 Oracle 额度表原文** | **Always Free 无到期日**（官网原文“available for an unlimited period of time”）；另有独立的 $300 试用 credit，30 天内用完或到期即止，两者并行 | 30 天后什么都不做，继续享受 Always Free；随时可转 Pay As You Go，超 Always Free 额度才计费。另有回收规则：账号闲置 30 天以上可被视为放弃并暂停/终止；Always Free 计算实例闲置 7 天（CPU/网络/内存 95 分位均 <20%）可被回收（后者为第三方转述） | **需要信用卡/借记卡 + 手机号**（官网 FAQ 原文，需提供卡信息做身份验证，会有临时预授权 hold，几天内解除，不产生实际扣费；不接受 PIN 借记卡、虚拟卡、一次性卡、预付卡）。一人只能开一个免费账号 | 不升级不扣费。风险点：A1 容量常“无库存”（多家指南一致反映，热门区域抢不到）；Home Region 注册后不可改；实例闲置 7 天可被回收，需保持一定负载或接受重建 | **中**——三家中唯一真正“永久免费 + 能 24/7 常驻 + 2 核 12 GB 够跑 pandas 回测/定时任务”的一个；但要交卡 + 手机号，且 A1 是 ARM 架构（部分 Python 包需注意兼容性）、容量不保证、闲置回收是硬伤 |
+| Oracle Cloud Always Free | Always Free：Arm Ampere A1 计算、2 台 AMD 微型 VM、200 GB 块存储、20 GB 对象存储、10 TB/月出站流量、2 个自治数据库、负载均衡器等（服务清单为官网原文） | A1 额度**已核实**：Oracle 官方 Always Free Resources 页原文为 1,500 OCPU 小时 + 9,000 GB 小时/月，相当于 2 OCPU + 12 GB 内存（VM.Standard.A1.Flex），另 2 台 AMD 微型 VM（各 1/8 OCPU + 1 GB）。磁盘口径：200 GB 为 Always Free 块存储总量（含 boot volume），单台 boot volume 最小 47 GB | **Always Free 无到期日**（官网原文“available for an unlimited period of time”）；另有独立的 $300 试用 credit，30 天内用完或到期即止，两者并行 | 30 天后什么都不做，继续享受 Always Free；随时可转 Pay As You Go，超 Always Free 额度才计费。另有回收规则：账号闲置 30 天以上可被视为放弃并暂停/终止；Always Free 计算实例闲置 7 天（CPU/网络/内存 95 分位均 <20%）可被回收（后者为第三方转述） | **需要信用卡/借记卡 + 手机号**（官网 FAQ 原文，需提供卡信息做身份验证，会有临时预授权 hold，几天内解除，不产生实际扣费；不接受 PIN 借记卡、虚拟卡、一次性卡、预付卡）。一人只能开一个免费账号 | 不升级不扣费。风险点：A1 容量常“无库存”（多家指南一致反映，热门区域抢不到）；Home Region 注册后不可改；实例闲置 7 天可被回收，需保持一定负载或接受重建 | **中**——三家中唯一真正“永久免费 + 能 24/7 常驻 + 2 核 12 GB 够跑 pandas 回测/定时任务”的一个；但要交卡 + 手机号，且 A1 是 ARM 架构（部分 Python 包需注意兼容性）、容量不保证、闲置回收是硬伤 |
 
-来源：AWS https://aws.amazon.com/free/、https://aws.amazon.com/ec2/getting-started/；GCP https://cloud.google.com/free/docs/measure-compare-performance；Oracle https://www.oracle.com/sa/cloud/free/；以上均 2026-11-11 核查。
+来源：AWS https://aws.amazon.com/free/、https://aws.amazon.com/ec2/getting-started/；GCP https://cloud.google.com/free/docs/measure-compare-performance；Oracle https://www.oracle.com/sa/cloud/free/、Oracle Always Free Resources https://docs.oracle.com/en-us/iaas/Content/FreeTier/resourceref.htm（A1 额度 2026-11-11 复核，已核实）；以上均 2026-11-11 核查。
 
 **§2 小结**：AWS 是 6 个月体验金、GCP 是 90 天试用 + 永久小额、Oracle 是唯一永久免费且能常驻的真服务器。对回测/定时任务，Oracle 长期价值最高，GCP 次之（额度太小），AWS 适合短期试用。
 
@@ -189,7 +189,7 @@ Kaggle 结论引用（T-003，不重做）：每周约 30 小时 GPU T4 x2，另
 - Lightning AI “80 GPU 小时”与定价页“50 GPU 小时”冲突；30 credits 折算 T4 约 75 小时、免费存储 50 GB vs 200 GB 冲突：均存疑，以定价页 50 小时 / 50 GB 为准。
 - AWS 经典 12 个月免费档对 2025-07-15 后新账号是否仍可用：官方 EC2 页称新客户改领 $200 credits，多家 2026 年来源称经典档已取消；新账号按 $200/6 个月处理。AWS Always Free 逐项清单亦为文档/第三方转述。
 - GCP e2-micro 的 30 GB 标准盘、1 GB 出站流量、仅 3 个美国区域：第三方转述，未在本轮直接打开额度表原文；Google 可提前 30 天变更 Free Tier 的条款亦为第三方说法。
-- Oracle A1 的 2 OCPU/12 GB、200 GB 存储、10 TB 出站、闲置 7 天回收：第三方转述 Oracle 文档，未在本轮直接打开 Always Free 额度表原文。
+- Oracle A1 的 10 TB 出站、闲置 7 天回收：第三方转述 Oracle 文档，未在本轮直接打开 Always Free 额度表原文（2 OCPU/12 GB、200 GB 块存储总量及单台 boot volume 最小 47 GB 已于 2026-11-11 用 Oracle 官方 Always Free Resources 页核实，见 §2，不再列入未验证）。
 - Groq 各模型上下文长度、是否需手机验证；Cerebras / OpenRouter / Cohere / SambaNova 是否需手机验证；Gemini API 当前 Flash 模型的准确 RPM / RPD（官方不再公布，只能看自己项目的 AI Studio 限速页）；Gemini 3.8 Flash 上下文。
 - Mistral 新 Free mode 的具体每月额度、是否仍需手机验证、数据是否用于训练、免费 key 在 Chen 的账号上是否能激活（2026-10 有用户报告被锁）。
 - SambaNova 免费层是否真实可用（文档称可用，2026-08-31 实测称 402 拒接）；DeepSeek 官方新人 credit 是否存在、金额与有效期（官方页无说法，第三方说法互相冲突）。
@@ -210,7 +210,7 @@ Kaggle 结论引用（T-003，不重做）：每周约 30 小时 GPU T4 x2，另
 - Lightning AI 定价页：https://lightning.ai/pricing
 - AWS Free Tier：https://aws.amazon.com/free/；AWS EC2 入门页：https://aws.amazon.com/ec2/getting-started/
 - Google Cloud 免费计划文档：https://cloud.google.com/free/docs/measure-compare-performance
-- Oracle Cloud Free Tier：https://www.oracle.com/sa/cloud/free/
+- Oracle Cloud Free Tier：https://www.oracle.com/sa/cloud/free/；Oracle Always Free Resources：https://docs.oracle.com/en-us/iaas/Content/FreeTier/resourceref.htm（A1 额度 2026-11-11 复核，已核实）
 - Groq 限速：https://console.groq.com/docs/rate-limits
 - Cerebras 限速：https://inference-docs.cerebras.ai/support/rate-limits
 - Gemini 限速：https://ai.google.dev/gemini-api/docs/rate-limits
