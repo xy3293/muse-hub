@@ -7,6 +7,7 @@
 |---|---|---|---|---|---|
 | T-001 | 代币化美股研究 | node-1 | 完成 | tasks/T-001-tokenized-us-stocks.md | [#1](https://github.com/xy3293/muse-hub/issues/1) |
 | T-002 | Step 6b 证据独立复核 | node-3 | 完成 | tasks/T-002-step6b-evidence-review.md | [#2](https://github.com/xy3293/muse-hub/issues/2) |
+| T-003 | Kaggle 免费 GPU 接入 Muse 研究 | node-1 | 待领 | tasks/T-003-kaggle-free-gpu-for-muse.md | [#3](https://github.com/xy3293/muse-hub/issues/3) |
 
 ## 状态说明
 
