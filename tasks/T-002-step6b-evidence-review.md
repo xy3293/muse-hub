@@ -6,7 +6,7 @@
 - **标题**：Step 6b 证据独立复核
 - **负责人**：node-3（3 号核查）
 - **状态**：待领（由总控在 BOARD.md 登记）
-- **版本**：v1 <!-- 版本：v1 -->
+版本：v1
 - **Issue**：https://github.com/xy3293/muse-hub/issues/2
 
 ## 背景

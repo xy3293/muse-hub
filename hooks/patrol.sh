@@ -16,7 +16,7 @@
 set -euo pipefail
 export LC_ALL=C.UTF-8
 START_SECONDS=$SECONDS
-PATROL_VERSION="2026-11-11.2"
+PATROL_VERSION="2026-11-11.3"
 source "$HATCH_HOOK_RUNTIME"
 
 REPO="xy3293/muse-hub"
@@ -24,6 +24,7 @@ BRANCH="main"
 NODE_FILE="${NODE_FILE:-$HOME/.config/muse-hub/node-id}"
 STATE_DIR="$HOME/hooks/state"
 SEEN_FILE="$STATE_DIR/muse-hub-seen-tasks"
+MIGRATION_FAILURES_FILE="$STATE_DIR/muse-hub-migration-failures"
 HEAD_FILE="$STATE_DIR/muse-hub-last-head"
 DRY_RUN="${HATCH_HOOK_DRY_RUN:-0}"
 PENDING_DIR="$STATE_DIR/pending"
@@ -65,24 +66,57 @@ fi
 
 touch "$LOCK_FILE"
 
+write_migration_counter() {
+  if ! printf '%s\n' "$1" > "$MIGRATION_FAILURES_FILE"; then
+    log "observation" "$(jq -cn --argjson failure_count "$1" \
+      '{event:"seen-migration-counter-write-failed",reason:"counter-write-failed",failure_count:$failure_count}')"
+  fi
+}
+
 # 旧 seen 在读取和 HEAD 提前返回之前迁移；dry-run 不写状态。
 if [[ "$DRY_RUN" != "1" && -f "$SEEN_FILE" ]] && grep -qv '@' "$SEEN_FILE"; then
   migration_tmp=""
-  if migration_tmp="$(mktemp "$SEEN_FILE.tmp.XXXXXX")" &&
-    awk '
+  migration_reason=""
+  if ! migration_tmp="$(mktemp "$SEEN_FILE.tmp.XXXXXX")"; then
+    migration_reason="write-failed"
+  elif ! awk '
+      { sub(/\r$/, "") }
+      /^[[:space:]]*$/ { next }
       /^T-[0-9]+$/ { print $0 "@v1"; next }
       /^T-[0-9]+@v[0-9]+$/ { print; next }
       { exit 1 }
-    ' "$SEEN_FILE" > "$migration_tmp" &&
-    [[ "$(awk 'END { print NR }' "$SEEN_FILE")" == "$(awk 'END { print NR }' "$migration_tmp")" ]] &&
-    cp "$SEEN_FILE" "$SEEN_FILE.bak" &&
-    mv "$migration_tmp" "$SEEN_FILE"; then
-    :
+    ' "$SEEN_FILE" > "$migration_tmp"; then
+    migration_reason="awk-failed"
   else
+    old_eff="$(tr -d '\r' < "$SEEN_FILE" | grep -cE '^T-[0-9]+(@v[0-9]+)?$' || true)"
+    new_eff="$(tr -d '\r' < "$migration_tmp" | grep -cE '^T-[0-9]+@v[0-9]+$' || true)"
+    if [[ "$old_eff" != "$new_eff" ]]; then
+      migration_reason="line-count-mismatch"
+    elif ! cp "$SEEN_FILE" "$SEEN_FILE.bak" || ! mv "$migration_tmp" "$SEEN_FILE"; then
+      migration_reason="write-failed"
+    fi
+  fi
+  if [[ -n "$migration_reason" ]]; then
     [[ -z "$migration_tmp" ]] || rm -f "$migration_tmp"
-    silent "seen-migration-failed" "{\"patrol_version\":\"$PATROL_VERSION\",\"legacy\":false}"
+    migration_failures="$(cat "$MIGRATION_FAILURES_FILE" 2>/dev/null)" || migration_failures=0
+    [[ "$migration_failures" =~ ^[0-9]+$ ]] || migration_failures=0
+    migration_failures=$((10#$migration_failures + 1))
+    write_migration_counter "$migration_failures"
+    seen_line_count="$(awk 'END { print NR+0 }' "$SEEN_FILE")"
+    migration_payload="$(jq -cn --arg reason "$migration_reason" \
+      --argjson failure_count "$migration_failures" --argjson seen_line_count "$seen_line_count" \
+      --arg patrol_version "$PATROL_VERSION" \
+      '{reason:$reason,failure_count:$failure_count,seen_line_count:$seen_line_count,patrol_version:$patrol_version,legacy:false}')"
+    log "observation" "$(jq -cn --argjson payload "$migration_payload" \
+      '$payload + {event:"seen-migration-failed"}')"
+    if [[ "$migration_failures" -ge 3 ]]; then
+      wake "seen-migration-failed-3x" "$migration_payload"
+    else
+      silent "seen-migration-failed" "$migration_payload"
+    fi
     exit 0
   fi
+  write_migration_counter 0
 fi
 
 # 失败诊断只记录指定元数据，不记录 body、正文或其它响应头。
@@ -254,8 +288,14 @@ while IFS= read -r line; do
     version_error=""
   fi
   if [[ -n "$version_error" ]]; then
-    log "observation" "$(jq -cn --arg event "$version_error" --arg task_id "$task_id" \
-      '{event:$event,task_id:$task_id}')"
+    if [[ "$version_error" == "malformed-version" ]]; then
+      malformed_line="$(printf '%s\n' "$task_prefix" | sed -n '/版本/{p;q;}')"
+      log "observation" "$(jq -cn --arg event "$version_error" --arg task_id "$task_id" \
+        --arg line "${malformed_line:0:60}" '{event:$event,task_id:$task_id,line:$line}')"
+    else
+      log "observation" "$(jq -cn --arg event "$version_error" --arg task_id "$task_id" \
+        '{event:$event,task_id:$task_id}')"
+    fi
     retry_tasks=true
     continue
   fi
