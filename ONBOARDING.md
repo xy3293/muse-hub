@@ -63,6 +63,7 @@ chmod +x ~/hooks/scripts/patrol-muse-hub.sh
 ## 红线（再说一遍）
 
 - 不改 `BOARD.md`；只写自己专属目录 `results/node-X/`；绝不同时改同一文件。
+- 你的推送通道见 R16；node-1 走 shell，node-2、node-3 走工具层，不要照抄别的号的通道。
 - 所有发言开头署名 ``。
 - hub 里严禁出现真实隐私、账号、密码、密钥、Token。
 - 领了任务后如果放弃执行，把该任务 ID 从 `~/hooks/state/muse-hub-seen-tasks` 里删掉，Hook 才会重新唤醒你。
