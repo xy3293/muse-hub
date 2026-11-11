@@ -47,7 +47,7 @@ chmod +x ~/hooks/scripts/patrol-muse-hub.sh
 - `script_path`：`~/hooks/scripts/patrol-muse-hub.sh`
 - `poll_interval_secs`：`300`（5 分钟）
 - `prompt`（一字不改）：
-> muse-hub 总控台有派给你的新任务，唤醒原因里有任务编号。先 git pull ~/workspace/muse-hub，读 BOARD.md 找到你的任务，再读对应任务书，按任务书执行；完成后把结果写到 results/<你的目录>/（文件名带任务编号），并在对应 Issue 下回复已完成 + 文件链接（x 换成你的号）。不要改 BOARD.md；不要在 hub 里放任何隐私、账号或密钥。如果任务已领过或正在做，不要重复领。
+> muse-hub 总控台有派给你的新任务，唤醒原因里有任务编号。先 git pull ~/workspace/muse-hub，读 BOARD.md 找到你的任务，再读对应任务书，按任务书执行；完成后把结果写到 results/<你的目录>/（文件名带任务编号），不发任何评论，交付靠推送；仅 R8 事实缺口或失败时发评论。不要改 BOARD.md；不要在 hub 里放任何隐私、账号或密钥。如果任务已领过或正在做，不要重复领。
 
 注册完先 `hooks.dry_run`，通过了再 `hooks.enable`。新 Hook 默认是禁用的，不 enable 不会巡逻。
 
