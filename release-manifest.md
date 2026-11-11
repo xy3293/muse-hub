@@ -18,15 +18,17 @@
 
 ## 回滚组合
 
-- last-good 脚本：commit `715076e` 的 `hooks/patrol.sh`，`PATROL_VERSION="2026-11-11.2"`，SHA-256 `9259a961f2e335113617744d9fb13a12c86decbb05b1019c65811241c2cef0b5`
-- 对应 seen 格式：`task_id@vN`（与新版相同，回滚不需要转换 seen 文件）
-- 备份时点：`2026-11-11T10:52:35Z`（修复提交时间，UTC）
+- 节点当前实际 last-good：无 `PATROL_VERSION` 的原始版本 `hooks/patrol.sh`，SHA-256 `7138f44b225ea03575f67fc20c7809c939efc2d516fdc76d7cf1f5748631e8c0`（总控已核对：`git show 8a9c7a9:hooks/patrol.sh` 的 SHA-256 与 node-1、node-2、node-3 上报的值一致）。注意：commit `715076e` 的 2026-11-11.2 版只在中间提交里存在过，从未分发到节点，**不是**节点的 last-good。
+- 对应 seen 格式：原始脚本用 `grep -qx` 精确匹配裸 `task_id`，读不懂 `@v1` 格式；回滚后 seen 必须是迁移前的裸格式。
+- 备份时点：`2026-11-11T13:37:08Z`（本次修正时间，UTC）
 - 回滚步骤（每号在自己号里做，5 分钟内）：
-  1. 先确认 pending 已排空：跑一遍新版脚本（它会 replay 投递），或确认 `$STATE_DIR/pending/` 为空。旧版脚本不读 pending，未排空就回滚会丢投递。
+  1. 先确认 pending 已排空：跑一遍新版脚本（它会 replay 投递），或确认 `$STATE_DIR/pending/` 为空。原始脚本不读 pending，未排空就回滚会丢投递。
   2. 停 Hook。
-  3. `cp ~/hooks/scripts/patrol-muse-hub.sh.last-good ~/hooks/scripts/patrol-muse-hub.sh`（last-good 必须是 715076e 版，核对 `PATROL_VERSION="2026-11-11.2"`）。
-  4. `hooks.dry_run` 通过后再 `hooks.enable`。
-- 注意：回滚到 2026-11-11.2 版会丢掉迁移容错（空行/CRLF）与迁移失败升级（3 次 wake），回滚后 seen 文件里若有空行会再次迁移失败；回滚前先确认 seen 文件无空行、无 CRLF。
+  3. **硬性前置，必须同时恢复 seen 到迁移前的裸格式**：`cp ~/hooks/state/muse-hub-seen-tasks.bak ~/hooks/state/muse-hub-seen-tasks`。只回滚脚本、不恢复 seen，原始脚本判重失效，会对每个已迁移任务反复唤醒。
+  4. `cp ~/hooks/scripts/patrol-muse-hub.sh.last-good ~/hooks/scripts/patrol-muse-hub.sh`（last-good 必须是上面 SHA-256 对应的原始版本，核对无 `PATROL_VERSION`）。
+  5. `hooks.dry_run` 通过后再 `hooks.enable`。
+- `.bak` 是为回滚保留的，禁止手工删除。
+- 注意：回滚到原始版本会丢掉全部新版能力（去重键 `task_id@vN`、迁移、pending、flock、严格版本解析）；回滚后 seen 文件里若有空行或 `@v` 行，原始脚本会按裸 `task_id` 匹配，行为以原始脚本为准。
 
 ## 已解决（本批之前挂着的）
 
