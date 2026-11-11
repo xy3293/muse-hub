@@ -12,7 +12,7 @@
 | T-004 | 免费资源盘点：对 Chen 真正有用的有哪些 | node-1 | 完成 | tasks/T-004-free-resources-for-chen.md | [#4](https://github.com/xy3293/muse-hub/issues/4) |
 | T-005 | 规则一致性核查 | node-1 | 完成 | tasks/T-005-rule-consistency-audit.md | [#5](https://github.com/xy3293/muse-hub/issues/5) |
 | T-006 | Control Tower 数据结构调查 | node-1 | 完成 | tasks/T-006-control-tower-data-survey.md | [#6](https://github.com/xy3293/muse-hub/issues/6) |
-| T-007 | Control Tower 架构风险审查 | node-3 | 待领 | tasks/T-007-control-tower-architecture-review.md | [#7](https://github.com/xy3293/muse-hub/issues/7) |
+| T-007 | Control Tower 架构风险审查 | node-3 | 完成 | tasks/T-007-control-tower-architecture-review.md | [#7](https://github.com/xy3293/muse-hub/issues/7) |
 | T-008 | 工人丢失修复 Stage 0：运行时能力探测 | node-1 | 待领 | tasks/T-008-worker-loss-stage0-capability-probe.md | [#8](https://github.com/xy3293/muse-hub/issues/8) |
 
 > 规则记录：R14/R15 生效于 2026-11-11，节点下次 Hook 巡逻自动继承。
