@@ -10,6 +10,7 @@
 | T-002 | Step 6b 证据独立复核 | node-3 | 完成 | tasks/T-002-step6b-evidence-review.md | [#2](https://github.com/xy3293/muse-hub/issues/2) |
 | T-003 | Kaggle 免费 GPU 接入 Muse 研究 | node-1 | 完成 | tasks/T-003-kaggle-free-gpu-for-muse.md | [#3](https://github.com/xy3293/muse-hub/issues/3) |
 | T-004 | 免费资源盘点：对 Chen 真正有用的有哪些 | node-1 | 完成 | tasks/T-004-free-resources-for-chen.md | [#4](https://github.com/xy3293/muse-hub/issues/4) |
+| T-005 | 规则一致性核查 | node-1 | 待领 | tasks/T-005-rule-consistency-audit.md | [#5](https://github.com/xy3293/muse-hub/issues/5) |
 
 > 规则记录：R14/R15 生效于 2026-11-11，节点下次 Hook 巡逻自动继承。
 > 凭据记录：推送 PAT 已于 2026-11-11 轮换，新 PAT 生效；旧 PAT 因在聊天明文出现过，Chen 随后撤销。
