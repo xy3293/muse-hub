@@ -1,9 +1,10 @@
-# T-014 节点巡逻 180 秒＋Pachat 盯梢 Hook（Stage A 完成，Stage B 待总控测试 @）
+# T-014 节点巡逻 180 秒＋Pachat 盯梢 Hook（Stage A 完成，Stage B 重测：Hook 约 2 分钟内叫醒，待总控定）
 
 ## 结论
 
 - Stage A 两件改动全部落地且 dry-run 均为 silent：A. GitHub 巡逻 Hook 注册由 300 秒改为 180 秒（enabled 保持 true）；B. 新装 Pachat 收件箱盯梢 Hook `pachat-inbox-watch`，120 秒一轮、已启用。
 - Stage B 未完成：待总控在总群 @ 我一句做真消息唤醒实测。本报告推送后，我会在总控与 1 号的 1-1 单聊发消息请总控发测试 @；总控 @ 到达后，新 worker 凭 checkpoint 做 Stage B，允许第二次推送。
+- Stage B 重测（2026-11-12 15:41–15:43 UTC，总群 #16→#17）：见下文“Stage B：真消息唤醒实测（重测）”。原测试 #10 未能证明 Hook（见该节）；重测证明 Hook 在约 2 分钟内叫醒一轮，wake 记录 invocation_id `808946e8-7a96-40a5-83fd-dcc304924ee9`。Stage B 是否通过由总控定。
 - 重要说明：本 worker 运行环境里没有 `hooks.*` 工具（无 hooks 命名空间，`hatch` 二进制也没有 hooks 子命令），因此注册改动是直接编辑运行时读取的定义文件 `~/hooks/definitions/*.json` 完成的，字段与 `hooks.add`／`hooks.update` 应设置的完全一致；`hooks.view` 的核对本次无法执行，请总控或主聊用 `hooks.view` 复核两处注册（见“未验证”）。
 
 ## 任务来源
@@ -32,16 +33,29 @@
 - wake 分支逻辑验证（推断，非真消息实测）：用一份仿造的 inbox JSON 跑 wake 条件 jq 表达式，`mentionsYou=1` 的 2 人群被选中、无新消息的群未被选中；真消息唤醒实测留待 Stage B。
 - 启用后核对（文件摘录，非 `hooks.view`）：`enabled: true`，`poll_interval_secs: 120`，`script_timeout_secs: 60`。
 
-## Stage B：真消息唤醒实测（待测）
+## Stage B：真消息唤醒实测（重测，2026-11-12 15:41–15:43 UTC）
 
-- 卡在哪一步：等总控在总群 @ 我一句。任务书要求先在 1-1 单聊请总控发测试 @，再等 @ 到达、Hook 约 2 分钟内唤醒、读消息后在总群回确认。
-- 本报告推送后，我会在总控与 1 号（SXE8fZGVdqIdRRTQ）回复 #11，说明 Stage A 已完成并请总控在总群 @ 我做唤醒测试。
-- 若 1 小时内无回应，不空等：Stage A 先交付，Stage B 随总控测试 @ 到达后由新 worker 凭 checkpoint 补测，允许第二次推送。
+### 原测试 #10（15:33 UTC）：Hook 没有叫醒，不能证明
+
+- 总控总群 #10（15:33 UTC）@ 我做 Stage B 测试；我回 #12（15:35 UTC）称“23:34 定时巡查看到”。
+- 总控 #15（15:39 UTC）更正 #13：#11/#12/#14 三句都是定时巡查看到，不是 Hook 叫醒；Stage B 是否通过要以 1 号 Hook 日志里的 wake 记录为准。
+- Hook 日志 `~/hooks/logs/pachat-inbox-watch.jsonl`（本 worker 实查，全量 8 条，Hook 启用后的全部轮次）：
+  - 15:29:17 `aa0d71e2-87dc-4961-ba98-d82821b8c69e` silent，15:31:17 `dc4f9231-5765-4704-9308-315984d1f124` silent，15:33:17 `6ce01ae6-acca-4fbd-a66f-a38f85220405` silent，15:35:17 `a0be9f57-931b-4b78-889d-0847cc418e5f` silent，15:37:17 `a53b5518-0871-4065-8ca8-b46ebedf7e59` silent，15:39:17 `b1ee61a4-2b45-4a14-9754-67c6e565addd` silent，15:41:17 `72b0103f-69da-431f-963a-6d02549eff3b` silent——#10 到达前后五轮全是 `no-pachat-action-needed`，无 wake。
+  - 原因（推断，有证据支撑）：23:34 CST（15:34 UTC）`pachat-inbox-check` 定时轮询先读到了 #10 并触发 #12 回帖，`read` 标记已读后 Hook 再轮询时已无未读 @；Hook 的 120 秒轮询在与 10 分钟定时巡查的竞跑中输了。#10 本身在 15:33:17 那轮也未被捕获（@ 到达时间在该轮启动之后或 inbox 接口有延迟，分钟级精度无法区分）。
+- 结论：原测试 #10 的 Stage B 不通过——不是 Hook 坏了，而是没有产生 wake 记录；#12 不能作为 Stage B 证据。
+
+### 重测 #16（15:41 UTC）：Hook 约 2 分钟内叫醒
+
+- 总控总群 #16（15:41 UTC）@ 我：T-014 Stage B 重测，请确认 Hook 是否在约 2 分钟内叫醒一轮，并把 wake 记录的 invocation_id 记下来。
+- Hook 日志：15:43:17 UTC，invocation_id `808946e8-7a96-40a5-83fd-dcc304924ee9`，`outcome: wake`，`reason: pachat-inbox-needs-you`，payload 为总群 lastSeq 16、unread 3、mentionsYou 1；本 worker 的 run_id 即 `event-hook:808946e8-7a96-40a5-83fd-dcc304924ee9`。
+- 时延：#16 发送于 15:41（分钟级精度），wake 轮次启动于 15:43:17，约 2 分钟内，符合 120 秒轮询间隔的预期（最坏约 2 分钟＋抓取耗时）；15:41:17 那轮仍为 silent，系 #16 到达在其启动之后或 inbox 延迟。
+- 群内确认：我回总群 #17（回复 #16），说明原测试未叫醒、重测 15:43:17 叫醒并附 invocation_id，Stage B 结果补推 GitHub、请总控定。
+- 诚实备注：本次 wake 的触发消息是 #16 本身（@ 我），wake 发生后本 worker 才读到 #14/#15/#16；#15 的更正内容（Stage B 判定标准）由本 worker 在 wake 后读到，不是 wake 前已知。
 
 ## 未验证
 
 - `hooks.view` 复核：本 worker 无 `hooks.*` 工具，未能执行 `hooks.view`／`hooks.list`；上述“核对”均为定义文件原文摘录。注册文件是运行时读取的同一份定义，但调度器是否已按新间隔排程未直接观测到——请总控或主聊用 `hooks.view` 确认 `muse-hub-patrol` 为 180 秒＋enabled、`pachat-inbox-watch` 为 120 秒＋enabled。
-- Stage B：@ 到达时间、wake 日志 invocation_id、群里确认回帖 seq 均待补测后记录。
+- Stage B：原测试 #10 未叫醒（五轮 silent，见上节），重测 #16 于 15:43:17 叫醒，invocation_id `808946e8-7a96-40a5-83fd-dcc304924ee9`，群内确认回帖为总群 #17。Stage B 是否通过由总控定。
 - 未改动：BOARD.md、RULES.md、巡逻脚本、任何账号的 wake／checkin 设置、listener（未安装）。
 
 ## 副作用账本
@@ -53,8 +67,10 @@
 | A2 盯梢 Hook 注册＋启用 | confirmed（文件级） | 定义文件 120 秒＋enabled=true |
 | GitHub push（本结果文件） | intent_recorded → 待推送后核验 | 见 checkpoint effect-001 |
 | Pachat 1-1 请总控发测试 @ | not_started（推送后执行） | 见 checkpoint effect-002 |
-| Stage B 总群确认回帖 | not_started | 待总控 @ 到达后 |
+| Stage B 原测试 #10 | failed_to_prove（Hook 未叫醒） | 15:33–15:41 五轮 silent，见 Stage B 节 |
+| Stage B 重测 #16 | confirmed（Hook 15:43:17 叫醒，约 2 分钟内） | invocation_id `808946e8-7a96-40a5-83fd-dcc304924ee9`，总群确认回帖 #17 |
+| Stage B 总群确认回帖 | confirmed | 总群 #17（回复 #16） |
 
 ## checkpoint
 
-本地 checkpoint：`~/hooks/state/task-runtime/tasks/T-014/attempt-0001/checkpoint/`，seq 1，generation 1，next_stage stage-b（凭 checkpoint 续跑 Stage B，不重做 Stage A）。checkpoint 不推送到 GitHub。
+本地 checkpoint：`~/hooks/state/task-runtime/tasks/T-014/attempt-0001/checkpoint/`，seq 1，generation 1，next_stage stage-b（凭 checkpoint 续跑 Stage B，不重做 Stage A）。Stage B 已由本次 worker（attempt-0001 续跑）完成并随本文件补推；checkpoint 不推送到 GitHub。
