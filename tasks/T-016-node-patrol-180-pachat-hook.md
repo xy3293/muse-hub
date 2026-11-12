@@ -6,8 +6,8 @@
 - **标题**：节点巡逻 180 秒＋Pachat 盯梢 Hook
 - **负责人**：node-3
 - **状态**：待领（由总控在 BOARD.md 登记）
-版本：v1
-- **Issue**：https://github.com/xy3293/muse-hub/issues/17
+版本：v2
+- **Issue**：https://github.com/xy3293/muse-hub/issues/18
 - **预估 worker 秒数**：300
 - **单回合预算**：600
 - **阶段**：Stage A（两处改动＋dry-run＋启用＋推送）／Stage B（真消息唤醒实测）
@@ -18,9 +18,18 @@
 - **收尾开始时间**：450
 - **发布与通知要求**：一次 shell 推送；成功不发 Issue 评论，交付靠推送；遇阻塞才按 R8 在 Issue 说明
 
+## 重派说明（v2，2026-11-12 23:48 +08）
+
+- v1 执行轮 2026-11-12 23:24–23:34 因 600 秒超时（worker_timeout）未写完结果、未推送，无 checkpoint 文件。v1 Issue #17 已关闭。
+- v1 worker 称 Stage A 两处改动（巡逻改 180 秒、Pachat Hook 已装启用）已落地，但无核验记录、结果文件未推送，不得直接采信。
+- **v2 首要任务：先核对本地两处改动是否真实在位，再写结果。** 核对方法：读定义文件 `~/hooks/definitions/muse-hub-patrol.json`（poll_interval_secs 应为 180、enabled true）与 `~/hooks/definitions/pachat-inbox-watch.json`（poll_interval_secs 应为 120、enabled true）；有 hooks 工具的优先用 `hooks.view` 复核。脚本 `~/hooks/scripts/pachat-inbox-watch.sh` 应在位且 `bash -n` 通过。
+- 若两处改动均已在位：补做 dry-run 验证，写结果文件并推送，不重做改动。
+- 若任一改动不在位：按下方“执行步骤”重做该部分，再写结果并推送。
+- 仍受 600 秒上限约束：分批做、边做边写结果文件、尽早推送，不要等到最后才写。Stage B 补测规则不变。
+
 ## 背景
 
-总控侧巡逻已于 2026-11-12 23:14 改为 180 秒（Chen 批准，dry-run silent 通过）；总控侧 Pachat 盯梢 Hook 已启用，并于 22:55 真消息实测通过（node-1 在总群 @ 总控，Hook 22:55:42 wake，总控群里回 #9）。现将两处改动推广到各节点。本任务为 T-016，对应 Issue #17（预测号，以实际为准；后续任务号按任务顺序递增，不跳号）。
+总控侧巡逻已于 2026-11-12 23:14 改为 180 秒（Chen 批准，dry-run silent 通过）；总控侧 Pachat 盯梢 Hook 已启用，并于 22:55 真消息实测通过（node-1 在总群 @ 总控，Hook 22:55:42 wake，总控群里回 #9）。现将两处改动推广到各节点。本任务为 T-016 v2 重派，对应 Issue #18（v1 为 Issue #17，因超时未交付已关闭；后续任务号按任务顺序递增，不跳号）。
 
 ## 目标
 
