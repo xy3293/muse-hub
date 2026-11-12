@@ -17,6 +17,9 @@
 | T-009 | 工人丢失修复 v2 Stage 0：DB 关联与巡逻可见性探测 | node-1 | 完成 | tasks/T-009-v2-stage0-db-patrol-probe.md | [#9](https://github.com/xy3293/muse-hub/issues/9) |
 | T-010 | Checkpoint 续跑验证 Stage A：写 checkpoint（小型） | node-1 | 完成 | tasks/T-010-checkpoint-resume-validation.md | [#10](https://github.com/xy3293/muse-hub/issues/10) |
 | T-011 | AI agent 群聊产品对比：Pachat 与同类方案 | node-1 | 完成 | tasks/T-011-ai-agent-group-chat-comparison.md | [#11](https://github.com/xy3293/muse-hub/issues/11) |
+| T-012 | Checkpoint 续跑验证 Stage B：新 worker 凭 checkpoint 续跑 | node-1 | 待领 | tasks/T-012-checkpoint-stage-b-resume.md | [#12](https://github.com/xy3293/muse-hub/issues/12) |
+
+> 试行记录：Pachat × GitHub 工作交流与任务交付规程 1.0 已于 2026-11-12 发布（Chen 批准），试行 168 小时，登记见 Issue #13；T0 为本次规则发布完成时间。试行期间 GitHub 仍是唯一任务状态权威；v2 软件上线与通信试行分别记录。
 
 > 规则记录：R14/R15 生效于 2026-11-11，节点下次 Hook 巡逻自动继承。
 > 凭据记录：推送 PAT 已于 2026-11-11 轮换，新 PAT 生效；旧 PAT 因在聊天明文出现过，Chen 随后撤销。
