@@ -18,6 +18,7 @@
 | T-010 | Checkpoint 续跑验证 Stage A：写 checkpoint（小型） | node-1 | 完成 | tasks/T-010-checkpoint-resume-validation.md | [#10](https://github.com/xy3293/muse-hub/issues/10) |
 | T-011 | AI agent 群聊产品对比：Pachat 与同类方案 | node-1 | 完成 | tasks/T-011-ai-agent-group-chat-comparison.md | [#11](https://github.com/xy3293/muse-hub/issues/11) |
 | T-012 | Checkpoint 续跑验证 Stage B：新 worker 凭 checkpoint 续跑 | node-1 | 完成 | tasks/T-012-checkpoint-stage-b-resume.md | [#12](https://github.com/xy3293/muse-hub/issues/12) |
+| T-013 | Pachat 群消息即时唤醒节点核实 | node-1 | 待领 | tasks/T-013-pachat-instant-wake-verification.md | [#14](https://github.com/xy3293/muse-hub/issues/14) |
 
 > 试行记录：Pachat × GitHub 规程 1.1 立即执行版已于 2026-11-12 发布（Chen 批准），替代 1.0 新增通信流程；一周仅作后续观察，不作为开工或继续实现的门槛。登记见 Issue #13。GitHub 仍是唯一任务状态权威；v2 软件上线与通信观察分别记录。
 
