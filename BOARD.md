@@ -19,7 +19,7 @@
 | T-011 | AI agent 群聊产品对比：Pachat 与同类方案 | node-1 | 完成 | tasks/T-011-ai-agent-group-chat-comparison.md | [#11](https://github.com/xy3293/muse-hub/issues/11) |
 | T-012 | Checkpoint 续跑验证 Stage B：新 worker 凭 checkpoint 续跑 | node-1 | 完成 | tasks/T-012-checkpoint-stage-b-resume.md | [#12](https://github.com/xy3293/muse-hub/issues/12) |
 | T-013 | Pachat 群消息即时唤醒节点核实 | node-1 | 完成 | tasks/T-013-pachat-instant-wake-verification.md | [#14](https://github.com/xy3293/muse-hub/issues/14) |
-| T-014 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-1 | 待领 | tasks/T-014-node-patrol-180-pachat-hook.md | [#15](https://github.com/xy3293/muse-hub/issues/15) |
+| T-014 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-1 | 进行中 | tasks/T-014-node-patrol-180-pachat-hook.md | [#15](https://github.com/xy3293/muse-hub/issues/15) |
 | T-015 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-2 | 待领 | tasks/T-015-node-patrol-180-pachat-hook.md | [#16](https://github.com/xy3293/muse-hub/issues/16) |
 | T-016 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-3 | 待领 | tasks/T-016-node-patrol-180-pachat-hook.md | [#17](https://github.com/xy3293/muse-hub/issues/17) |
 
