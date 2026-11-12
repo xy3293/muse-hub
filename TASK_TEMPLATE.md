@@ -10,6 +10,15 @@
 - **状态**：待领（由总控在 BOARD.md 登记）
 版本：v1
 - **Issue**：任务创建后填 Issue 链接
+- **预估 worker 秒数**：`estimated_worker_seconds`（数字；无法合理估算时写“未知，先拆成小型探测任务”）
+- **单回合预算**：`time_budget_seconds`（默认 600；主体工作 420–450 秒，收尾至少 90 秒；各阶段预算极值合计不得超过 600 秒）
+- **阶段**：`stages`（阶段列表，每阶段写清目标、产物路径、验收条件）
+- **checkpoint**：`checkpoint_after_each_stage`（每阶段结束后按 `docs/checkpoint-spec.md` 写 checkpoint）
+- **阶段产物路径**：`stage_output_paths`
+- **续跑说明**：`resume_instructions`（新 worker 仅凭 checkpoint 和产物继续，不依赖旧 worker 的隐式记忆）
+- **外部副作用**：`external_side_effects`（可能产生重复影响的外部动作，先记账再执行，见 `docs/checkpoint-spec.md`）
+- **收尾开始时间**：`finalize_before_seconds`（到达该秒数即停止新增工作，进入 checkpoint 和交付收尾；默认 450）
+- **发布与通知要求**：`publish_and_notify_requirements`
 
 这一行是机器解析用的，必须严格保持「版本：vN」格式——不要加列表符号、不要加粗、不要写进 HTML 注释；巡逻脚本只扫任务书前 15 行的严格行，格式变了就唤醒不了。
 
@@ -25,11 +34,34 @@
 
 执行任务需要的材料与链接（任务书里给全，不要让执行号再去翻别的聊天记录）。
 
+## 600 秒执行预算
+
+单个 worker execute 回合按 600 秒边界设计，不依赖超时延长。到达约 450 秒时停止新增工作，进入 checkpoint 和交付收尾。
+
+| 阶段 | 预算 |
+|---|---|
+| 启动、读取状态、claim | 15–30 秒 |
+| 主体工作 | 420–450 秒 |
+| checkpoint、结果落盘、校验 | 30–45 秒 |
+| GitHub 推送／交接／通知 | 45–75 秒 |
+| **合计** | **510–600 秒（各阶段极值合计不得超过 600 秒）** |
+
+出现以下任一情况，任务书必须先拆分再派发：预估主体工作超过 450 秒；有两个或更多可独立验收的交付物；任务包含研究、实现、测试、审查、发布等多个明显阶段；中间结果可以形成稳定产物供下一回合读取；无法证明最终交付可在 600 秒内完成。输出行数、字数、文件体积只作风险预警，不设未经实测的硬阈值。
+
 ## 输出要求
 
 - 文件路径：`results/<负责人>/T-xxx-<简短英文名>.md`
 - 格式：中文，结论先行；每个关键结论贴来源链接；数据注明日期；区分事实与推断，不确定的写“未验证”。
 - 不许编数字，不许编来源。
+- 每完成一个可独立验证的阶段，按 `docs/checkpoint-spec.md` 写一次 checkpoint，不要等到整个任务结束才写。
+- 本任务同样受 600 秒执行上限约束：分批做、边做边写结果文件、尽早推送，不要等到最后才写。
+
+## 续跑与副作用
+
+- 超时后恢复是续跑，不是重做：新 worker 从最新有效 checkpoint 的 `next_stage` 继续，不重新执行 checkpoint 已标记完成的阶段。
+- 外部副作用（GitHub commit／push、Issue 评论、远端状态更新等）先记账再执行，状态分 `not_started`／`intent_recorded`／`confirmed`／`unknown`；`intent_recorded` 或 `unknown` 时先查远端事实，不得直接重复执行。
+- 已有最终结果时只恢复交接／发布，不再执行研究或开发。
+- 超时判定以 `muse.db` run 行为准（关联键 `metadata_json.wake_payload.event_id`，终结条件 `failed`＋`worker_timeout`）；巡逻进程打不开数据库，不得把 DB 查询写进巡逻脚本；心跳过期、wake 返回成功均不得单独作为超时或启动证据。
 
 ## 验收标准
 
