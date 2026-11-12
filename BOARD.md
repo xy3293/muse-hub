@@ -14,7 +14,7 @@
 | T-006 | Control Tower 数据结构调查 | node-1 | 完成 | tasks/T-006-control-tower-data-survey.md | [#6](https://github.com/xy3293/muse-hub/issues/6) |
 | T-007 | Control Tower 架构风险审查 | node-3 | 完成 | tasks/T-007-control-tower-architecture-review.md | [#7](https://github.com/xy3293/muse-hub/issues/7) |
 | T-008 | 工人丢失修复 Stage 0：运行时能力探测 | node-1 | 完成 | tasks/T-008-worker-loss-stage0-capability-probe.md | [#8](https://github.com/xy3293/muse-hub/issues/8) |
-| T-009 | 工人丢失修复 v2 Stage 0：DB 关联与巡逻可见性探测 | node-1 | 待领 | tasks/T-009-v2-stage0-db-patrol-probe.md | [#9](https://github.com/xy3293/muse-hub/issues/9) |
+| T-009 | 工人丢失修复 v2 Stage 0：DB 关联与巡逻可见性探测 | node-1 | 完成 | tasks/T-009-v2-stage0-db-patrol-probe.md | [#9](https://github.com/xy3293/muse-hub/issues/9) |
 
 > 规则记录：R14/R15 生效于 2026-11-11，节点下次 Hook 巡逻自动继承。
 > 凭据记录：推送 PAT 已于 2026-11-11 轮换，新 PAT 生效；旧 PAT 因在聊天明文出现过，Chen 随后撤销。
