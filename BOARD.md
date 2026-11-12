@@ -19,10 +19,14 @@
 | T-011 | AI agent 群聊产品对比：Pachat 与同类方案 | node-1 | 完成 | tasks/T-011-ai-agent-group-chat-comparison.md | [#11](https://github.com/xy3293/muse-hub/issues/11) |
 | T-012 | Checkpoint 续跑验证 Stage B：新 worker 凭 checkpoint 续跑 | node-1 | 完成 | tasks/T-012-checkpoint-stage-b-resume.md | [#12](https://github.com/xy3293/muse-hub/issues/12) |
 | T-013 | Pachat 群消息即时唤醒节点核实 | node-1 | 完成 | tasks/T-013-pachat-instant-wake-verification.md | [#14](https://github.com/xy3293/muse-hub/issues/14) |
+| T-014 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-1 | 待领 | tasks/T-014-node-patrol-180-pachat-hook.md | [#15](https://github.com/xy3293/muse-hub/issues/15) |
+| T-015 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-2 | 待领 | tasks/T-015-node-patrol-180-pachat-hook.md | [#16](https://github.com/xy3293/muse-hub/issues/16) |
+| T-016 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-3 | 待领 | tasks/T-016-node-patrol-180-pachat-hook.md | [#17](https://github.com/xy3293/muse-hub/issues/17) |
 
 > 试行记录：Pachat × GitHub 规程 1.1 立即执行版已于 2026-11-12 发布（Chen 批准），替代 1.0 新增通信流程；一周仅作后续观察，不作为开工或继续实现的门槛。登记见 Issue #13。GitHub 仍是唯一任务状态权威；v2 软件上线与通信观察分别记录。
 
 > 规则记录：R14/R15 生效于 2026-11-11，节点下次 Hook 巡逻自动继承。
+> 规则记录：R6a/R6b 巡逻周期 2026-11-12 改为 180 秒（Chen 批准）；总控侧注册已改，RULES／ONBOARDING／README 已同步，各节点注册由 T-014/015/016 改。
 > 凭据记录：推送 PAT 已于 2026-11-11 轮换，新 PAT 生效；旧 PAT 因在聊天明文出现过，Chen 随后撤销。
 
 ## 状态说明
