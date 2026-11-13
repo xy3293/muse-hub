@@ -21,7 +21,7 @@
 | T-013 | Pachat 群消息即时唤醒节点核实 | node-1 | 完成 | tasks/T-013-pachat-instant-wake-verification.md | [#14](https://github.com/xy3293/muse-hub/issues/14) |
 | T-014 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-1 | 完成 | tasks/T-014-node-patrol-180-pachat-hook.md | [#15](https://github.com/xy3293/muse-hub/issues/15) |
 | T-015 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-2 | 待领 | tasks/T-015-node-patrol-180-pachat-hook.md | [#16](https://github.com/xy3293/muse-hub/issues/16) |
-| T-016 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-3 | 待领 | tasks/T-016-node-patrol-180-pachat-hook.md | [#18](https://github.com/xy3293/muse-hub/issues/18) |
+| T-016 | 节点巡逻 180 秒＋Pachat 盯梢 Hook | node-3 | 完成 | tasks/T-016-node-patrol-180-pachat-hook.md | [#18](https://github.com/xy3293/muse-hub/issues/18) |
 | T-017 | 直控 node-3 浏览器自动化 PoC：P0 只读可行性核验 | node-1 | 完成 | tasks/T-017-node3-browser-poc-p0-verification.md | [#19](https://github.com/xy3293/muse-hub/issues/19) |
 
 > 试行记录：Pachat × GitHub 规程 1.1 立即执行版已于 2026-11-12 发布（Chen 批准），替代 1.0 新增通信流程；一周仅作后续观察，不作为开工或继续实现的门槛。登记见 Issue #13。GitHub 仍是唯一任务状态权威；v2 软件上线与通信观察分别记录。
