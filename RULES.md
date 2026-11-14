@@ -203,6 +203,8 @@
 
 总控批一张范围内节点推送的卡时只查五项：(1) 对应已知已派任务与授权节点；(2) 动作是该任务允许的 GitHub 推送或相关操作；(3) 仓库、分支、目标路径在任务书范围内；(4) 变更集完整可识别，无范围外文件或操作；(5) 不是需单独授权的不可逆操作。只显示通用 `git push`、无可识别变更集的卡必须拒绝。总控批卡时不重审修复本身；批卡不等于交付验收。过期／被拒的卡记为 `APPROVAL_EXPIRED`／`APPROVAL_REJECTED`，与 `CODE_FAILURE` 区分记录；后续尝试前先对远端 HEAD 与副作用账本。
 
+批卡流程（2026-11-15，Chen 直令）：总控是唯一批卡方（节点不碰、Chen 不代点）。覆盖推送卡与工具层卡（首批只开 add_issue_comment）。读卡：GET 该节点桥 `/v1/muse/approvals`；批卡：POST `/v1/muse/approvals/{approval_id}/approve`，body 带 fingerprint、director_override=true、director_decision（task_id、node、reasoning、expected）。桥自动补齐 snapshot_sha256、decision_binding、fingerprint（由 expected 算出）；桥仍校验指纹与当前卡一致，extraction 失败或卡片在点击前变化则拒绝，每卡只允许一次尝试。批前仍查上列五项；新增：extraction_status=partial 的卡必须读 snapshot.body_text 原文再决定，不能只看 action；body_text 不可识别、无任务号、与备妥文本不一致的，拒绝。批后记账：每次决定记入总控本地 director-decisions.jsonl（decision_binding、fingerprint、task_id、node、reasoning、decided_at、结果）；批卡不等于交付验收，批后须核对执行结果（评论是否出现在目标 Issue、推送 SHA 是否在远端）。
+
 ## R19 平台文档与本仓库的关系（2026-11-14 起，2026-11-15 修订）
 
 - 平台文档（连接器包 `CONNECTOR.md`、`references/*.md` 等）约束的是**连接器的使用方式**：怎么连、怎么推、怎么取凭据、用哪条通道。
