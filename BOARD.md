@@ -25,7 +25,7 @@
 | T-017 | 直控 node-3 浏览器自动化 PoC：P0 只读可行性核验 | node-1 | 完成 | tasks/T-017-node3-browser-poc-p0-verification.md | [#19](https://github.com/xy3293/muse-hub/issues/19) |
 | T-018 | node-1 后台进程 600 秒存活验证 | node-1 | 完成 | tasks/T-018-node1-background-survival.md | [#20](https://github.com/xy3293/muse-hub/issues/20) |
 | T-019 | node-2 自治对等节点最小验证 | node-2 | 完成 | tasks/T-019-node2-autonomous-peer-proof.md | [#21](https://github.com/xy3293/muse-hub/issues/21) |
-| T-020 | node-3 自治对等节点最小验证 | node-3 | 待领 | tasks/T-020-node3-autonomous-peer-proof.md | [#22](https://github.com/xy3293/muse-hub/issues/22) |
+| T-020 | node-3 自治对等节点最小验证 | node-3 | 完成 | tasks/T-020-node3-autonomous-peer-proof.md | [#22](https://github.com/xy3293/muse-hub/issues/22) |
 
 > 试行记录：Pachat × GitHub 规程 1.1 立即执行版已于 2026-11-12 发布（Chen 批准），替代 1.0 新增通信流程；一周仅作后续观察，不作为开工或继续实现的门槛。登记见 Issue #13。GitHub 仍是唯一任务状态权威；v2 软件上线与通信观察分别记录。
 
