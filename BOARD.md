@@ -26,12 +26,14 @@
 | T-018 | node-1 后台进程 600 秒存活验证 | node-1 | 完成 | tasks/T-018-node1-background-survival.md | [#20](https://github.com/xy3293/muse-hub/issues/20) |
 | T-019 | node-2 自治对等节点最小验证 | node-2 | 完成 | tasks/T-019-node2-autonomous-peer-proof.md | [#21](https://github.com/xy3293/muse-hub/issues/21) |
 | T-020 | node-3 自治对等节点最小验证 | node-3 | 完成 | tasks/T-020-node3-autonomous-peer-proof.md | [#22](https://github.com/xy3293/muse-hub/issues/22) |
+| T-021 | 总控审批卡覆盖扩展到工具层卡（研究＋设计） | node-1 | 待领 | tasks/T-021-node1-director-card-coverage.md | [#23](https://github.com/xy3293/muse-hub/issues/23) |
 
 > 试行记录：Pachat × GitHub 规程 1.1 立即执行版已于 2026-11-12 发布（Chen 批准），替代 1.0 新增通信流程；一周仅作后续观察，不作为开工或继续实现的门槛。登记见 Issue #13。GitHub 仍是唯一任务状态权威；v2 软件上线与通信观察分别记录。
 
 > 规则记录：R14/R15 生效于 2026-11-11，节点下次 Hook 巡逻自动继承。
 > 规则记录：R18 对等节点自主执行生效于 2026-11-14（Chen 批准推行）；R6a/R6b 巡逻周期同步为生产值 60 秒（2026-11-14 20:43 已改，RULES 本次同步）；R16 审批卡说明同步（总控按范围批卡已 live）；checkpoint-spec 增加 §12 v1.1 增补，TASK_TEMPLATE 增加任务书 v2 字段。
 > 规则记录：Chen 2026-11-14 裁决（6e01db8，登记 ab16c73）：snapshot-push.md:10-11 采窄读，禁令约束「发起认证的一方」，不约束「消费所有者预置凭据的一方」；R16 修订 node-3 入适用名单（通道验证 24h，2026-11-15 23:31:32 CST 到期，未成则退条）；新增 R19 文档范围争议；R7 增 node-3 Issue 评论由总控代发。
+> 规则记录：Chen 2026-11-15 00:29 决定放弃 node-3 shell 通道，总控提前执行 R16 退条（不等 24h 到期）：node-3 移出适用名单，回退工具层＋R7 总控代发评论；原因无合规投放通道（卡种测试 f033427 实测本机无凭据），非 node-3 失败。方向改为优化总控审批卡能力（T-021 已派 node-1 研究工具层卡覆盖）。
 > 规则记录：R6a/R6b 巡逻周期 2026-11-12 改为 180 秒（Chen 批准）；总控侧注册已改，RULES／ONBOARDING／README 已同步，各节点注册由 T-014/015/016 改。
 > 凭据记录：推送 PAT 已于 2026-11-11 轮换，新 PAT 生效；旧 PAT 因在聊天明文出现过，Chen 随后撤销。
 
