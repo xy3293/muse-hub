@@ -184,3 +184,13 @@ v2 §5.1 原表各阶段极值合计 630 秒，超 600 秒上限。本规范收�
 - 本规范为 v1；Codex 实现、Antigravity 审查、总控验收、node-1 canary 均以本文件为准。
 - 改动本规范须总控批准，并同步更新 release-manifest；不得把未验证的能力标记为已验证。
 - 待验证（Stage 0／canary 给出证据前不得声称具备）：600 秒是否为平台可配置时限；checkpoint 在真实 worker timeout 后是否保留并可被新 worker 读取；长任务全程 heartbeat 的稳定性；GitHub 条件请求（ETag）是否可用；节点凭据能否安全注入巡逻 API 请求。
+
+## 12. v1.1 增补：对等节点（2026-11-14，Chen 批准推行；总控批准）
+
+本节只做加法，不改写 §1–§11 的任何句子。
+
+- **`last_progress_at`（新增字段）**：§3 schema 增加该字段，记录最近一次实质工作推进的时间，与 §9 存活心跳严格区分：心跳证明进程在，`last_progress_at` 证明工作在推进。§9 的 180 秒 `HEARTBEAT_STALE` 只是存活诊断，不等于进展停滞阈值；进展停滞阈值无定值，待验证中实测。
+- **PARKED 状态（新增）**：记在现有任务状态文件（`task-runtime/tasks/<T-xxx>/task-state.json`）中，不进 checkpoint.json。字段：`reason=SPEC_CONFLICT`、`conflict_id`、`checkpoint_ref`、`decision_ref_last_seen`（可空）、适用 `contract_revision`。PARKED 是等总控决定的计划挂起，不是 NEEDS_HUMAN／NEEDS_ATTENTION，不触发重派。
+- **复用、不新增**：`run_id`（§3 已有）、`contract_revision`（即任务书版本，见 R7）、幂等键（§6 账本的 `effect_id`）。manifest.json 暂不引入。
+- **§10 适用范围补充**：§10 预算表约束的是单个 worker execute 回合；`setsid`＋`nohup` 后台进程（T-018 已验证存活）不受 600 秒 agent 预算约束，但必须按 §4 写 checkpoint、按 §6 记账，并由巡逻对账后保留，不重启、不重派。
+- **巡逻直接检测 PARKED 决定**的能力为后续 patrol.sh 改进项，本次不做；本次恢复触发见 R18（SPEC_DECISION＋任务书升版＋BOARD 置回待领，按标准版本键唤醒）。

@@ -39,3 +39,10 @@
 
 - `director-watch-poll.sh` 未动；本基线只覆盖 `hooks/patrol.sh` 与任务书版本行格式。
 - 巡逻脚本里加了一行 `export LC_ALL=C.UTF-8`（全角冒号正则需 UTF-8 区域环境）；节点升级消息里要提醒各号确认该行生效。
+
+## 对等节点推行（2026-11-14，Chen 批准）
+
+- RULES.md 新增 R18（对等节点自主执行：决策权表、SPEC_CONFLICT＋PARKED、有界重试、去重、批卡接口）；R6a／R6b 巡逻周期同步为生产值 60 秒；R16 增加审批卡自动化说明（三节点 canary-004／005b／006 已 live 验证）。
+- TASK_TEMPLATE.md 增加任务书 v2 字段（`contract_revision`、`run_id`、`last_progress_at`、幂等键复用 `effect_id`）与自主执行一节。
+- `docs/checkpoint-spec.md` 增加 §12 v1.1 增补（`last_progress_at`、`PARKED` 状态、后台进程适用范围补充；§1–§11 未改写）。
+- 验证任务 T-019（node-2）、T-020（node-3）各 6 项检查，共 12 项；本次提交的 SHA 见总控日报与当日记忆记录。
