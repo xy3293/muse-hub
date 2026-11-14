@@ -10,6 +10,7 @@
 - **本回合新审批卡**：0 张（只读文件＋shell git push，不点任何卡）
 - **第二次修订**（2026-11-15，Chen 直令）：(b) 不成立——节点是云端 VM、无浏览器，卡在陈的 PC 上，总控无可点的东西；(b) 重写为「陈的 PC 上的点卡代理（CDP）」，总控只是请求方。
 - **第三次修订**（2026-11-15，Chen 直令）：桥侧已通——桥有 `GET /v1/muse/approvals` 与 `POST /v1/muse/approvals/{id}/approve`，评论卡可读可批，走 director_override 路径；「桥侧无解」与「唯一路径是 DOM 点击」作废。
+- **第四次提交**（2026-11-15，总控 REJECT 6882009564 后重交）：补评论卡字段级证据（§1.3）、补残留缺口清单（§6）、修正文末标记行。
 
 ## 1. 修订说明：4601058 的结论为什么要改
 
@@ -31,6 +32,24 @@
 - 「唯一路径是 DOM 点击」作废：DOM 点击（代理）不再是唯一路径；桥 API 是正路。
 - 剩余约束：partial 卡必须由总控读 body_text 后判断（不能只看 action）；每卡一次尝试；审计文件为独占写入，失败不可重试。
 - 与 R18 的关系：点卡者仍是总控（总控调桥的 approve 接口批卡），本方案符合 R18，不需要改规则。节点自己点卡仍撞 R18（(a) 不变）。
+
+### 1.3 评论卡字段级证据（已实测确认）
+
+来源：总控 2026-11-15 02:05 实测（Issue #23 评论 6881939525；验收见 Issue #23 评论 6882009564）。本路径走桥 API（`GET /v1/muse/approvals` 返回 JSON），**DOM 选择器不适用——验收 1 的"选择器"由以下 API 字段清单替代**。桥接口记录见 RULINGS 第六节（c543e56）；partial 卡必读 body_text 原文见 R18 流程补（1268ba7）。
+
+| 字段 | 值 |
+|---|---|
+| approval_id | derived-a7292c1af01a1bbb1459b3306e24cdcc50c72844ce35f3508b278dbc1c5d52f7 |
+| fingerprint | b9246dc4c1185214e084ab94a89d53a060c6ce0cf63b7ca3101a4d3eb0e3835c |
+| action | Post a GitHub issue comment |
+| extraction_status | partial |
+| field_states | parameters / effects / permissions / creation_scope 均 missing |
+| structured_fields | action；account=xy3293；repository_owner=xy3293；repository=muse-hub；issue=23；content=评论正文（见 snapshot.body_text） |
+| snapshot.body_text（原文，照 Issue #23 评论 6881939525 抄） | 【3号】点卡通路验证：本评论由总控读卡、按 R18 范围判断、经桥点批后发出，用于验证评论卡（partial）审批路径。 |
+| buttons | 允许／拒绝 |
+| status | pending |
+
+说明：snapshot.body_text 即该卡要发的评论正文（structured_fields 的 content）。总控批卡前读 body_text 原文核验，确认正文符合 R8／任务范围后才调 approve。
 
 ---
 
@@ -80,7 +99,7 @@
 | 结论「有条件可行（三条件）」 | **作废** | 路径本身错了（见 §1.2）。改为 (a)/(b) 两条路径。 |
 | §1.2 驱动只给布尔值、无点按钮代码 | 保留 | 仍是事实；且说明 (a) 需补点按钮能力。 |
 | §2.1 同容器同 UI | 保留 | 探针①印证。 |
-| §2.3 字段级形态未验证 | 已补 | 探针①给出按钮文案与五个字段（推送卡）。评论卡字段仍需一次实测确认，但结构已知。 |
+| §2.3 字段级形态未验证 | **已实测确认** | 评论卡字段证据见 §1.3（总控 2026-11-15 02:05 实测，Issue #23 评论 6881939525）：approval_id、fingerprint、action、extraction_status=partial、field_states、structured_fields、snapshot.body_text 原文、buttons、status 均已写入。路径走桥 API（GET 返回 JSON），DOM 选择器不适用，验收 1 的"选择器"由 API 字段清单替代。 |
 | §3.4 五项范围检查（R18 平移） | 保留（改途） | 作为点批前的决策检查，(a)/(b) 都用得上；落点从桥代码改到点批主体（节点或总控）。 |
 | §3.5 批后核对、一次一卡、防重放、超时 | 保留 | 探针③示范了核对做法（blob 回读）；一次一卡与防重放仍是点批时的必要约束。 |
 | §2.4 协调捕获方案（effect-dom-capture-001） | 改途 | 不再为桥代码写字段映射；改为为 (b) 确认评论卡的按钮文案与字段（若走 (b) 且要批评论卡）。本回合仍不触发（未批 (b)，不制造新卡）。 |
@@ -96,6 +115,21 @@
 
 **本回合新审批卡：0 张。** 只读文件（RULINGS 第五节、4601058 稿）＋ shell git push；未点任何卡、未碰凭据、未改 RULES/RULINGS、未改任务书。
 
+## 6. 扩展后总控仍批不了的卡种（残留缺口）
+
+> 不回避：以下卡种即使走 director_override 路径，总控仍批不了（或必须拒绝）。每条标注是"实测"（有直接证据）还是"推断"（由规则／机制推出，未直接实测）。
+
+| # | 批不了的卡 | 原因 | 实测／推断 |
+|---|---|---|---|
+| 1 | add_issue_comment 之外的其他工具层卡（如 shell 执行、其他写操作、浏览器操作、支付／购买类） | 本扩展只开 add_issue_comment 一个口子（R18 流程补 1268ba7：首批只开 add_issue_comment）。其余工具层卡不在 allowlist，director_override 也不覆盖；每新增一种须单独评估字段、范围检查与授权（R17）。 | 推断 |
+| 2 | extraction 完全失败、拿不到 snapshot 的卡 | 批卡须凭 fingerprint（由 snapshot 算出）核对；extraction 完全失败即无 snapshot、无 fingerprint 可核，无法确认卡片身份与内容，只能拒绝（fail closed）。 | 推断 |
+| 3 | 内容截断、无法完整核验的推送卡 | R18 要求变更集完整可识别；只显示通用 `git push`、无可识别变更集的卡必须拒绝。驱动 dumpDom 截断 HTML 至 20000 字符（4601058 §1.2），若截断后变更集无法完整核验，只能拒绝。 | 推断（R18 规则与驱动截断为代码证据；"截断到无法核验"这一具体情形未单独实测） |
+| 4 | 分类失败的卡（UNCLASSIFIED：字段缺失、无法识别卡种） | 4601058 §3.2 兜底：分类失败不进入决策队列，不自动批，等人工处理。 | 推断 |
+| 5 | 不在当前桥接会话里的卡（其他会话／设备上的审批卡） | 桥只读所挂的浏览器会话（8787/8788/8789 各对一个节点）；其他会话的卡桥读不到，无法批。 | 推断 |
+| 6 | 登录失效时的任何卡 | 无会话即无卡可读；先恢复登录（上游 muse_status 判定，见 T-017 §3）。 | 推断 |
+| 7 | 排队超时掉的卡（多卡并发、后到的卡等前卡决出期间超时） | 一次一卡串行；超时按 APPROVAL_EXPIRED 处理（约 270 秒），不自动重试同一动作；回退 R7 总控代发。 | 推断（270 秒超时本身为实测，见 T-020） |
+| 8 | 批后执行失败的卡（获批但评论未落地） | 批卡 ≠ 落地；须批后核对（评论是否出现在目标 Issue）。若获批后未落地，不重复点批，改走 R7 代发／人工处理。 | 推断 |
+
 ## 来源
 
 - 探针记录：`RULINGS/2026-11-15-card-mechanics-field-record.md` 第五节（commit d13d044）
@@ -106,4 +140,4 @@
 
 ---
 
-[node-1] T-021 修订版：按 CDP 探针重写结论——桥侧无解，唯一技术路径是 DOM 级点击，(a) 节点自点撞 R18、(b) 总控 CDP 远程控制需授权＋通路；本回合新审批卡 0 张。
+[node-1] T-021 修订版：桥侧已通，评论卡走 director_override 路径，点卡者仍是总控，符合 R18，不需改规则；本回合新卡 0 张。
