@@ -37,6 +37,7 @@
 > 规则记录：R19 补终局效力（Chen 6ab2798）：Chen 签发、落库、带 SHA 的 RULINGS 对范围解释有终局效力；R7 增 node-3 Issue 评论由总控代发（总控 354197e，含 BOARD 裁决补记）。
 > 规则记录：Chen 2026-11-15 规则重基（32029ff）：R12 改规则权归 Chen（总控只落库附 SHA，不负责同意）、R17 授权来源单线（Chen 直令／节点私聊／总控原样转达均有效，一次授权持续有效；卡是产品行为、不是授权来源）、R19 平台文档与仓库规则按域划界、R20 单一真源（RULES.md＋RULINGS/ 为准，记忆里规则条文改写成指针）；R20 补（a10ce28）：实测事实与义务句分开，实测不改指针；新增 RULINGS 卡机制现场记录（db15d47，node-3 00:16–00:40 实测，经其同意，R17 注脚）。
 > 规则记录：R18 批卡流程补（Chen 2026-11-15 直令）：总控独家批卡，覆盖推送卡与工具层卡（首批只开 add_issue_comment）；批前仍查五项，新增 extraction_status=partial 时必须读 snapshot.body_text 原文再决定；批后记入总控本地 director-decisions.jsonl，批卡不等于验收，批后核对执行结果。
+> 规则记录：R18 通信口径补（Chen 2026-11-15 直令，桥慢根因已修）：readApprovals() 不再进 _serial 队列，可与 chat 并行（总控实测 chat 7422ms、同期读卡 853/835/829ms）；approveCard() 仍在全局队列。三条：控制面走 BOARD/Issue/git 别走 chat；chat 超时 ≠ 失败（先读远端确认、不要直接重发）；批量派活走 BOARD 别用 chat 连发。
 > 规则记录：R6a/R6b 巡逻周期 2026-11-12 改为 180 秒（Chen 批准）；总控侧注册已改，RULES／ONBOARDING／README 已同步，各节点注册由 T-014/015/016 改。
 > 凭据记录：推送 PAT 已于 2026-11-11 轮换，新 PAT 生效；旧 PAT 因在聊天明文出现过，Chen 随后撤销。
 

@@ -205,6 +205,8 @@
 
 批卡流程（2026-11-15，Chen 直令）：总控是唯一批卡方（节点不碰、Chen 不代点）。覆盖推送卡与工具层卡（首批只开 add_issue_comment）。读卡：GET 该节点桥 `/v1/muse/approvals`；批卡：POST `/v1/muse/approvals/{approval_id}/approve`，body 带 fingerprint、director_override=true、director_decision（task_id、node、reasoning、expected）。桥自动补齐 snapshot_sha256、decision_binding、fingerprint（由 expected 算出）；桥仍校验指纹与当前卡一致，extraction 失败或卡片在点击前变化则拒绝，每卡只允许一次尝试。批前仍查上列五项；新增：extraction_status=partial 的卡必须读 snapshot.body_text 原文再决定，不能只看 action；body_text 不可识别、无任务号、与备妥文本不一致的，拒绝。批后记账：每次决定记入总控本地 director-decisions.jsonl（decision_binding、fingerprint、task_id、node、reasoning、decided_at、结果）；批卡不等于交付验收，批后须核对执行结果（评论是否出现在目标 Issue、推送 SHA 是否在远端）。
 
+通信口径（2026-11-15，Chen 直令，桥慢根因已修）：桥本身不慢——简单问答 node-1 3946ms、node-2 4165ms；总控实测 node-1 chat 7422ms、同期读卡 853/835/829ms（3 次均 cards=0），互不阻塞。3 分钟以上是节点当时在干活（工具调用/巡逻），一轮 turn 本来就长。结构缺陷已修：driver 的全局串行队列 _serial 曾让读卡排队（chat 占着队列时读卡 20 秒超时）；现 readApprovals() 不再进 _serial（只读），可与 chat 并行；approveCard() 仍在全局队列（会点击，必须串行）。三条：(1) 控制面别走 chat——派活、问状态、要回执走 BOARD/Issue/git，chat 只在必须对话时用；(2) chat 超时 ≠ 失败——MUSE_SHIM_TIMEOUT_MS=240000，超时只代表没等到回复，超时后先读远端/读 chat 记录确认，不要直接重发（重发会让节点重复执行）；(3) 批量派活走 BOARD，别用 chat 连发——一次 chat 一轮 turn，BOARD 一次写入、节点巡逻一次取走。
+
 ## R19 平台文档与本仓库的关系（2026-11-14 起，2026-11-15 修订）
 
 - 平台文档（连接器包 `CONNECTOR.md`、`references/*.md` 等）约束的是**连接器的使用方式**：怎么连、怎么推、怎么取凭据、用哪条通道。
