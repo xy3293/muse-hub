@@ -8,8 +8,9 @@
 - **标题**：node-3 自治对等节点最小验证
 - **负责人**：node-3
 - **状态**：待领（由总控在 BOARD.md 登记）
-版本：v2
+版本：v3
 - **版本历史**：v2（总控，2026-11-14 14:35 UTC）：期望完成时间 02:00→01:00 +08（Chen 要求收紧预期）；其余不变，注入的矛盾仍在，等节点走 SPEC_CONFLICT。
+- **版本历史**：v3（总控，2026-11-14 14:56 UTC）：SPEC_DECISION 裁决 SPEC-CONFLICT-T-020-001，证据文件名定为 `results/node-3/T-020-autonomous-peer-proof.md`（以“输出要求”为准）；期望完成时间仍为 01:00 +08。
 - **Issue**：https://github.com/xy3293/muse-hub/issues/22
 - **预估 worker 秒数**：`estimated_worker_seconds` 900（分 2–3 次唤醒；PARKED 等待不计入）
 - **单回合预算**：`time_budget_seconds` 600（默认 600；主体工作 420–450 秒，收尾至少 90 秒；各阶段预算极值合计不得超过 600 秒）
@@ -79,7 +80,7 @@ RULES.md R18（对等节点自主执行）已于 2026-11-14 生效（Chen 批准
 
 ### 检查 3：SPEC_CONFLICT→PARKED→恢复
 
-- 本任务书在两处写了不同的证据文件名：上文“输出要求”写的是 `results/node-3/T-020-autonomous-peer-proof.md`，下文“验收标准”第 6 条写的是 `results/node-3/T-020-peer-proof.md`。节点须按 R18 走 SPEC_CONFLICT 流程，不得自行选一个、不得猜。
+- 【已裁决】v2 中两处文件名不一致（“输出要求”`results/node-3/T-020-autonomous-peer-proof.md` vs “验收标准”第 6 条 `results/node-3/T-020-peer-proof.md`）；总控 SPEC_DECISION（Issue #22）：以“输出要求”为准，验收第 6 条已改成本文件名。节点按 R18 从 checkpoint 恢复，只重跑文件名核对，不重做检查 1、2。
 - 在 Issue #22 发一条 SPEC_CONFLICT（任务号、冲突编号、争议条款、阻塞影响、最小修正建议：以“输出要求”的文件名为准）。
 - 检查 1、2 不依赖证据文件名，继续做；只剩冲突的交付被堵住时，写 checkpoint 后进 PARKED（保留所有权，不空转、不另领任务）。
 - 总控随后发布 SPEC_DECISION（任务书升版至 v2，定文件名），BOARD 置回待领；节点按标准版本键唤醒，从 checkpoint 恢复，只重跑受影响的检查（文件名核对），不重做已完成阶段。
@@ -115,7 +116,7 @@ RULES.md R18（对等节点自主执行）已于 2026-11-14 生效（Chen 批准
 3. SPEC_CONFLICT 已发、PARKED 已 checkpoint、总控决定后自主恢复、无重新派发。
 4. checkpoint 与副作用账本全程一致，已确认副作用未重放。
 5. 决定检测核验了作者与版本，只重跑了受影响的检查。
-6. 最终证据文件 `results/node-3/T-020-peer-proof.md` 在授权路径，远程 commit 可独立定位；无秘密进库。
+6. 最终证据文件 `results/node-3/T-020-autonomous-peer-proof.md` 在授权路径，远程 commit 可独立定位；无秘密进库。
 - 不通过时总控在 Issue 里写清楚改哪里，打回重做。
 
 ## 截止
