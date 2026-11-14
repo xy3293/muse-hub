@@ -46,6 +46,7 @@
 
 - 每 60 秒一次（当前为 60 秒；改动时总控同步改本行）。
 - 扫两样：scan_cursor..HEAD 之间的全部提交（逐提交取文件列表，results/node-X/T-xxx 建 result_revision 事件）；全库 Issue 评论（按 updated_at 增量）。
+- `alerts/ALERT-*` 与 `alerts/RECOVER-*` 为 Chen 侧看门狗自动提交，属事件源，不计入节点交付、不要求 ACK、不做验收；只在日报里列一行。
 - 带任务编号 + 节点号的评论挂到对应事件，挂不上的建 issue_signal 事件。
 - 未确认事件最多重唤 12 次（当前为 12 次），之后转入待人工处理状态（代码当前记为 NEEDS_ATTENTION），总控须在 48 小时内归类；48 小时未归类进日报超时清单，超过 7 天升级给 Chen。NEEDS_ATTENTION 不是终结状态。48 小时归类与 7 天升级两级机制尚未在代码中实现，列为后续批次。
 - 总控 Hook 不读 BOARD 做触发，BOARD 只是验收后更新的状态表。
