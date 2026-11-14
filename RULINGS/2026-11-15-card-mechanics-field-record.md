@@ -42,3 +42,21 @@
    - (b) 总控通过浏览器远程控制节点会话（每个节点开本地调试端口，CDP 接入，按按钮文案点击）—— 技术上已验证可行（本次探针就是这么做的），但需要每个节点开调试端口，且要解决"总控如何连到节点所在机器"。
 5. **结论口径**：T-021 的交付不应写成"改桥代码补一个审批接口"，应写成上面 (a)/(b) 两条路径 + 各自与 R18 的冲突点。桥侧无解，不是工作量问题。
 
+## 六、更正：桥端本地接口存在，点卡通路已打通（2026-11-15 02:00，Chen 侧实测）
+
+第五节第 2 条的"没有可 hook 的服务端接口"只对 **Muse 产品侧**成立；**陈的 PC 上自建的三台 POC 桥有本地审批接口**，两条被混为一谈。更正如下。
+
+1. **三台桥，三个号**（都是既有 POC，非本轮新建）：
+   | 号 | API 基址 | 驱动的 Chrome | 端口限制 |
+   |---|---|---|---|
+   | node-3 | `http://100.118.194.61:8787/v1` | 9222 | Tailscale ACL：仅 muse 100.111.36.21 可连，无 API key |
+   | node-1 | `http://100.118.194.61:8788/v1` | 9223 | 同上 |
+   | node-2 | `http://100.118.194.61:8789/v1` | 9224 | 同上 |
+
+2. **接口**：`GET {base}/muse/approvals` 读卡；`POST {base}/muse/approvals/{approval_id}/approve` 批卡。
+3. **评论卡此前为什么"看不见/批不了"**：卡能读到（`action="Post a GitHub issue comment"`），但缺 `parameters` / `effects` / `permissions` / `creation_scope` 这些 push 卡专有字段 → `extraction_status="partial"` → 批准被 `incomplete approval read` 拒绝。不是接口不存在。
+4. **改动**：在三台桥的 shim 里加 5 行——`director_override:true` 时由桥自动补 `snapshot_sha256` / `decision_binding` / `fingerprint`（由调用方的 `expected` 算出）。原有校验一条不减：指纹须与当前卡一致、卡片变化即拒、每卡仅一次尝试（`wx` 独占 audit 文件）、extraction 失败即拒。备份：各 POC 的 `Bridge/muse-openai-shim.mjs.director-binding-backup`。
+5. **实测证据**：node-2 发评论 → 桥读到 `cards=1 status=partial` → 以 `director_override` 调 approve → `{"ok":true,"status":"approved"}` → Issue #23 真实出现 comment `6881839124`（探针用，已交总控删除）。
+6. **结论**：点卡者仍是总控（R18 不变），节点不触碰点击，桥只做人与产品界面之间的机械执行；`partial` 卡要求总控先读 `snapshot.body_text` 再决定。T-021 相应结论第三次改写（node-1 `e2964ab`）。
+
+
