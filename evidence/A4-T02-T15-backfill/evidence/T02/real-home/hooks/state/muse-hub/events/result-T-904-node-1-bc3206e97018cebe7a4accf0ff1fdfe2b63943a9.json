@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "event_id": "result:T-904:node-1:bc3206e97018cebe7a4accf0ff1fdfe2b63943a9",
+  "kind": "result_revision",
+  "task_id": "T-904",
+  "node_id": "node-1",
+  "source_commit_sha": "bc3206e97018cebe7a4accf0ff1fdfe2b63943a9",
+  "source_paths": [
+    "results/node-1/T-904-step6b.md"
+  ],
+  "state": "ACKED",
+  "review": null,
+  "delivery": {
+    "status": "NOT_SENT",
+    "attempt_count": 0,
+    "accepted_at": null
+  },
+  "approval": {
+    "status": "NONE",
+    "operation_id": null
+  },
+  "main_ack": {
+    "acked": true,
+    "ack_commit_sha": "12cb98b7079763700557be79ee98652a900eb515",
+    "ack_method": "muse-ack-commit",
+    "verdict": "PASS"
+  },
+  "retry": {
+    "attempt_count": 1,
+    "wakes": 1,
+    "last_wake_at": "2026-11-10T08:20:22Z",
+    "next_attempt_at": null
+  },
+  "signals": [],
+  "timestamps": {
+    "detected_at": "2026-11-10T08:20:22Z",
+    "review_started_at": null,
+    "receipt_saved_at": null,
+    "main_acked_at": "2026-11-10T08:29:50Z"
+  },
+  "last_error": null
+}

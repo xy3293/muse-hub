@@ -1,0 +1,10 @@
+{
+  "original_files_unchanged": 23,
+  "case_seed_files_byte_mtime_preserved": 4,
+  "local_commits": 3,
+  "local_repo_remotes": 0,
+  "poll_invocations": 2,
+  "loopback_GET_requests": 6,
+  "remote_mutations": 0,
+  "verification": "PASS"
+}

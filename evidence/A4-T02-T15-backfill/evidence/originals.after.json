@@ -1,0 +1,117 @@
+{
+  "ack/step6-before/save-receipt.sh": {
+    "bytes": 2173,
+    "sha256": "25882d1bd617f4585e4e4724eea9a3e97aa6e0d002beab41530af6d9a4210308",
+    "mtime_ns": 1794256251661187884
+  },
+  "ack/step6b-real.py": {
+    "bytes": 6068,
+    "sha256": "115db118dd5bd814bd11f091d9934884386941d0804cb1f04920cad50459540b",
+    "mtime_ns": 1794297480728516266
+  },
+  "ack/step6b-resume.py": {
+    "bytes": 3275,
+    "sha256": "ec62d563ab85f6827f3a15dcbbac3cd7cccddfc1d0a4465043fc663f3b892816",
+    "mtime_ns": 1794298542186557462
+  },
+  "ack/stub_server.py": {
+    "bytes": 2837,
+    "sha256": "6dc8c22ea50c4574fcf56bc9e997b2317ee88b4c15335cc0226603a4e54f5551",
+    "mtime_ns": 1794258826282776339
+  },
+  "ack/worker_sim.py": {
+    "bytes": 6377,
+    "sha256": "3a847e494b014f9828fe9599f9d32f8ad6bbed8adb3c73304b5a0668b8ad5225",
+    "mtime_ns": 1794258246378837079
+  },
+  "real-home/.local/state/gh/device-id": {
+    "bytes": 36,
+    "sha256": "89a4bb226fab0d8c4f9bd0214806ed1f40e12c0c0a36b894b6f7212c4b97670b",
+    "mtime_ns": 1794299197822582907
+  },
+  "real-home/hooks/state/muse-hub/.lock": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mtime_ns": 1794299390294590377
+  },
+  "real-home/hooks/state/muse-hub/events/result-T-900-node-1-7b84059db2379ad1ba093b82c47dd4db43f0e9a5.json": {
+    "bytes": 740,
+    "sha256": "339738feeb4cc1ce23844d0c73e6587b65c5c3014953092ffbb07196755656e9",
+    "mtime_ns": 1794298641037354796
+  },
+  "real-home/hooks/state/muse-hub/events/result-T-900-node-1-d62c24d7adf40c99d9fbdb1beca07c356e5874c1.json": {
+    "bytes": 740,
+    "sha256": "77815138f13a7c596d5ae9b248478b8ca5bd20f2001aec0b7692e77e11e4528c",
+    "mtime_ns": 1794298606351559952
+  },
+  "real-home/hooks/state/muse-hub/events/result-T-901-node-1-1b2cf75aeeb92f0b60349c24cb1a01a516641cc4.json": {
+    "bytes": 740,
+    "sha256": "107ed7257b643549d3e2ac28ec8df4e001e610f8ad82a2b33608b21c176e37d3",
+    "mtime_ns": 1794298606371559953
+  },
+  "real-home/hooks/state/muse-hub/events/result-T-902-node-1-01873dc5d12224ad80559203942e274a813a4d43.json": {
+    "bytes": 740,
+    "sha256": "d2be944271aee20d7368f27bc79e0b3791adc03d8661f5bf08706a213902157e",
+    "mtime_ns": 1794298606331398930
+  },
+  "real-home/hooks/state/muse-hub/events/result-T-903-node-1-94f03f6465070dfbfa71e9da989953eb525d666e.json": {
+    "bytes": 1138,
+    "sha256": "cb56ca996a21a755f5c8364b2a282c765dd6a6ae1860d6c33472ae39d7d42240",
+    "mtime_ns": 1794298753790363767
+  },
+  "real-home/hooks/state/muse-hub/events/result-T-904-node-1-bc3206e97018cebe7a4accf0ff1fdfe2b63943a9.json": {
+    "bytes": 1012,
+    "sha256": "8a13bed0bf352582d40f7b66fbc0f88d14190ac424d7d78bb71785e42ccbdf0f",
+    "mtime_ns": 1794299390955262153
+  },
+  "real-home/hooks/state/muse-hub/health.json": {
+    "bytes": 231,
+    "sha256": "97a85722775db32363378cc652c6947e83186c5a3d2597d1868578c54be879c3",
+    "mtime_ns": 1794299391101590408
+  },
+  "real-home/hooks/state/muse-hub/receipts/result-T-904-node-1-bc3206e97018cebe7a4accf0ff1fdfe2b63943a9.json": {
+    "bytes": 998,
+    "sha256": "9f4d2d76a75b6ed96e50bb9f6ca12910eed93dc652d0dde790124ae44b8f8a2c",
+    "mtime_ns": 1794299214780583565
+  },
+  "real-home/hooks/state/muse-hub/scan.json": {
+    "bytes": 290,
+    "sha256": "9a31ee4a9ee0bfb1a46ecee1e51be08fafed91433250052537499aa3b910b924",
+    "mtime_ns": 1794299391103590409
+  },
+  "test-repo/BOARD.md": {
+    "bytes": 354,
+    "sha256": "16885741d5ed965940da6a0770444645a8405596a94cc1bca0b4f5bbd389c75f",
+    "mtime_ns": 1794299298749586824
+  },
+  "test-repo/README.md": {
+    "bytes": 75,
+    "sha256": "5e06c3eab87a19cb35ec094b3f6ab1c05456d1569fe23e8a413792ba765492c4",
+    "mtime_ns": 1794288740915564810
+  },
+  "test-repo/results/node-1/T-900-step6b.md": {
+    "bytes": 177,
+    "sha256": "f39a122082175242861d2ae581b6d76100bb3ba702a5eb6cea10f36385829157",
+    "mtime_ns": 1794298618966871652
+  },
+  "test-repo/results/node-1/T-901-step6b.md": {
+    "bytes": 177,
+    "sha256": "98242f34d12dbc9e10132a24dd0db9d0dd349e7cce8d73bc38370f0bc1069277",
+    "mtime_ns": 1794288740916037890
+  },
+  "test-repo/results/node-1/T-902-step6b.md": {
+    "bytes": 177,
+    "sha256": "da8595e6630b2292db3b7bbee797695101e3081f0a496778b6835d1a2cfd20a0",
+    "mtime_ns": 1794288740916200224
+  },
+  "test-repo/results/node-1/T-903-step6b.md": {
+    "bytes": 177,
+    "sha256": "2494c0fa3e33282069e99a32e4424e36dbe1178a8b87d3ea50b98c205a0c8501",
+    "mtime_ns": 1794288740916424661
+  },
+  "test-repo/results/node-1/T-904-step6b.md": {
+    "bytes": 177,
+    "sha256": "16868e71a45115511c5c023fcc5b0e55889ed47211aa3280cd44e7132e90ddeb",
+    "mtime_ns": 1794288740916667685
+  }
+}

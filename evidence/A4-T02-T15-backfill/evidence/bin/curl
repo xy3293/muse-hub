@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+[[ "$GITHUB_API_BASE" == http://127.0.0.1:* ]]
+for arg in "$@"; do
+  case "$arg" in http://*|https://*) [[ "$arg" == "$GITHUB_API_BASE/"* ]] ;; esac
+done
+[[ "${!#}" == "$GITHUB_API_BASE/"* ]]
+exec /usr/bin/curl --disable --noproxy '*' "$@"

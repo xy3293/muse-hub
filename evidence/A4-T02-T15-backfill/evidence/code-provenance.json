@@ -1,0 +1,16 @@
+{
+  "damaged_copy": "/home/hatch/workspace/muse-hub-tests/ack/run.wDtnvV/fault-T19/hooks/scripts/director-watch-poll.sh",
+  "removed_suffix": "\nif then\n",
+  "poll": {
+    "bytes": 25987,
+    "sha256": "1e564c9826b55ed93671e75dc80da4f997bb1ce8e86011e82532c5cbe6b275a0",
+    "mtime_ns": 1794781743346369822
+  },
+  "historical_poll_sha256": "1e564c9826b55ed93671e75dc80da4f997bb1ce8e86011e82532c5cbe6b275a0",
+  "helper": "/home/hatch/workspace/muse-hub-tests/ack/step6-before/save-receipt.sh",
+  "helper_metadata": {
+    "bytes": 2173,
+    "sha256": "25882d1bd617f4585e4e4724eea9a3e97aa6e0d002beab41530af6d9a4210308",
+    "mtime_ns": 1794256251661187884
+  }
+}

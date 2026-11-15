@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "/bin/bash",
+    "/home/hatch/workspace/muse-hub-tests/ack/A4-T02-T15/director-watch-poll.step6b.sh"
+  ],
+  "cwd": "/home/hatch/workspace/muse-hub-tests",
+  "exit": 0
+}

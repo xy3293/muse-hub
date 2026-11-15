@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+[[ "$#" == 3 && "$1" == ls-remote && "$2" == https://github.com/xy3293/muse-hub-test.git && "$3" == HEAD ]]
+printf '%s\tHEAD\n' "$TEST_HEAD_SHA"

@@ -1,0 +1,22 @@
+{
+  "case": "T02",
+  "cursor": "a7c0747538a94d8f51d00057ca0c7dd4e225ce22",
+  "head": "ed683b18b8eed3758f1389a5488c6a7d0218b790",
+  "commits": {
+    "ed683b18b8eed3758f1389a5488c6a7d0218b790": {
+      "sha": "ed683b18b8eed3758f1389a5488c6a7d0218b790",
+      "commit": {
+        "message": "A4 T02 local result revision; no semantic acceptance"
+      },
+      "author": {
+        "login": "xy3293"
+      },
+      "files": [
+        {
+          "filename": "results/node-1/T-904-step6b.md"
+        }
+      ]
+    }
+  },
+  "comments": []
+}

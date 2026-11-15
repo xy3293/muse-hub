@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "/bin/bash",
+    "-n",
+    "/home/hatch/workspace/muse-hub-tests/ack/step6-before/save-receipt.sh"
+  ],
+  "cwd": "/home/hatch/workspace/muse-hub-tests",
+  "exit": 0
+}

@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "/usr/bin/git",
+    "add",
+    "results/node-1/T-904-step6b.md"
+  ],
+  "cwd": "/home/hatch/workspace/muse-hub-tests/ack/A4-T02-T15/test-repo",
+  "exit": 0
+}

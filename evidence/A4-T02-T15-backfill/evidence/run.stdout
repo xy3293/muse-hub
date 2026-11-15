@@ -1,0 +1,5 @@
+T02: exit=0
+RESULT {"decision":"wake","reason":"muse-hub-activity","payload":{"events":[{"event_id":"result:T-904:node-1:ed683b18b8eed3758f1389a5488c6a7d0218b790","kind":"result_revision","task_id":"T-904","node_id":"node-1","source_commit_sha":"ed683b18b8eed3758f1389a5488c6a7d0218b790","is_reminder":false,"is_transition":false}],"needs_attention":[],"head":"ed683b18b8eed3758f1389a5488c6a7d0218b790","unacked_count":1,"needs_attention_count":0}}
+T15: exit=0
+RESULT {"decision":"silent","reason":"no-change","payload":{"head":"880a52bd0390c1081c718bfa4f00e11e4bc60b61","unacked_count":0,"needs_attention_count":0,"comments_total":0}}
+PASS local T02; PASS local T15 ACKED; NOT TESTED REJECTED/SUPERSEDED and live new-commit scenarios.

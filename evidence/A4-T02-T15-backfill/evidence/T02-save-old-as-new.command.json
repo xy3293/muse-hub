@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/bin/bash",
+    "/home/hatch/workspace/muse-hub-tests/ack/step6-before/save-receipt.sh",
+    "result:T-904:node-1:ed683b18b8eed3758f1389a5488c6a7d0218b790",
+    "/home/hatch/workspace/muse-hub-tests/real-home/hooks/state/muse-hub/receipts/result-T-904-node-1-bc3206e97018cebe7a4accf0ff1fdfe2b63943a9.json"
+  ],
+  "cwd": "/home/hatch/workspace/muse-hub-tests",
+  "exit": 1
+}

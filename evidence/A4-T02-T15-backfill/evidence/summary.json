@@ -1,0 +1,68 @@
+{
+  "scope": "local loopback replay, genuine saved Test 7 event/receipt, exact Step 6b poll",
+  "production_reads": 0,
+  "remote_writes": 0,
+  "cases": {
+    "T02": {
+      "local_status": "PASS",
+      "source_event_id": "result:T-904:node-1:bc3206e97018cebe7a4accf0ff1fdfe2b63943a9",
+      "new_event_id": "result:T-904:node-1:ed683b18b8eed3758f1389a5488c6a7d0218b790",
+      "old_receipt_valid_for_old": true,
+      "old_receipt_valid_for_new": false,
+      "helper_old_exit": 0,
+      "helper_new_exit": 1,
+      "new_receipt_exists": false,
+      "old_event_bytes_mtime_preserved": true,
+      "old_receipt_bytes_mtime_preserved": true,
+      "event_count": 2,
+      "receipt_count": 1,
+      "result": {
+        "decision": "wake",
+        "reason": "muse-hub-activity",
+        "payload": {
+          "events": [
+            {
+              "event_id": "result:T-904:node-1:ed683b18b8eed3758f1389a5488c6a7d0218b790",
+              "kind": "result_revision",
+              "task_id": "T-904",
+              "node_id": "node-1",
+              "source_commit_sha": "ed683b18b8eed3758f1389a5488c6a7d0218b790",
+              "is_reminder": false,
+              "is_transition": false
+            }
+          ],
+          "needs_attention": [],
+          "head": "ed683b18b8eed3758f1389a5488c6a7d0218b790",
+          "unacked_count": 1,
+          "needs_attention_count": 0
+        }
+      },
+      "real_remote_new_version_status": "NOT TESTED"
+    },
+    "T15": {
+      "ACKED_local_status": "PASS",
+      "REJECTED_real_status": "NOT TESTED",
+      "SUPERSEDED_real_status": "NOT TESTED",
+      "all_terminal_states_status": "NOT TESTED",
+      "real_remote_unrelated_commit_status": "NOT TESTED",
+      "director_login_is_fixture": true,
+      "terminal_event_bytes_mtime_preserved": true,
+      "receipt_bytes_mtime_preserved": true,
+      "result": {
+        "decision": "silent",
+        "reason": "no-change",
+        "payload": {
+          "head": "880a52bd0390c1081c718bfa4f00e11e4bc60b61",
+          "unacked_count": 0,
+          "needs_attention_count": 0,
+          "comments_total": 0
+        }
+      }
+    }
+  },
+  "loopback_requests": {
+    "T02": 3,
+    "T15": 3
+  },
+  "originals_unchanged": true
+}

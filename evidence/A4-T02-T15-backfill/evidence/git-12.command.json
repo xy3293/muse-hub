@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "/usr/bin/git",
+    "diff-tree",
+    "--no-commit-id",
+    "--name-only",
+    "-r",
+    "HEAD"
+  ],
+  "cwd": "/home/hatch/workspace/muse-hub-tests/ack/A4-T02-T15/test-repo",
+  "exit": 0
+}

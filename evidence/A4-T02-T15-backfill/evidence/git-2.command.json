@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/usr/bin/git",
+    "commit",
+    "-m",
+    "A4 local baseline from existing test-repo snapshot"
+  ],
+  "cwd": "/home/hatch/workspace/muse-hub-tests/ack/A4-T02-T15/test-repo",
+  "exit": 0
+}
