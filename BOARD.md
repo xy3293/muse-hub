@@ -34,6 +34,7 @@
 | T-025 | 代码派活前提核查（node-1） | node-1 | 完成 | tasks/T-025-code-prereq-node1.md | [#28](https://github.com/xy3293/muse-hub/issues/28) |
 | T-026 | 代码派活前提核查（node-2，主测） | node-2 | 待领 | tasks/T-026-code-prereq-node2.md | [#29](https://github.com/xy3293/muse-hub/issues/29) |
 | T-029 | 升级巡逻脚本到 2026-11-15.1（node-3 试点） | node-3 | 完成 | tasks/T-029-patrol-update-node3.md | [#30](https://github.com/xy3293/muse-hub/issues/30) |
+| T-030 | 修 node-3 克隆凭据 helper（store 旧凭据失效，改走 gh） | node-3 | 待领 | tasks/T-030-fix-node3-credentials.md | [#31](https://github.com/xy3293/muse-hub/issues/31) |
 
 > 试行记录：Pachat × GitHub 规程 1.1 立即执行版已于 2026-11-12 发布（Chen 批准），替代 1.0 新增通信流程；一周仅作后续观察，不作为开工或继续实现的门槛。登记见 Issue #13。GitHub 仍是唯一任务状态权威；v2 软件上线与通信观察分别记录。
 
