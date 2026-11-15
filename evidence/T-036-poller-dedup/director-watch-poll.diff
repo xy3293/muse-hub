@@ -1,0 +1,38 @@
+--- /home/hatch/workspace/muse-hub-tests/T-036/director-watch-poll.before.sh
++++ /home/hatch/hooks/scripts/director-watch-poll.sh
+@@ -551,8 +551,9 @@
+       if [[ ! -f "$event_file" ]]; then
+         event_json="$(jq -cn --arg eid "$event_id" --arg h "$msg_hash" --arg snip "$msg_snip" --arg now "$NOW_ISO" '{schema_version: 1, event_id: $eid, kind: "node3_message", task_id: null, node_id: "node-3", source_commit_sha: null, source_paths: [], state: "DETECTED", severity: "info", review: null, delivery: {status: "NOT_SENT", attempt_count: 0, accepted_at: null}, approval: {status: "NONE", operation_id: null}, main_ack: {acked: false, ack_commit_sha: null, ack_method: null}, retry: {attempt_count: 1, wakes: 1, last_wake_at: $now, next_attempt_at: null}, signals: [], timestamps: {detected_at: $now, review_started_at: null, receipt_saved_at: null, main_acked_at: null}, last_error: null, node3_message: {hash: $h, snippet: $snip}}')"
+         atomic_write "$event_file" "$event_json"
+-      fi
+-      add_wake "$(jq -cn --arg eid "$event_id" '{event_id: $eid, kind: "node3_message", task_id: null, node_id: "node-3", source_commit_sha: null, is_reminder: false, is_transition: false}')"
++        # T-036: 事件文件在 hash 淘汰后仍用于去重；到期提醒由重试扫描处理。
++        add_wake "$(jq -cn --arg eid "$event_id" '{event_id: $eid, kind: "node3_message", task_id: null, node_id: "node-3", source_commit_sha: null, is_reminder: false, is_transition: false}')"
++      fi
+       node3_watch_updated="$(printf '%s' "$node3_watch_updated" | jq -c --arg h "$msg_hash" '.seen_msg_hashes = ((.seen_msg_hashes + [$h]) | unique | .[-50:])')"
+     done < <(jq -c '.messages[]' "$WORKDIR/node3-chat.json" 2>/dev/null)
+   else
+@@ -633,8 +634,9 @@
+       if [[ ! -f "$event_file" ]]; then
+         event_json="$(jq -cn --arg eid "$event_id" --arg h "$msg_hash" --arg snip "$msg_snip" --arg now "$NOW_ISO" '{schema_version: 1, event_id: $eid, kind: "node1_message", task_id: null, node_id: "node-1", source_commit_sha: null, source_paths: [], state: "DETECTED", severity: "info", review: null, delivery: {status: "NOT_SENT", attempt_count: 0, accepted_at: null}, approval: {status: "NONE", operation_id: null}, main_ack: {acked: false, ack_commit_sha: null, ack_method: null}, retry: {attempt_count: 1, wakes: 1, last_wake_at: $now, next_attempt_at: null}, signals: [], timestamps: {detected_at: $now, review_started_at: null, receipt_saved_at: null, main_acked_at: null}, last_error: null, node1_message: {hash: $h, snippet: $snip}}')"
+         atomic_write "$event_file" "$event_json"
+-      fi
+-      add_wake "$(jq -cn --arg eid "$event_id" '{event_id: $eid, kind: "node1_message", task_id: null, node_id: "node-1", source_commit_sha: null, is_reminder: false, is_transition: false}')"
++        # T-036: 事件文件在 hash 淘汰后仍用于去重；到期提醒由重试扫描处理。
++        add_wake "$(jq -cn --arg eid "$event_id" '{event_id: $eid, kind: "node1_message", task_id: null, node_id: "node-1", source_commit_sha: null, is_reminder: false, is_transition: false}')"
++      fi
+       node1_watch_updated="$(printf '%s' "$node1_watch_updated" | jq -c --arg h "$msg_hash" '.seen_msg_hashes = ((.seen_msg_hashes + [$h]) | unique | .[-50:])')"
+     done < <(jq -c '.messages[]' "$WORKDIR/node1-chat.json" 2>/dev/null)
+   else
+@@ -715,8 +717,9 @@
+       if [[ ! -f "$event_file" ]]; then
+         event_json="$(jq -cn --arg eid "$event_id" --arg h "$msg_hash" --arg snip "$msg_snip" --arg now "$NOW_ISO" '{schema_version: 1, event_id: $eid, kind: "node2_message", task_id: null, node_id: "node-2", source_commit_sha: null, source_paths: [], state: "DETECTED", severity: "info", review: null, delivery: {status: "NOT_SENT", attempt_count: 0, accepted_at: null}, approval: {status: "NONE", operation_id: null}, main_ack: {acked: false, ack_commit_sha: null, ack_method: null}, retry: {attempt_count: 1, wakes: 1, last_wake_at: $now, next_attempt_at: null}, signals: [], timestamps: {detected_at: $now, review_started_at: null, receipt_saved_at: null, main_acked_at: null}, last_error: null, node2_message: {hash: $h, snippet: $snip}}')"
+         atomic_write "$event_file" "$event_json"
+-      fi
+-      add_wake "$(jq -cn --arg eid "$event_id" '{event_id: $eid, kind: "node2_message", task_id: null, node_id: "node-2", source_commit_sha: null, is_reminder: false, is_transition: false}')"
++        # T-036: 事件文件在 hash 淘汰后仍用于去重；到期提醒由重试扫描处理。
++        add_wake "$(jq -cn --arg eid "$event_id" '{event_id: $eid, kind: "node2_message", task_id: null, node_id: "node-2", source_commit_sha: null, is_reminder: false, is_transition: false}')"
++      fi
+       node2_watch_updated="$(printf '%s' "$node2_watch_updated" | jq -c --arg h "$msg_hash" '.seen_msg_hashes = ((.seen_msg_hashes + [$h]) | unique | .[-50:])')"
+     done < <(jq -c '.messages[]' "$WORKDIR/node2-chat.json" 2>/dev/null)
+   else
