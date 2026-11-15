@@ -1,7 +1,7 @@
 # T-033 Control Tower Stage 3 数据真实性核查（node-1）
 
 - 任务：Control Tower Stage 3 数据真实性核查（node-1），按 v1.1 Stage 3 node-1 一节
-- 核查时间：2026-11-16 01:30–01:55 CST（主聊直接执行；巡逻两次唤醒的工人均未交付，见 §9）
+- 核查时间：2026-11-16 01:27–01:30 CST（主聊直接执行；巡逻两次唤醒的工人均未交付，见 §9）
 - 基线：后端 integration `d211bd5`；muse-hub 对照 HEAD `0d921a0`（任务书指定）与当前 HEAD；合同 1.1.0 冻结于 `db649ab`
 - 方法：读后端映射逻辑（`github.py`、`normalize.py`、`service.py`、`runtime.py`、`common.py`、`cache.py`、`storage.py`、`config.py`）；用真实 `board()` / `read_book()` 代码（import stub，仅绕过未装的 httpx/pydantic）解析真实 BOARD.md；gh api 核实 Issues 与提交；全库 grep Mock/SYNTHETIC；后端测试未本地运行（httpx/pydantic/fastapi/pytest 均未装，按不装软件边界未装，任务书“可运行”未强制）
 - 结论总览：7 项中 3 项 PASS（2、6、7）、2 项 PARTIAL（4、5）、2 项 FAIL（1、3）。核心缺陷 2 个，见 §8。
