@@ -16,14 +16,16 @@
 set -euo pipefail
 export LC_ALL=C.UTF-8
 START_SECONDS=$SECONDS
-PATROL_VERSION="2026-11-11.3"
+PATROL_VERSION="2026-11-15.1"
 source "$HATCH_HOOK_RUNTIME"
 
 REPO="xy3293/muse-hub"
 BRANCH="main"
+STUCK_REWAKE_SECONDS=900
 NODE_FILE="${NODE_FILE:-$HOME/.config/muse-hub/node-id}"
 STATE_DIR="$HOME/hooks/state"
 SEEN_FILE="$STATE_DIR/muse-hub-seen-tasks"
+SEEN_TS_FILE="$STATE_DIR/muse-hub-seen-tasks-ts"
 MIGRATION_FAILURES_FILE="$STATE_DIR/muse-hub-migration-failures"
 HEAD_FILE="$STATE_DIR/muse-hub-last-head"
 DRY_RUN="${HATCH_HOOK_DRY_RUN:-0}"
@@ -37,6 +39,7 @@ if [[ -z "$node_id" ]]; then
   silent "node-id-not-configured" "{\"patrol_version\":\"$PATROL_VERSION\",\"legacy\":false,\"hint\":\"write node-1, node-2 or node-3 into ~/.config/muse-hub/node-id\"}"
   exit 0
 fi
+if [[ "$DRY_RUN" != "1" ]]; then
 mkdir -p "$STATE_DIR"
 
 # 非阻塞锁覆盖迁移、replay 和全部状态交接；退出时由内核释放。
@@ -65,6 +68,7 @@ if ! flock -n "$lock_fd"; then
 fi
 
 touch "$LOCK_FILE"
+fi
 
 write_migration_counter() {
   if ! printf '%s\n' "$1" > "$MIGRATION_FAILURES_FILE"; then
@@ -117,6 +121,18 @@ if [[ "$DRY_RUN" != "1" && -f "$SEEN_FILE" ]] && grep -qv '@' "$SEEN_FILE"; then
     exit 0
   fi
   write_migration_counter 0
+fi
+
+now="$(date +%s)"
+if [[ "$DRY_RUN" != "1" ]]; then
+  touch "$SEEN_TS_FILE"
+  if [[ -f "$SEEN_FILE" ]]; then
+    while IFS= read -r seen_key; do
+      if ! grep -q "^$seen_key " "$SEEN_TS_FILE"; then
+        printf '%s %s\n' "$seen_key" "$now" >> "$SEEN_TS_FILE"
+      fi
+    done < "$SEEN_FILE"
+  fi
 fi
 
 # 失败诊断只记录指定元数据，不记录 body、正文或其它响应头。
@@ -222,7 +238,12 @@ if [[ -z "$head_sha" ]]; then
   silent "ls-remote-failed" "{\"patrol_version\":\"$PATROL_VERSION\"}"
   exit 0
 fi
-if [[ -f "$HEAD_FILE" && "$(cat "$HEAD_FILE")" == "$head_sha" ]]; then
+stuck_tasks=false
+if [[ -f "$SEEN_TS_FILE" ]] && awk -v now="$now" -v limit="$STUCK_REWAKE_SECONDS" \
+  'now - $2 >= limit { found=1; exit } END { exit !found }' "$SEEN_TS_FILE"; then
+  stuck_tasks=true
+fi
+if [[ "$stuck_tasks" == false && -f "$HEAD_FILE" && "$(cat "$HEAD_FILE")" == "$head_sha" ]]; then
   [[ "$delivered" == false ]] || exit 0
   silent "board-unchanged" "{\"head\":\"$head_sha\",\"patrol_version\":\"$PATROL_VERSION\"}"
   exit 0
@@ -244,6 +265,7 @@ fi
 
 # 每个候选先独立取版本，再用 task_id@vN 去重。
 new_keys=()
+rewake_keys=()
 new_events=()
 new_payloads=()
 retry_tasks=false
@@ -302,11 +324,17 @@ while IFS= read -r line; do
   seen_key="$task_id@$version"
   event_id="$seen_key@$head_sha"
   [[ -z "${replayed_events[$event_id]:-}" ]] || continue
-  if [[ -f "$SEEN_FILE" ]] && grep -Fxq "$seen_key" "$SEEN_FILE"; then
-    continue
-  fi
   # BOARD 若重复列出同一任务，本轮也只生成一个事件。
   [[ " ${new_events[*]} " != *" $event_id "* ]] || continue
+  if [[ -f "$SEEN_FILE" ]] && grep -Fxq "$seen_key" "$SEEN_FILE"; then
+    first_seen="$(awk -v key="$seen_key" '$1 == key { print $2; exit }' "$SEEN_TS_FILE" 2>/dev/null || true)"
+    [[ -n "$first_seen" ]] || continue
+    age_seconds=$((now - first_seen))
+    [[ "$age_seconds" -ge "$STUCK_REWAKE_SECONDS" ]] || continue
+    rewake_keys+=("$seen_key")
+    log "observation" "$(jq -cn --arg task_id "$task_id" --argjson age_seconds "$age_seconds" \
+      '{event:"stuck-task-rewake",task_id:$task_id,age_seconds:$age_seconds}')"
+  fi
   new_keys+=("$seen_key")
   new_events+=("$event_id")
   new_payloads+=("$(jq -cn --arg node "$node_id" --arg event_id "$event_id" \
@@ -339,11 +367,30 @@ if [[ "$DRY_RUN" != "1" ]]; then
     if [[ ! -f "$SEEN_FILE" ]] || ! grep -Fxq "$seen_key" "$SEEN_FILE"; then
       printf '%s\n' "$seen_key" >> "$SEEN_FILE"
     fi
+    if ! grep -q "^$seen_key " "$SEEN_TS_FILE"; then
+      printf '%s %s\n' "$seen_key" "$now" >> "$SEEN_TS_FILE"
+    fi
   done
+  if [[ "${#rewake_keys[@]}" -gt 0 ]]; then
+    timestamp_tmp="$(mktemp "$SEEN_TS_FILE.tmp.XXXXXX")"
+    awk -v now="$now" -v keys=" ${rewake_keys[*]} " \
+      'index(keys, " " $1 " ") { $2=now } { print }' "$SEEN_TS_FILE" > "$timestamp_tmp"
+    mv "$timestamp_tmp" "$SEEN_TS_FILE"
+  fi
   # 读取/版本失败必须让同一 HEAD 下轮重试，不能被快速退出吞掉。
   if [[ "$retry_tasks" == false ]]; then
     printf '%s' "$head_sha" > "$HEAD_FILE"
   fi
+  timestamp_tmp="$(mktemp "$SEEN_TS_FILE.tmp.XXXXXX")"
+  awk -F'|' '
+    FILENAME == ARGV[1] {
+      gsub(/ /,"",$2); gsub(/ /,"",$5)
+      if ($5 == "待领") waiting[$2]=1
+      next
+    }
+    { split($0, entry, " "); split(entry[1], key, "@"); if (key[1] in waiting) print }
+  ' <(printf '%s\n' "$board_text") "$SEEN_TS_FILE" > "$timestamp_tmp"
+  mv "$timestamp_tmp" "$SEEN_TS_FILE"
 fi
 if [[ "${#new_events[@]}" -eq 0 ]]; then
   [[ "$delivered" == false ]] || exit 0
