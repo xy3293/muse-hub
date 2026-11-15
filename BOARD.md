@@ -30,7 +30,7 @@
 | T-022 | Control Tower Stage 1 合同 1.1.0-rc.1 独立审查 | node-3 | 完成 | tasks/T-022-control-tower-rc1-review-node3.md | [#24](https://github.com/xy3293/muse-hub/issues/24) |
 | T-023 | A/B 无人值守实测 tick：node-2 最小常规任务 | node-2 | 完成 | tasks/T-023-ab-tick.md | [#25](https://github.com/xy3293/muse-hub/issues/25) |
 | T-028 | Step 6b 证据脱敏副本独立复核 | node-1 | 完成 | tasks/T-028-step6b-evidence-review-node1.md | [#26](https://github.com/xy3293/muse-hub/issues/26) |
-| T-024 | T-002 文件版本报告补写 | node-3 | 进行中 | tasks/T-024-t002-file-report-node3.md | [#27](https://github.com/xy3293/muse-hub/issues/27) |
+| T-024 | T-002 文件版本报告补写 | node-3 | 完成 | tasks/T-024-t002-file-report-node3.md | [#27](https://github.com/xy3293/muse-hub/issues/27) |
 | T-025 | 代码派活前提核查（node-1） | node-1 | 待领 | tasks/T-025-code-prereq-node1.md | [#28](https://github.com/xy3293/muse-hub/issues/28) |
 | T-026 | 代码派活前提核查（node-2，主测） | node-2 | 待领 | tasks/T-026-code-prereq-node2.md | [#29](https://github.com/xy3293/muse-hub/issues/29) |
 
