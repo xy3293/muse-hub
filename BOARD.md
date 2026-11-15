@@ -38,6 +38,7 @@
 | T-030 | 修 node-3 克隆凭据 helper（前提不成立，已关闭） | node-3 | 完成 | tasks/T-030-fix-node3-credentials.md | [#31](https://github.com/xy3293/muse-hub/issues/31) |
 | T-031 | 升级巡逻脚本到 2026-11-15.1（node-1） | node-1 | 完成 | tasks/T-031-patrol-update-node1.md | [#32](https://github.com/xy3293/muse-hub/issues/32) |
 | T-032 | 升级巡逻脚本到 2026-11-15.1（node-2） | node-2 | 完成 | tasks/T-032-patrol-update-node2.md | [#33](https://github.com/xy3293/muse-hub/issues/33) |
+| T-033 | Control Tower Stage 3 数据真实性核查（node-1） | node-1 | 待领 | tasks/T-033-control-tower-data-node1.md | [#35](https://github.com/xy3293/muse-hub/issues/35) |
 
 > 试行记录：Pachat × GitHub 规程 1.1 立即执行版已于 2026-11-12 发布（Chen 批准），替代 1.0 新增通信流程；一周仅作后续观察，不作为开工或继续实现的门槛。登记见 Issue #13。GitHub 仍是唯一任务状态权威；v2 软件上线与通信观察分别记录。
 
