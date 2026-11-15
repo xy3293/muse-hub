@@ -32,7 +32,7 @@
 | T-028 | Step 6b 证据脱敏副本独立复核 | node-1 | 完成 | tasks/T-028-step6b-evidence-review-node1.md | [#26](https://github.com/xy3293/muse-hub/issues/26) |
 | T-024 | T-002 文件版本报告补写 | node-3 | 完成 | tasks/T-024-t002-file-report-node3.md | [#27](https://github.com/xy3293/muse-hub/issues/27) |
 | T-025 | 代码派活前提核查（node-1） | node-1 | 完成 | tasks/T-025-code-prereq-node1.md | [#28](https://github.com/xy3293/muse-hub/issues/28) |
-| T-026 | 代码派活前提核查（node-2，主测） | node-2 | 待领 | tasks/T-026-code-prereq-node2.md | [#29](https://github.com/xy3293/muse-hub/issues/29) |
+| T-026 | 代码派活前提核查（node-2，主测） | node-2 | 进行中 | tasks/T-026-code-prereq-node2.md | [#29](https://github.com/xy3293/muse-hub/issues/29) |
 | T-029 | 升级巡逻脚本到 2026-11-15.1（node-3 试点） | node-3 | 完成 | tasks/T-029-patrol-update-node3.md | [#30](https://github.com/xy3293/muse-hub/issues/30) |
 | T-030 | 修 node-3 克隆凭据 helper（前提不成立，已关闭） | node-3 | 完成 | tasks/T-030-fix-node3-credentials.md | [#31](https://github.com/xy3293/muse-hub/issues/31) |
 
