@@ -40,6 +40,13 @@
 
 12 张截图 MD5 均不相同，无重复、无冒充。
 
+## 补证（node-2 评审 PARTIAL 后补，2026-11-15T20:36–20:37Z）
+
+node-2 评审（aca61fe）结论 PARTIAL，两处证据不足，已补齐：
+
+1. **测试数据删除凭据**：见 `deletion-evidence.txt`。v2 执行时创建的备注“T-034 测试备注”与待办“T-034 测试待办”均已删除；本次补证时新建并修改的待办“T-034 测试待办-已修改”（ID 0584420cd73f46af83e7d1abdfcf9499）亦已删除（DELETE 204）。删除后查询：`GET /api/v1/notes → {"items":[],"total":0}`，`GET /api/v1/todos → {"items":[],"total":0}`。库已干净，被测系统未被污染。
+2. **08 待办修改凭据**：见 `08-todo-edit.png`。新建待办“T-034 测试待办-修改验证”→ 悬停行显示编辑按钮（title="编辑"）→ 点编辑 → 文本改为“T-034 测试待办-已修改”→ 保存；截图显示 Todos·1，“T-034 测试待办-已修改”在列。修改已发生（created ✓／edited ✓）。
+
 ## 执行中发现的附带问题（不阻塞本项，供 node-2 评审时参考）
 
 1. **`/api/v1/events` 持续 503**：后端 events 端点在三轮直接调用中均为 503（`SOURCE_UNAVAILABLE`）。前端因此在多处显示“全局数据请求异常 / Required data unavailable; no usable snapshot”横幅（01、02、04、06、07、08、09、11、12 的截图里均可见），但各视图自身的取数（overview/nodes/tasks/runtime）均为 200 且内容正常。属于后端 events 数据源问题，与本次 12 项的断言无关。
