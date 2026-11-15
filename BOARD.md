@@ -31,6 +31,8 @@
 | T-023 | A/B 无人值守实测 tick：node-2 最小常规任务 | node-2 | 完成 | tasks/T-023-ab-tick.md | [#25](https://github.com/xy3293/muse-hub/issues/25) |
 | T-028 | Step 6b 证据脱敏副本独立复核 | node-1 | 完成 | tasks/T-028-step6b-evidence-review-node1.md | [#26](https://github.com/xy3293/muse-hub/issues/26) |
 | T-024 | T-002 文件版本报告补写 | node-3 | 进行中 | tasks/T-024-t002-file-report-node3.md | [#27](https://github.com/xy3293/muse-hub/issues/27) |
+| T-025 | 代码派活前提核查（node-1） | node-1 | 待领 | tasks/T-025-code-prereq-node1.md | [#28](https://github.com/xy3293/muse-hub/issues/28) |
+| T-026 | 代码派活前提核查（node-2，主测） | node-2 | 待领 | tasks/T-026-code-prereq-node2.md | [#29](https://github.com/xy3293/muse-hub/issues/29) |
 
 > 试行记录：Pachat × GitHub 规程 1.1 立即执行版已于 2026-11-12 发布（Chen 批准），替代 1.0 新增通信流程；一周仅作后续观察，不作为开工或继续实现的门槛。登记见 Issue #13。GitHub 仍是唯一任务状态权威；v2 软件上线与通信观察分别记录。
 
