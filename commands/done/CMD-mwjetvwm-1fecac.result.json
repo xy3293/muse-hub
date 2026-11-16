@@ -1,0 +1,11 @@
+{
+  "id": "CMD-mwjetvwm-1fecac",
+  "status": "done",
+  "by": "总控",
+  "at": "2026-11-16T15:23:32Z",
+  "detail": "OK。读了 commands/pending/，按 created_at 升序扫，本轮仅 1 条（CMD-mwjetvwm-1fecac，query）。",
+  "artifacts": [
+    "commands/done/CMD-mwjetvwm-1fecac.json",
+    "commands/done/CMD-mwjetvwm-1fecac.result.json"
+  ]
+}
