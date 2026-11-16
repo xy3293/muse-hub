@@ -35,6 +35,7 @@
    - 超过 N 次仍失败的事件进死信（状态 dead），写进死信清单（`~/hooks/state/muse-hub/dead-letter.jsonl`，或 muse-hub `evidence/dead-letter.md`——选其一，任务书里写清选了哪个、为什么）；
    - 死信清单要能在日报里列出来：给日报脚本留一个可读的汇总入口（例如一个 `dead-letter-summary.sh` 或在现有 `bridge-watchdog-summary.sh` 旁加一段），输出"过去 24h 死信数 + event_id 列表"。
 4. 不改现有事件语义：event_id、事件文件格式、MUSE-ACK 流程不动；只加投递保障层。
+   - 实现选用本地 `$MUSE_HUB_STATE_DIR/dead-letter.jsonl`（默认 `~/hooks/state/muse-hub/dead-letter.jsonl`），与投递 journal 同目录、只追加，避免巡逻为记录失败去提交仓库；`dead-letter-summary.sh` 提供日报只读入口，现有 `bridge-watchdog-summary.sh` 引用。
 5. 保住现有备份习惯：改 `director-watch-poll.sh` 前先拷 `.last-good` 备份；`bash -n` 必须过；写完跑一次 `bash -n`。
 
 ## 验收（Codex 自己先跑，Antigravity 复核，总控终验）

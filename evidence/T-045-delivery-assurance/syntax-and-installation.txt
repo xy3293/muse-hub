@@ -1,0 +1,6 @@
+director-watch-poll.sh: syntax PASS; installed bytes MATCH; SHA256 32127479ceec22ae42a3f52cba65adb86e28c1fa4c2ab7215c257ea7e0901505
+director-watch-wrapper.sh: syntax PASS; installed bytes MATCH; SHA256 221358a8111fc6fab9ab07be30ec566e1bc5d1c47110ac4086ebbd52fbe1b71e
+dead-letter-summary.sh: syntax PASS; installed bytes MATCH; SHA256 291ad9109b4b2feb2545831bd21dbe80de67ca3d0051371dae6dc4670ba8de88
+bridge-watchdog-summary.sh: syntax PASS; installed bytes MATCH; SHA256 39641d45cc3b994e1a3dabc482ddc412f72696fa0b6bc59f176b1b7d318084cb
+delivery-assurance.py: syntax PASS; installed bytes MATCH; SHA256 8c063f67440801db3a023d31de13bab8727c7dfae1942537d40422a58831056d
+poll .last-good backup MATCH; SHA256 4cb2ac74a5f6845eff71b408953f27ff7c1afce67e2b7f97c0ba15b5910ad375

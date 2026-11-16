@@ -1,0 +1,44 @@
+--- /home/hatch/hooks/scripts/director-watch-wrapper.sh.last-good-T045	2026-11-09 21:13:25.070776881 +0000
++++ hooks/director-watch-wrapper.sh	2026-11-16 10:53:11.604625481 +0000
+@@ -9,2 +9,5 @@
+-POLL_SCRIPT="$HOME/hooks/scripts/director-watch-poll.sh"
+-STATE_DIR="$HOME/hooks/state/muse-hub"
++SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
++POLL_SCRIPT="$SCRIPT_DIR/director-watch-poll.sh"
++DELIVERY_SCRIPT="$SCRIPT_DIR/delivery-assurance.py"
++STATE_DIR="${MUSE_HUB_STATE_DIR:-$HOME/hooks/state/muse-hub}"
++export MUSE_HUB_STATE_DIR="$STATE_DIR"
+@@ -20,0 +24,15 @@
++# drain: 0=已输出一次 wake，3=暂无到期投递/本轮失败；其余错误不吞掉。
++delivery_drain() {
++  local rc=0
++  python3 "$DELIVERY_SCRIPT" drain || rc=$?
++  if [[ "$rc" -eq 0 ]]; then return 0; fi
++  if [[ "$rc" -eq 3 ]]; then return 1; fi
++  exit "$rc"
++}
++
++delivery_enqueue() {
++  jq -cn --arg reason "$1" --argjson payload "$2" --arg eid "${3:-}" \
++    '{reason: $reason, payload: $payload, event_id: $eid}' \
++    | python3 "$DELIVERY_SCRIPT" enqueue
++}
++
+@@ -74,0 +93 @@
++    if [[ "$DRY_RUN" != "1" ]] && delivery_drain; then exit 0; fi
+@@ -81 +100,4 @@
+-  wake "script-health" "$payload"
++  if [[ "$DRY_RUN" == "1" ]]; then wake "script-health" "$payload"; fi
++  delivery_enqueue "script-health" "$payload" "script-health:$now_epoch_val"
++  if delivery_drain; then exit 0; fi
++  silent "delivery-pending" "$payload"
+@@ -124,3 +146,3 @@
+-  wake "$REASON" "$PAYLOAD"
+-else
+-  silent "$REASON" "$PAYLOAD"
++  if [[ "$DRY_RUN" == "1" ]]; then wake "$REASON" "$PAYLOAD"; fi
++  # poll 已按 event_id/提醒代次入队；幂等检查并补齐 head/count 等上下文。
++  delivery_enqueue "$REASON" "$PAYLOAD"
+@@ -127,0 +150,2 @@
++if [[ "$DRY_RUN" != "1" ]] && delivery_drain; then exit 0; fi
++silent "$REASON" "$PAYLOAD"

@@ -1,0 +1,2 @@
+桥与看门狗(过去24h): alert 0 条, recover 0 条; 最长未恢复 0 分钟; 当前: node-3: ok/已登录, node-1: ok/已登录, node-2: ok/已登录
+唤醒投递(过去24h): 死信 1 条; event_id: issue:43:T045-injected-failure:2026-11-16

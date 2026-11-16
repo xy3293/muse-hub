@@ -1,0 +1,1 @@
+唤醒投递(过去24h): 死信 1 条; event_id: issue:43:T045-injected-failure:2026-11-16

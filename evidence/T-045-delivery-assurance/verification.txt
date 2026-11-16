@@ -1,0 +1,12 @@
+PASS wrapper silent poll: retry 1s/2s, queued→attempting→failed→dead, dead-letter and daily summary
+PASS dead event is terminal and is not requeued
+PASS real runtime exit() captured; delivered duplicate emits no second wake
+PASS concurrent enqueue/drain deduplicated under delivery lock
+PASS existing reminder generations retained without changing event_id
+PASS timeout kills runtime process group; malformed result fails; retries recover
+PASS interrupted attempt recovered on next patrol without resetting attempt budget
+PASS script-health alarm retries through existing health dedupe branch
+PASS dry-run writes nothing; default state path and override; missing state summary read-only
+PASS daily summary filters out expired and future entries without modifying state
+PASS existing bridge-watchdog daily entry includes dead-letter summary
+PASS full offline poll→durable queue→next silent poll/wrapper→single wake; event files unchanged; poll dry-run

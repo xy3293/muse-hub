@@ -1,0 +1,18 @@
+--- /home/hatch/hooks/scripts/director-watch-poll.sh.last-good-T045	2026-11-16 03:22:57.040154542 +0000
++++ hooks/director-watch-poll.sh	2026-11-16 10:53:11.603625481 +0000
+@@ -17,0 +18 @@
++DELIVERY_SCRIPT="$SCRIPT_DIR/delivery-assurance.py"
+@@ -283 +284 @@
+-local eid
++local eid reason
+@@ -285,0 +287,10 @@
++# 在游标/评论索引推进前持久入队；wrapper 中断或后续轮询 silent 也能续投。
++reason="muse-hub-activity"
++if jq -e '.is_reminder == true' <<< "$1" >/dev/null; then
++  reason="muse-hub-activity-reminder"
++fi
++if [[ "$DRY_RUN" != "1" ]]; then
++  jq -cn --argjson event "$1" --arg reason "$reason" \
++    '{reason: $reason, payload: {events: [$event]}}' \
++    | python3 "$DELIVERY_SCRIPT" enqueue || exit 2
++fi

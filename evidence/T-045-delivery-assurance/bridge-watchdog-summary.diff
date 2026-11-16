@@ -1,0 +1,4 @@
+--- /home/hatch/hooks/scripts/bridge-watchdog-summary.sh.last-good-T045	2026-11-14 19:20:21.114613252 +0000
++++ hooks/bridge-watchdog-summary.sh	2026-11-16 10:52:32.215625489 +0000
+@@ -75,0 +76 @@
++bash "$(dirname -- "${BASH_SOURCE[0]}")/dead-letter-summary.sh"
