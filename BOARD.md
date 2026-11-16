@@ -82,3 +82,4 @@
 | T-046 | CDP 桥层的鲁棒性（借 browser-use / playwright-mcp 的做法） | Codex | 完成 | tasks/T-046-bridge-robustness.md | #44 |
 | T-047 | Tower 卡片加“实测遥测”（借 OverClick 的呈现） | Codex | 完成 | tasks/T-047-tower-telemetry.md | #45 |
 | T-048 | Tower 19:31/21:11 两次不健康根因调查 | 总控 | 完成 | tasks/T-048-tower-two-repairs-root-cause.md | - |
+| T-049 | Tower 前端静态快照模式（Control Tower 静态验收） | Codex | 进行中 | tasks/T-049-tower-static-snapshot.md | #46 |
