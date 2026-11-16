@@ -74,3 +74,17 @@ chmod +x ~/hooks/scripts/patrol-muse-hub.sh
 - 提交信息与 Issue 评论的署名格式，从 [RULES.md 的 R1 身份与署名](RULES.md#r1-身份与署名) 复制本节点对应标记；若定位失败，在 RULES.md 搜索标题“R1 身份与署名”。署名只是角色标识，不是身份或授权凭证。
 - hub 里严禁出现真实隐私、账号、密码、密钥、Token。
 - 无法继续任务时按 R8 报告事实与原因，由总控按 R7 升版重派；不要自行删除 seen 记录。损坏状态的定点修复只走 [故障恢复说明](docs/state-recovery.md)。
+
+## 节点能力边界（2026-11-16，Chen 直令）
+
+### 环境不持久：apt 类补件每次会话要重装
+- 节点 VM 会更换，之前装的系统包不保留。node-1 明确报过"上次装的 0.9.0 已随 VM 更换消失"（bwrap，2026-11-16）。
+- **apt 类补件不持久**：每次会话要重装，每次重装都要过一张分享卡（apt 源域名，如 `deb.nodesource.com`）。
+- **节点不常驻安装系统包；需要 bwrap 的任务在任务书里显式写明"先装再跑"，并由总控在派活时一并提醒。**
+
+### Codex：节点侧不可用
+- `codex login` 要浏览器回调到节点本机 localhost，但节点不接受入站连接（与 T-034 隧道问题同源：VM 的 Tailscale 不接受入站）。
+- **节点侧 codex 判"不可用"**。重活（Codex 实现、Antigravity 复核）继续在总控 VM 上跑，不派给节点。
+
+### agy：节点侧二进制缺，需 Chen 授权
+- 三节点均无 `agy` 二进制；它是纯 CLI（无需桌面），但下载源需 Google 账号，下完再 `agy login`（Google OAuth），两步都需 Chen。
