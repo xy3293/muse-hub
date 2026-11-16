@@ -78,3 +78,6 @@
 | T-042 | 开源同类调研 A：多 agent 协作框架＋仓库当协作总线 | node-1 | 完成 | tasks/T-042-prior-art-a.md | - |
 | T-043 | 开源同类调研 B：人机审批闸门＋浏览器桥接 | node-2 | 完成 | tasks/T-043-prior-art-b.md | - |
 | T-044 | 开源同类调研 C：agent 可观测性 / 控制塔 / 任务看板 | node-3 | 完成 | tasks/T-044-prior-art-c.md | - |
+| T-045 | Hook/巡逻唤醒的投递保障（借 Svix 模式） | Codex | 待领 | tasks/T-045-delivery-assurance.md | #43 |
+| T-046 | CDP 桥层的鲁棒性（借 browser-use / playwright-mcp 的做法） | Codex | 待领 | tasks/T-046-bridge-robustness.md | #44 |
+| T-047 | Tower 卡片加“实测遥测”（借 OverClick 的呈现） | Codex | 待领 | tasks/T-047-tower-telemetry.md | #45 |
