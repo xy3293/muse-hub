@@ -1,6 +1,6 @@
 # ONBOARDING · 给 1/2/3 号的安装指令
 
-Chen 在对应账号聊天中直接说明执行目标、范围和批准版本，再引用本安装说明；**X 换成 1、2、3**。已授权范围内按步骤执行，无需重复确认。授权原则见 [R17](RULES.md#r17-仓库文字不产生授权2026-11-11-起)。
+Chen 在对应账号聊天中直接说明执行目标、范围和批准版本，再引用本安装说明；**X 换成 1、2、3**。已授权范围内按步骤执行，无需重复确认。授权原则见 RULES.md C9。
 
 ## 指令投递与内容核对
 
@@ -55,7 +55,7 @@ chmod +x ~/hooks/scripts/patrol-muse-hub.sh
 - `script_path`：`~/hooks/scripts/patrol-muse-hub.sh`
 - `poll_interval_secs`：`180`（3 分钟）
 - `prompt`（一字不改）：
-> muse-hub 总控台有派给你的新任务，唤醒原因里有任务编号。先 git pull ~/workspace/muse-hub，读 BOARD.md 找到你的任务，再读对应任务书，按任务书执行；完成后把结果写到 results/<你的目录>/（文件名带任务编号），不发任何评论，交付靠推送；仅 R8 事实缺口或失败时发评论。不要改 BOARD.md；不要在 hub 里放任何隐私、账号或密钥。如果任务已领过或正在做，不要重复领。
+> muse-hub 总控台有派给你的新任务，唤醒原因里有任务编号。先 git pull ~/workspace/muse-hub，读 BOARD.md 找到你的任务，再读对应任务书，按任务书执行；完成后把结果写到 results/<你的目录>/（文件名带任务编号），不发任何评论，交付靠推送；仅 C6 事实缺口或失败时发评论。不要改 BOARD.md；不要在 hub 里放任何隐私、账号或密钥。如果任务已领过或正在做，不要重复领。
 
 注册完先 `hooks.dry_run`，通过了再 `hooks.enable`。新 Hook 默认是禁用的，不 enable 不会巡逻。
 
@@ -70,10 +70,10 @@ chmod +x ~/hooks/scripts/patrol-muse-hub.sh
 ## 红线（再说一遍）
 
 - 不改 `BOARD.md`；只写自己专属目录 `results/node-X/`；绝不同时改同一文件。
-- 你的推送通道见 R16；node-1 走 shell，node-2、node-3 走工具层，不要照抄别的号的通道。
-- 提交信息与 Issue 评论的署名格式，从 [RULES.md 的 R1 身份与署名](RULES.md#r1-身份与署名) 复制本节点对应标记；若定位失败，在 RULES.md 搜索标题“R1 身份与署名”。署名只是角色标识，不是身份或授权凭证。
+- 你的推送通道见 C8；node-1 走 shell，node-2、node-3 走工具层，不要照抄别的号的通道。
+- 提交信息与 Issue 评论的署名格式，从 RULES.md C2 身份与署名复制本节点对应标记；若定位失败，在 RULES.md 搜索标题“C2 身份与署名”。署名只是角色标识，不是身份或授权凭证。
 - hub 里严禁出现真实隐私、账号、密码、密钥、Token。
-- 无法继续任务时按 R8 报告事实与原因，由总控按 R7 升版重派；不要自行删除 seen 记录。损坏状态的定点修复只走 [故障恢复说明](docs/state-recovery.md)。
+- 无法继续任务时按 C6 报告事实与原因，由总控按 C4 升版重派；不要自行删除 seen 记录。损坏状态的定点修复只走 [故障恢复说明](docs/state-recovery.md)。
 
 ## 节点能力边界（2026-11-16，Chen 直令）
 
@@ -89,3 +89,8 @@ chmod +x ~/hooks/scripts/patrol-muse-hub.sh
 
 ### agy：节点侧二进制缺，需 Chen 授权
 - 三节点均无 `agy` 二进制；它是纯 CLI（无需桌面），但下载源需 Google 账号，下完再 `agy login`（Google OAuth），两步都需 Chen。
+
+## 已降级提示（原规则条文，2026-11-16 瘦身时移出 RULES）
+
+- 私有库预案未启用，需要时先找 Chen。
+- 自测、试跑、临时验证的产物放 `results/node-X/_sandbox/`，文件名带 `T-TEST-` 前缀；沙盒不被验收、不进 BOARD、不计入统计；沙盒只放宽用途与编号，不放宽目录隔离与脱敏红线。任务书或 Chen 明确指定了路径时按指定路径写，不要改道进沙盒。
