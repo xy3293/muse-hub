@@ -1,0 +1,11 @@
+{
+  "id": "CMD-mwji5jy5-21ffd6",
+  "status": "done",
+  "by": "总控",
+  "at": "2026-11-16T16:56:12Z",
+  "detail": "已桥发 node-3，3 号回 OK（10.4 秒，无审批卡）。入队 2026-11-16T16:53:14.430Z，处理 2026-11-16T16:56:12Z。",
+  "artifacts": [
+    "commands/done/CMD-mwji5jy5-21ffd6.json",
+    "commands/done/CMD-mwji5jy5-21ffd6.result.json"
+  ]
+}
