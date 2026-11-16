@@ -84,6 +84,7 @@ chmod +x ~/hooks/scripts/patrol-muse-hub.sh
 
 ### Codex：节点侧不可用
 - `codex login` 要浏览器回调到节点本机 localhost，但节点不接受入站连接（与 T-034 隧道问题同源：VM 的 Tailscale 不接受入站）。
+- **设备码在节点上同样走不通**：实测（2026-11-16）批了两轮 `auth.openai.com` 分享卡，每次批完就重试、又生成新卡，始终没吐出新的设备码，陷入卡-重试死循环，白烧额度。
 - **节点侧 codex 判"不可用"**。重活（Codex 实现、Antigravity 复核）继续在总控 VM 上跑，不派给节点。
 
 ### agy：节点侧二进制缺，需 Chen 授权
