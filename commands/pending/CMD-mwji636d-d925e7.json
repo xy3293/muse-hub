@@ -1,0 +1,12 @@
+{
+  "id": "CMD-mwji636d-d925e7",
+  "created_at": "2026-11-16T16:53:39.349Z",
+  "created_by": "chen",
+  "action": "notify_node",
+  "target": "node-3",
+  "payload": {
+    "node": "node-3",
+    "message": "面板连通性测试：收到请只回一句 OK，不要做别的"
+  },
+  "note": ""
+}
