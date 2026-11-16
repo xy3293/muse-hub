@@ -44,7 +44,7 @@
 | T-036 | 修轮询去重——旧消息重复唤醒 | Codex | 完成 | tasks/T-036-fix-poller-dedup.md | [#38](https://github.com/xy3293/muse-hub/issues/38) |
 | T-037 | Control Tower Stage 4 —— systemd 部署 | Codex | 完成 | tasks/T-037-control-tower-stage4-systemd.md | [#39](https://github.com/xy3293/muse-hub/issues/39) |
 | T-038 | 修 Control Tower 两个后端小缺陷（events 503＋T-022 schema 异常） | Codex | 完成 | tasks/T-038-fix-events-503-t022-schema.md | [#40](https://github.com/xy3293/muse-hub/issues/40) |
-| T-039 | Control Tower 部署 VM 替换后自动恢复（T-037 的缺口） | Codex | 待领 | tasks/T-039-tower-vm-replacement-auto-recovery.md | [#41](https://github.com/xy3293/muse-hub/issues/41) |
+| T-039 | Control Tower 部署 VM 替换后自动恢复（T-037 的缺口） | Codex | 完成 | tasks/T-039-tower-vm-replacement-auto-recovery.md | [#41](https://github.com/xy3293/muse-hub/issues/41) |
 
 > 试行记录：Pachat × GitHub 规程 1.1 立即执行版已于 2026-11-12 发布（Chen 批准），替代 1.0 新增通信流程；一周仅作后续观察，不作为开工或继续实现的门槛。登记见 Issue #13。GitHub 仍是唯一任务状态权威；v2 软件上线与通信观察分别记录。
 
