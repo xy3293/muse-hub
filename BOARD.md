@@ -83,3 +83,5 @@
 | T-047 | Tower 卡片加“实测遥测”（借 OverClick 的呈现） | Codex | 完成 | tasks/T-047-tower-telemetry.md | #45 |
 | T-048 | Tower 19:31/21:11 两次不健康根因调查 | 总控 | 完成 | tasks/T-048-tower-two-repairs-root-cause.md | - |
 | T-049 | Tower 前端静态快照模式（Control Tower 静态验收） | Codex | 完成 | muse-control-tower:frontend/ @ https://github.com/xy3293/muse-control-tower 34d37d2 | #46 |
+| T-050 | Tower L2 指令消费端（query 路径验证） | 总控 | 完成 | commands/done/（f3a2176, 5478133） | - |
+| T-051 | Tower 指令消费进巡逻 + 前端指令面板 + C11.2 补充 | 总控 + Codex | 进行中 | tasks/T-051-tower-command-panel-and-patrol-consumer.md | #47 |
