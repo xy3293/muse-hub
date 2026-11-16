@@ -1,0 +1,42 @@
+[muse-shim] chat model=offline-model stream=false tools=false files=0 target=current promptChars=4
+[muse-shim] chat model=offline-model stream=false tools=false files=0 target=current promptChars=4
+[muse-shim] error: approval or assistant failure
+[muse-shim] chat model=offline-model stream=false tools=false files=0 target=current promptChars=4
+[muse-shim] chat model=offline-model stream=false tools=false files=0 target=current promptChars=4
+[muse-shim] error: approval or assistant failure
+[muse-shim] chat model=offline-model stream=false tools=false files=0 target=current promptChars=4
+[muse-shim] chat model=offline-model stream=false tools=false files=0 target=current promptChars=4
+[muse-shim] error: approval or assistant failure
+[muse-shim] chat model=offline-model stream=false tools=false files=0 target=current promptChars=4
+[muse-shim] error: offline failure before result
+▶ needsApproval patch (offline driver and HTTP handler mocks)
+  ✔ /health preserves needsApproval=true and every existing status field (2.308509ms)
+[muse-shim] chat model=offline-model stream=false tools=true files=0 target=current promptChars=353
+[muse-shim] chat model=offline-model stream=false tools=false files=0 target=current promptChars=4
+[muse-shim] chat model=offline-model stream=true tools=false files=0 target=current promptChars=4
+  ✔ completion projects needsApproval=true and preserves existing fields (4.007712ms)
+  ✔ empty-reply 502 preserves needsApproval=true and original error (1.392302ms)
+  ✔ /health preserves needsApproval=false and every existing status field (1.298552ms)
+  ✔ completion projects needsApproval=false and preserves existing fields (0.890608ms)
+  ✔ empty-reply 502 preserves needsApproval=false and original error (0.811209ms)
+  ✔ /health preserves needsApproval=absent and every existing status field (0.23934ms)
+  ✔ completion projects needsApproval=absent and preserves existing fields (1.078391ms)
+  ✔ empty-reply 502 preserves needsApproval=absent and original error (0.916858ms)
+  ✔ root health alias passes through approval state (0.513061ms)
+  ✔ status failure preserves original health fallback and omits unknown approval (0.421614ms)
+  ✔ thrown chat failure preserves original 502 and omits unknown approval (0.81825ms)
+  ✔ request validation preserves original 400 response (0.568384ms)
+  ✔ tool-call completion preserves tool projection and approval state (1.666765ms)
+  ✔ empty-reply 200 without error retains needsApproval=true (0.984319ms)
+  ✔ streaming completion is unaffected and executes without error (1.162436ms)
+  ✔ actual driver.status DOM locator failure causes /health to omit approval (1.183068ms)
+  ✔ driver.status with no browser returns false without launching or probing (0.438749ms)
+✔ needsApproval patch (offline driver and HTTP handler mocks) (35.595638ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 178.739936

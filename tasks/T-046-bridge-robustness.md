@@ -59,3 +59,9 @@
 - **部署注意**：改的是桥源码的本地副本；三台 live 桥跑在 Chen 的 PC 上，Codex 不要尝试往 Chen 的 PC 上部署。部署由总控另行与 Chen 协调；任务书里写清"本地改完、待部署"。
 - 不碰 Chen 的 PC、不改 ACL、不动 Tailscale。
 - 只改 detector 判定逻辑，不重构整个 bridge server。
+
+## 本地执行状态（Codex，2026-11-16）
+
+- 本地改完、待部署；未连接或修改 Chen 的 PC。部署由总控另行与 Chen 协调。
+- 四项 detector 改动已实现；本地 Chromium 模拟三种 DOM 场景均判对，另覆盖可见性、变化检测、自愈及完整发送路径。
+- 证据与复跑方法：[REPORT.md](../evidence/T-046-bridge-robustness/REPORT.md)。等待 Antigravity 复核、总控终验；真实页面 DOM 与在线回声仍待部署环境核验。

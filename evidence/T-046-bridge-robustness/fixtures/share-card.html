@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><title>T-046 synthetic sharing card</title>
+<style>
+  body { margin: 0; }
+  [data-hatch-composer-root] { position: absolute; left: 160px; top: 200px; width: 640px; height: 280px; border: 1px solid; }
+  button { width: 120px; height: 32px; }
+  textarea { display: block; width: 400px; height: 50px; }
+</style>
+<main data-hatch-composer-root>
+  <!-- Sharing approval is deliberately outside approval-stack. -->
+  <section role="dialog" aria-label="Synthetic sharing approval">
+    <h2>模拟分享审批卡（不是生产 DOM）</h2><p>Sending is paused</p><button>允许一次</button><button>拒绝</button>
+  </section>
+  <textarea></textarea><div data-hatch-composer-action-slot><button aria-label="Send" disabled>Send</button></div>
+</main>

@@ -1,0 +1,211 @@
+--- a/muse-driver.mjs
++++ b/muse-driver.mjs
+@@ -87,6 +87,11 @@
+ const APPROVE_BUTTON = /^(Approve|允许)$/i
+ const DECISION_BUTTON = /^(Approve|Reject|允许|拒绝)$/i
+ 
++// Detector vocabulary is intentionally separate from the click authorization
++// contract above. Recognizing a card never authorizes or dispatches a click.
++const DETECTOR_APPROVE = /^(?:Approve|Allow(?: once)?|Always allow|允许(?:一次)?|总是允许|始终允许)$/i
++const DETECTOR_PAUSED = /\b(?:send(?:ing)?|messaging)\s+(?:is\s+)?(?:paused|blocked)\b|(?:发送|发消息)(?:已|被)?暂停|暂停发送|等待(?:你的|您的)?(?:批准|审批)/i
++
+ // Exact observed detail template. One content string cannot unambiguously map to
+ // several files, so multi-file prose remains partial. Preserve content verbatim.
+ function parsePushProse(buttons, repository) {
+@@ -254,7 +259,11 @@
+     }
+   }
+ 
+-  async status() {
++  status() {
++    return this._serial(() => this._status())
++  }
++
++  async _status() {
+     const running = this.isRunning()
+     const url = running ? this.page.url() : null
+     if (!running) {
+@@ -268,12 +277,156 @@
+       loggedIn: auth.ok,
+       viewerId: auth.viewerId || null,
+       composerReady,
+-      needsApproval: (await this.page.locator(SELECTORS.approvalStack).count()) > 0,
++      needsApproval: (await this._detectApproval({ context: 'status' })).needsApproval,
+       profileDir: PROFILE_DIR,
+       headless: HEADLESS,
+     }
+   }
+ 
++  _logDetector(event) {
++    const filename = this._detectorLogFile || process.env.MUSE_DETECTOR_LOG || path.join(__dirname, 'detector-log.jsonl')
++    const line = JSON.stringify({ at: new Date().toISOString(), ...event }) + '\n'
++    try {
++      fs.mkdirSync(path.dirname(filename), { recursive: true, mode: 0o700 })
++      fs.appendFileSync(filename, line, { mode: 0o600 })
++    } catch (error) {
++      // MCP uses stdout. Preserve evidence on stderr if the file is unwritable.
++      console.error('[muse-detector] log write failed:', error.code || 'unknown', line.trim())
++    }
++  }
++
++  async _approvalSnapshot() {
++    return this.page.evaluate(({ sels, approveSource, pausedSource }) => {
++      const approve = new RegExp(approveSource, 'i'), paused = new RegExp(pausedSource, 'i')
++      const roots = [...document.querySelectorAll(sels.composerRoot)]
++      const stacks = [...document.querySelectorAll(sels.approvalStack)]
++      const overlap = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top
++      const viewport = { left: 0, top: 0, right: innerWidth, bottom: innerHeight }
++      const visible = (el) => {
++        if (!el || !el.getClientRects().length) return false
++        const box = el.getBoundingClientRect()
++        if (box.width <= 0 || box.height <= 0) return false
++        for (let node = el; node; node = node.parentElement) {
++          const style = getComputedStyle(node)
++          if (node.hidden || node.getAttribute('aria-hidden') === 'true' || style.display === 'none' ||
++              /hidden|collapse/.test(style.visibility) || Number(style.opacity) === 0) return false
++        }
++        return true
++      }
++      const inRegion = (el) => {
++        const box = el.getBoundingClientRect()
++        // Clip against both the viewport and scrolling/hidden ancestor regions.
++        let area = { ...viewport }
++        for (let node = el.parentElement; node; node = node.parentElement) {
++          const style = getComputedStyle(node), rect = node.getBoundingClientRect()
++          if (/auto|scroll|hidden|clip/.test(style.overflowX)) {
++            area.left = Math.max(area.left, rect.left); area.right = Math.min(area.right, rect.right)
++          }
++          if (/auto|scroll|hidden|clip/.test(style.overflowY)) {
++            area.top = Math.max(area.top, rect.top); area.bottom = Math.min(area.bottom, rect.bottom)
++          }
++        }
++        if (area.left >= area.right || area.top >= area.bottom || !overlap(box, area)) return false
++        return roots.some((root) => {
++          const rect = root.getBoundingClientRect()
++          const region = { left: Math.max(area.left, rect.left), right: Math.min(area.right, rect.right),
++            top: Math.max(area.top, rect.top), bottom: Math.min(area.bottom, rect.bottom) }
++          return visible(root) && region.left < region.right && region.top < region.bottom && overlap(box, region)
++        })
++      }
++      const name = (el) => {
++        const refs = el.getAttribute('aria-labelledby')
++        return (refs ? refs.split(/\s+/).map((id) => document.getElementById(id)?.textContent || '').join(' ')
++          : el.getAttribute('aria-label') || el.textContent || '').replace(/\s+/g, ' ').trim()
++      }
++      const buttons = [...document.querySelectorAll('button, [role="button"]')].filter((el) => approve.test(name(el)))
++      const summarize = (el) => ({ label: name(el), visible: visible(el), inComposerViewport: inRegion(el) })
++      const internal = buttons.filter((el) => el.closest(sels.approvalStack)).map(summarize)
++      // Sharing approvals may live alongside the stack or in a portal dialog.
++      // A normal toolbar Share button cannot match the approval vocabulary.
++      const external = buttons.filter((el) => !el.closest(sels.approvalStack) &&
++        (el.closest(sels.composerRoot) || el.closest('[role="dialog"], [data-approval-id], [data-testid*="approval-card"]'))).map(summarize)
++      const C = internal.some((button) => button.visible && button.inComposerViewport)
++      const externalCard = external.some((button) => button.visible && button.inComposerViewport)
++      const activeRoots = roots.filter((root) => visible(root) && overlap(root.getBoundingClientRect(), viewport))
++      const pauseText = activeRoots.some((root) => {
++        // A user's draft mentioning "sending is paused" is not a UI signal.
++        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
++        const parts = []
++        while (walker.nextNode()) {
++          const el = walker.currentNode.parentElement
++          if (!el.closest(sels.editor + ', [data-message-item]') && visible(el) && inRegion(el)) parts.push(walker.currentNode.textContent)
++        }
++        return paused.test(parts.join(' ')) ||
++        [...root.querySelectorAll('[aria-label], [title]')].some((el) => visible(el) && inRegion(el) &&
++          !el.closest(sels.editor) && paused.test((el.getAttribute('aria-label') || '') + ' ' + (el.getAttribute('title') || '')))
++      })
++      const generating = [...document.querySelectorAll(sels.stopButton)].some(visible)
++      // Disabled send alone is normal for an empty composer or generation.
++      const blockedDraft = !generating && activeRoots.some((root) => root.getAttribute('aria-busy') !== 'true' &&
++        [...root.querySelectorAll(sels.editor)].some((el) => visible(el) &&
++          (el.value ?? el.textContent ?? '').trim()) &&
++        [...root.querySelectorAll(sels.actionSlot + ' button')].some((el) => visible(el) && inRegion(el) &&
++          /^(?:Send(?: message)?|发送(?:消息)?)$/i.test(name(el)) && (el.disabled || el.getAttribute('aria-disabled') === 'true')))
++      const signals = { A: stacks.length > 0, B: internal.length > 0, C }
++      const stackCard = signals.A && signals.B && signals.C
++      const sendPaused = pauseText || blockedDraft
++      const contradiction = sendPaused && !stackCard && !externalCard
++      const conclusion = stackCard ? 'approval_card' : externalCard ? 'external_approval' : contradiction ? 'suspected_share_card'
++        : signals.A ? (signals.B ? 'unavailable_card' : 'empty_container') : 'no_card'
++      return { signals, stackCount: stacks.length, buttons: internal, externalButtons: external,
++        sendPaused, pauseEvidence: { pauseText, blockedDraft, generating }, contradiction,
++        needsApproval: stackCard || externalCard || contradiction, conclusion }
++    }, { sels: SELECTORS, approveSource: DETECTOR_APPROVE.source, pausedSource: DETECTOR_PAUSED.source })
++  }
++
++  async _pollApproval({ context, attempt }) {
++    const deadline = Date.now() + 2500
++    let previous, snapshot, samples = 0
++    do {
++      snapshot = await this._approvalSnapshot()
++      const signature = JSON.stringify(snapshot)
++      const changed = signature !== previous
++      samples++
++      this._logDetector({ event: 'snapshot', context, attempt, sample: samples, changed, ...snapshot })
++      if (!changed) {
++        this._logDetector({ event: 'decision', context, attempt, stable: true, samples, ...snapshot })
++        return snapshot
++      }
++      previous = signature
++      await sleep(Math.min(150, Math.max(0, deadline - Date.now())))
++    } while (Date.now() < deadline)
++    this._logDetector({ event: 'decision', context, attempt, stable: false, reason: 'unstable_timeout', samples, ...snapshot })
++    return snapshot
++  }
++
++  // Called only while holding _serial; retry means re-observe, never re-send.
++  async _detectApproval({ context = 'status' } = {}) {
++    const snapshot = await this._pollApproval({ context, attempt: 0 })
++    if (!snapshot.contradiction) {
++      this._approvalRecovery = null
++      return snapshot
++    }
++    const page = this.page, url = page.url()
++    if (this._approvalRecovery?.page === page && this._approvalRecovery.url === url) {
++      this._logDetector({ event: 'recovery', context, outcome: 'already_retried', ...snapshot })
++      return snapshot
++    }
++    this._approvalRecovery = { page, url }
++    this._logDetector({ event: 'recovery', context, outcome: 'started', reason: 'send_paused_without_visible_card', ...snapshot })
++    try {
++      await page.reload({ waitUntil: 'domcontentloaded', timeout: 10000 })
++      // DOMContentLoaded may precede the app's composer hydration.
++      await page.locator(SELECTORS.editor).first().waitFor({ state: 'visible', timeout: 3000 })
++      const retry = await this._pollApproval({ context, attempt: 1 })
++      this._logDetector({ event: 'recovery', context, outcome: retry.contradiction ? 'unresolved' : 'recovered', ...retry })
++      return retry
++    } catch (error) {
++      this._logDetector({ event: 'recovery', context, outcome: 'failed', error: error.name || 'Error', ...snapshot })
++      return snapshot // uncertainty remains visible through needsApproval=true
++    }
++  }
++
+   /** Read only the current page; never launch or navigate to find an approval. */
+   readApprovals() {
+     return this._serial(() => this._readApprovals())
+@@ -799,10 +952,16 @@
+     let committed = ''
+     let stableSince = Date.now()
+     let timedOut = false
++    let approvalCheckedAt = 0
+ 
+     while (Date.now() < deadline) {
+       const stop = await p.locator(SELECTORS.stopButton).count()
+       if (stop > 0) started = true
++      if (Date.now() - approvalCheckedAt >= 1000) {
++        const approval = await this._detectApproval({ context: 'chat' })
++        approvalCheckedAt = Date.now()
++        if (approval.needsApproval) break
++      }
+       const n = await p.locator(SELECTORS.assistant).count()
+       if (n > before) {
+         const txt = await p.locator(SELECTORS.assistant).last().innerText().catch(() => '')
+@@ -830,7 +989,7 @@
+       before,
+     )
+     const reply = (items.length ? items[items.length - 1] : lastText).trim()
+-    const needsApproval = (await p.locator(SELECTORS.approvalStack).count()) > 0
++    const needsApproval = (await this._detectApproval({ context: 'chat-final' })).needsApproval
+ 
+     // Flush any remainder that arrived after the last stable commit.
+     if (onDelta && reply && reply !== committed && reply.startsWith(committed)) {

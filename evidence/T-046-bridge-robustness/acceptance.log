@@ -1,0 +1,34 @@
+Synthetic DOM browser: 159.0.8154.6
+approval-card {"at":"2026-11-16T10:58:49.973Z","event":"decision","context":"acceptance","attempt":0,"stable":true,"samples":2,"signals":{"A":true,"B":true,"C":true},"stackCount":1,"buttons":[{"label":"允许","visible":true,"inComposerViewport":true}],"externalButtons":[],"sendPaused":false,"pauseEvidence":{"pauseText":false,"blockedDraft":false,"generating":false},"contradiction":false,"needsApproval":true,"conclusion":"approval_card"}
+✔ acceptance: approval-card (1753.656781ms)
+empty-container {"at":"2026-11-16T10:58:50.420Z","event":"decision","context":"acceptance","attempt":0,"stable":true,"samples":2,"signals":{"A":true,"B":false,"C":false},"stackCount":1,"buttons":[],"externalButtons":[],"sendPaused":false,"pauseEvidence":{"pauseText":false,"blockedDraft":false,"generating":false},"contradiction":false,"needsApproval":false,"conclusion":"empty_container"}
+✔ acceptance: empty-container (429.533957ms)
+share-card {"at":"2026-11-16T10:58:51.110Z","event":"decision","context":"acceptance","attempt":0,"stable":true,"samples":2,"signals":{"A":false,"B":false,"C":false},"stackCount":0,"buttons":[],"externalButtons":[{"label":"允许一次","visible":true,"inComposerViewport":true}],"sendPaused":true,"pauseEvidence":{"pauseText":true,"blockedDraft":false,"generating":false},"contradiction":false,"needsApproval":true,"conclusion":"external_approval"}
+✔ acceptance: share-card (693.248361ms)
+✔ reject unusable approval button: display-none (721.511872ms)
+✔ reject unusable approval button: visibility-hidden (595.829483ms)
+✔ reject unusable approval button: zero-size (544.829136ms)
+✔ reject unusable approval button: offscreen (631.026682ms)
+✔ reject unusable approval button: outside-composer (826.408597ms)
+✔ hidden ancestor and overflow clipping reject the card (984.273915ms)
+✔ B and C must belong to the same approval button (578.543017ms)
+✔ ordinary Share/Allow toolbar buttons are not external approvals (508.905205ms)
+✔ draft text mentioning a pause and ordinary generation are not blocked sends (707.08972ms)
+✔ polling detects a card appearing between samples before accepting stability (598.266716ms)
+✔ unstable snapshots stop within the short timeout and retain current signals (2942.648509ms)
+✔ contradiction reloads once and discovers a sharing card (682.010084ms)
+✔ persistent contradiction stays suspected and cannot cause a reload loop (1058.010187ms)
+✔ nonempty draft plus disabled Send is a suspected sharing signal (1188.654652ms)
+✔ reload failure retains suspected state with evidence (761.423015ms)
+✔ status waits for the serial queue and preserves its public fields (662.959997ms)
+✔ chat integration: normal-reply (4927.616975ms)
+✔ chat integration: approval-during-chat (1508.868636ms)
+✔ chat integration: recovery-during-chat (2389.955596ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26663.39467

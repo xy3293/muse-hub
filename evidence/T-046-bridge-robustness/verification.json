@@ -1,0 +1,15 @@
+{
+  "source_path": "/home/hatch/workspace/node3-browser-poc/muse-chat-mcp-test/source/muse-driver.mjs",
+  "baseline_sha256": "3e01abac2d53d3edd4b3d1e361d2af214c2b0fe9f28a898d09d88a1487eba448",
+  "candidate_sha256": "741782a88f2821f9fdf6c95075a49133d1f9f8ebb280308ef6476c51281ce66c",
+  "patch_sha256": "89e335deb7e52d230c654f5ca179385abe4761d57e17ea5c6d7636145124c25a",
+  "patch_replay_byte_equal": true,
+  "node_check_exit_code": 0,
+  "acceptance_tests_passed": 22,
+  "approval_regression_tests_passed": 193,
+  "shim_regression_tests_passed": 19,
+  "legacy_dom_count_cases_excluded": 2,
+  "selftest_exit_code": 1,
+  "cli_exit_code": 1,
+  "deployed": false
+}
