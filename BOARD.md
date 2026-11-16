@@ -42,6 +42,7 @@
 | T-034 | Control Tower Stage 3 独立浏览器测试（node-2） | node-2 | 完成 | tasks/T-034-control-tower-browser-node2.md | [#36](https://github.com/xy3293/muse-hub/issues/36) |
 | T-035 | 补 node-2 的 direct_codex_antigravity 技能软链接 | node-2 | 完成 | tasks/T-035-fix-skill-link-node2.md | [#37](https://github.com/xy3293/muse-hub/issues/37) |
 | T-036 | 修轮询去重——旧消息重复唤醒 | Codex | 完成 | tasks/T-036-fix-poller-dedup.md | [#38](https://github.com/xy3293/muse-hub/issues/38) |
+| T-037 | Control Tower Stage 4 —— systemd 部署 | Codex | 待领 | tasks/T-037-control-tower-stage4-systemd.md | [#39](https://github.com/xy3293/muse-hub/issues/39) |
 
 > 试行记录：Pachat × GitHub 规程 1.1 立即执行版已于 2026-11-12 发布（Chen 批准），替代 1.0 新增通信流程；一周仅作后续观察，不作为开工或继续实现的门槛。登记见 Issue #13。GitHub 仍是唯一任务状态权威；v2 软件上线与通信观察分别记录。
 
