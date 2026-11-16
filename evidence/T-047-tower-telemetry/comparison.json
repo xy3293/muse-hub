@@ -1,0 +1,110 @@
+[
+  {
+    "task_id": "T-023",
+    "manual": {
+      "dispatch_to_first_commit_seconds": 300,
+      "commit_to_acceptance_seconds": 474,
+      "total_seconds": 774,
+      "delivery_commit_count": 1,
+      "rejection_count": 0
+    },
+    "tower": {
+      "dispatched_at": "2026-11-15T16:04:23+08:00",
+      "first_delivery_at": "2026-11-15T08:09:23Z",
+      "accepted_at": "2026-11-15T08:17:17Z",
+      "dispatch_to_first_commit_seconds": 300,
+      "commit_to_acceptance_seconds": 474,
+      "total_seconds": 774,
+      "delivery_commit_count": 1,
+      "rejection_count": 0,
+      "quota_used": null,
+      "quota_status": "未采集",
+      "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
+      "evidence_refs": [
+        "github:6dd2ec60ae609bacbaecb422b3550e774d7a9bbc",
+        "github:78ce4ee360dec5f56a92b5cf04ef87f0aaa4f7f8",
+        "github:a77a7f156b526ccc63add297d6d71fcce80bc975"
+      ],
+      "missing_reasons": []
+    },
+    "difference": {
+      "dispatch_to_first_commit_seconds": 0,
+      "commit_to_acceptance_seconds": 0,
+      "total_seconds": 0,
+      "delivery_commit_count": 0,
+      "rejection_count": 0
+    }
+  },
+  {
+    "task_id": "T-005",
+    "manual": {
+      "dispatch_to_first_commit_seconds": 317,
+      "commit_to_acceptance_seconds": 543,
+      "total_seconds": 860,
+      "delivery_commit_count": 1,
+      "rejection_count": 0
+    },
+    "tower": {
+      "dispatched_at": "2026-11-11T21:23:05+08:00",
+      "first_delivery_at": "2026-11-11T13:28:22Z",
+      "accepted_at": "2026-11-11T21:37:25+08:00",
+      "dispatch_to_first_commit_seconds": 317,
+      "commit_to_acceptance_seconds": 543,
+      "total_seconds": 860,
+      "delivery_commit_count": 1,
+      "rejection_count": 0,
+      "quota_used": null,
+      "quota_status": "未采集",
+      "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
+      "evidence_refs": [
+        "github:42f5ae5e00c34947b0120673464407aeaf0d1805",
+        "github:496b973c127522b7e226d7543154d2ff6fb86861",
+        "github:cd7823e089518bde0d0dc6aeda8fd7b52513d98f"
+      ],
+      "missing_reasons": []
+    },
+    "difference": {
+      "dispatch_to_first_commit_seconds": 0,
+      "commit_to_acceptance_seconds": 0,
+      "total_seconds": 0,
+      "delivery_commit_count": 0,
+      "rejection_count": 0
+    }
+  },
+  {
+    "task_id": "T-028",
+    "manual": {
+      "dispatch_to_first_commit_seconds": 305,
+      "commit_to_acceptance_seconds": 2993,
+      "total_seconds": 3298,
+      "delivery_commit_count": 1,
+      "rejection_count": 0
+    },
+    "tower": {
+      "dispatched_at": "2026-11-15T17:18:32+08:00",
+      "first_delivery_at": "2026-11-15T09:23:37Z",
+      "accepted_at": "2026-11-15T18:13:30+08:00",
+      "dispatch_to_first_commit_seconds": 305,
+      "commit_to_acceptance_seconds": 2993,
+      "total_seconds": 3298,
+      "delivery_commit_count": 1,
+      "rejection_count": 0,
+      "quota_used": null,
+      "quota_status": "未采集",
+      "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
+      "evidence_refs": [
+        "github:2589df58e97e2371afba373600c6174ab5a2683b",
+        "github:785eac55a03814287318c2e42e73f94182537cb8",
+        "github:fe441a51946f96dfae3d66f7def59a2a0ba2418a"
+      ],
+      "missing_reasons": []
+    },
+    "difference": {
+      "dispatch_to_first_commit_seconds": 0,
+      "commit_to_acceptance_seconds": 0,
+      "total_seconds": 0,
+      "delivery_commit_count": 0,
+      "rejection_count": 0
+    }
+  }
+]

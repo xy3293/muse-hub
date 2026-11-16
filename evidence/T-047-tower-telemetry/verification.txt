@@ -1,0 +1,51 @@
+{"board_head": "1c819c6ea5c708687472c02f61c29a76c2f3dddd", "completed": 44, "seed": 47, "sample": ["T-023", "T-005", "T-028"]}
+$ git show -s --format='%H %cI %s' 78ce4ee360dec5f56a92b5cf04ef87f0aaa4f7f8
+78ce4ee360dec5f56a92b5cf04ef87f0aaa4f7f8 2026-11-15T16:04:23+08:00 T-023：派 node-2 A/B 无人值守实测 tick
+$ git show -s --format='%H %cI %s' a77a7f156b526ccc63add297d6d71fcce80bc975
+a77a7f156b526ccc63add297d6d71fcce80bc975 2026-11-15T08:09:23+00:00 【2号】T-023 ab tick
+$ git show -s --format='%H %cI %s' 6dd2ec60ae609bacbaecb422b3550e774d7a9bbc
+6dd2ec60ae609bacbaecb422b3550e774d7a9bbc 2026-11-15T08:17:17+00:00 T-023 验收通过：BOARD 状态改完成
+$ git show --format= --unified=0 78ce4ee360dec5f56a92b5cf04ef87f0aaa4f7f8 -- BOARD.md  # task row only
++| T-023 | A/B 无人值守实测 tick：node-2 最小常规任务 | node-2 | 待领 | tasks/T-023-ab-tick.md | [#25](https://github.com/xy3293/muse-hub/issues/25) |
+$ git show --format= --unified=0 6dd2ec60ae609bacbaecb422b3550e774d7a9bbc -- BOARD.md  # task row only
+-| T-023 | A/B 无人值守实测 tick：node-2 最小常规任务 | node-2 | 待领 | tasks/T-023-ab-tick.md | [#25](https://github.com/xy3293/muse-hub/issues/25) |
++| T-023 | A/B 无人值守实测 tick：node-2 最小常规任务 | node-2 | 完成 | tasks/T-023-ab-tick.md | [#25](https://github.com/xy3293/muse-hub/issues/25) |
+$ git log --no-merges --format='%H %cI %s' 1c819c6ea5c708687472c02f61c29a76c2f3dddd -- results/node-2/T-023*
+a77a7f156b526ccc63add297d6d71fcce80bc975 2026-11-15T08:09:23+00:00 【2号】T-023 ab tick
+receipt metadata: [{"task_id": "T-023", "node_id": "node-2", "version_sha": "a77a7f156b526ccc63add297d6d71fcce80bc975", "verdict": "PASS", "reviewed_at": "2026-11-15T08:14:00Z"}]
+hand arithmetic / API / differences: {"task": "T-023", "hand": {"dispatch_to_first_commit_seconds": 300, "commit_to_acceptance_seconds": 474, "total_seconds": 774, "delivery_commit_count": 1, "rejection_count": 0}, "api": {"dispatch_to_first_commit_seconds": 300, "commit_to_acceptance_seconds": 474, "total_seconds": 774, "delivery_commit_count": 1, "rejection_count": 0}, "differences": {"dispatch_to_first_commit_seconds": 0, "commit_to_acceptance_seconds": 0, "total_seconds": 0, "delivery_commit_count": 0, "rejection_count": 0}}
+Tower telemetry: {"dispatched_at": "2026-11-15T16:04:23+08:00", "first_delivery_at": "2026-11-15T08:09:23Z", "accepted_at": "2026-11-15T08:17:17Z", "dispatch_to_first_commit_seconds": 300, "commit_to_acceptance_seconds": 474, "total_seconds": 774, "delivery_commit_count": 1, "rejection_count": 0, "quota_used": null, "quota_status": "未采集", "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。", "evidence_refs": ["github:6dd2ec60ae609bacbaecb422b3550e774d7a9bbc", "github:78ce4ee360dec5f56a92b5cf04ef87f0aaa4f7f8", "github:a77a7f156b526ccc63add297d6d71fcce80bc975"], "missing_reasons": []}
+$ git show -s --format='%H %cI %s' 42f5ae5e00c34947b0120673464407aeaf0d1805
+42f5ae5e00c34947b0120673464407aeaf0d1805 2026-11-11T21:23:05+08:00 【总控】派 T-005：规则一致性核查
+$ git show -s --format='%H %cI %s' cd7823e089518bde0d0dc6aeda8fd7b52513d98f
+cd7823e089518bde0d0dc6aeda8fd7b52513d98f 2026-11-11T13:28:22+00:00 【1号】T-005 规则一致性核查报告：17项不一致，6高8中3低
+$ git show -s --format='%H %cI %s' 496b973c127522b7e226d7543154d2ff6fb86861
+496b973c127522b7e226d7543154d2ff6fb86861 2026-11-11T21:37:25+08:00 【总控】T-005 验收通过：BOARD 完成 + 结论行计数笔误由总控修正
+$ git show --format= --unified=0 42f5ae5e00c34947b0120673464407aeaf0d1805 -- BOARD.md  # task row only
++| T-005 | 规则一致性核查 | node-1 | 待领 | tasks/T-005-rule-consistency-audit.md | [#5](https://github.com/xy3293/muse-hub/issues/5) |
+$ git show --format= --unified=0 496b973c127522b7e226d7543154d2ff6fb86861 -- BOARD.md  # task row only
+-| T-005 | 规则一致性核查 | node-1 | 待领 | tasks/T-005-rule-consistency-audit.md | [#5](https://github.com/xy3293/muse-hub/issues/5) |
++| T-005 | 规则一致性核查 | node-1 | 完成 | tasks/T-005-rule-consistency-audit.md | [#5](https://github.com/xy3293/muse-hub/issues/5) |
+$ git log --no-merges --format='%H %cI %s' 1c819c6ea5c708687472c02f61c29a76c2f3dddd -- results/node-1/T-005*
+496b973c127522b7e226d7543154d2ff6fb86861 2026-11-11T21:37:25+08:00 【总控】T-005 验收通过：BOARD 完成 + 结论行计数笔误由总控修正
+cd7823e089518bde0d0dc6aeda8fd7b52513d98f 2026-11-11T13:28:22+00:00 【1号】T-005 规则一致性核查报告：17项不一致，6高8中3低
+receipt metadata: [{"task_id": "T-005", "node_id": "node-1", "version_sha": "cd7823e089518bde0d0dc6aeda8fd7b52513d98f", "verdict": "PASS", "reviewed_at": "2026-11-11T13:32:17Z"}]
+hand arithmetic / API / differences: {"task": "T-005", "hand": {"dispatch_to_first_commit_seconds": 317, "commit_to_acceptance_seconds": 543, "total_seconds": 860, "delivery_commit_count": 1, "rejection_count": 0}, "api": {"dispatch_to_first_commit_seconds": 317, "commit_to_acceptance_seconds": 543, "total_seconds": 860, "delivery_commit_count": 1, "rejection_count": 0}, "differences": {"dispatch_to_first_commit_seconds": 0, "commit_to_acceptance_seconds": 0, "total_seconds": 0, "delivery_commit_count": 0, "rejection_count": 0}}
+Tower telemetry: {"dispatched_at": "2026-11-11T21:23:05+08:00", "first_delivery_at": "2026-11-11T13:28:22Z", "accepted_at": "2026-11-11T21:37:25+08:00", "dispatch_to_first_commit_seconds": 317, "commit_to_acceptance_seconds": 543, "total_seconds": 860, "delivery_commit_count": 1, "rejection_count": 0, "quota_used": null, "quota_status": "未采集", "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。", "evidence_refs": ["github:42f5ae5e00c34947b0120673464407aeaf0d1805", "github:496b973c127522b7e226d7543154d2ff6fb86861", "github:cd7823e089518bde0d0dc6aeda8fd7b52513d98f"], "missing_reasons": []}
+$ git show -s --format='%H %cI %s' 785eac55a03814287318c2e42e73f94182537cb8
+785eac55a03814287318c2e42e73f94182537cb8 2026-11-15T17:18:32+08:00 T-028：派 node-1 Step 6b 证据脱敏副本独立复核（A/B A2）
+$ git show -s --format='%H %cI %s' fe441a51946f96dfae3d66f7def59a2a0ba2418a
+fe441a51946f96dfae3d66f7def59a2a0ba2418a 2026-11-15T09:23:37+00:00 T-028：Step 6b 证据脱敏副本独立复核（node-1）
+$ git show -s --format='%H %cI %s' 2589df58e97e2371afba373600c6174ab5a2683b
+2589df58e97e2371afba373600c6174ab5a2683b 2026-11-15T18:13:30+08:00 T-028 验收通过：BOARD 状态改完成
+$ git show --format= --unified=0 785eac55a03814287318c2e42e73f94182537cb8 -- BOARD.md  # task row only
++| T-028 | Step 6b 证据脱敏副本独立复核 | node-1 | 待领 | tasks/T-028-step6b-evidence-review-node1.md | [#26](https://github.com/xy3293/muse-hub/issues/26) |
+$ git show --format= --unified=0 2589df58e97e2371afba373600c6174ab5a2683b -- BOARD.md  # task row only
+-| T-028 | Step 6b 证据脱敏副本独立复核 | node-1 | 待领 | tasks/T-028-step6b-evidence-review-node1.md | [#26](https://github.com/xy3293/muse-hub/issues/26) |
++| T-028 | Step 6b 证据脱敏副本独立复核 | node-1 | 完成 | tasks/T-028-step6b-evidence-review-node1.md | [#26](https://github.com/xy3293/muse-hub/issues/26) |
+$ git log --no-merges --format='%H %cI %s' 1c819c6ea5c708687472c02f61c29a76c2f3dddd -- results/node-1/T-028*
+fe441a51946f96dfae3d66f7def59a2a0ba2418a 2026-11-15T09:23:37+00:00 T-028：Step 6b 证据脱敏副本独立复核（node-1）
+receipt metadata: [{"task_id": "T-028", "node_id": "node-1", "version_sha": "fe441a51946f96dfae3d66f7def59a2a0ba2418a", "verdict": "PASS", "reviewed_at": "2026-11-15T10:13:27Z"}]
+hand arithmetic / API / differences: {"task": "T-028", "hand": {"dispatch_to_first_commit_seconds": 305, "commit_to_acceptance_seconds": 2993, "total_seconds": 3298, "delivery_commit_count": 1, "rejection_count": 0}, "api": {"dispatch_to_first_commit_seconds": 305, "commit_to_acceptance_seconds": 2993, "total_seconds": 3298, "delivery_commit_count": 1, "rejection_count": 0}, "differences": {"dispatch_to_first_commit_seconds": 0, "commit_to_acceptance_seconds": 0, "total_seconds": 0, "delivery_commit_count": 0, "rejection_count": 0}}
+Tower telemetry: {"dispatched_at": "2026-11-15T17:18:32+08:00", "first_delivery_at": "2026-11-15T09:23:37Z", "accepted_at": "2026-11-15T18:13:30+08:00", "dispatch_to_first_commit_seconds": 305, "commit_to_acceptance_seconds": 2993, "total_seconds": 3298, "delivery_commit_count": 1, "rejection_count": 0, "quota_used": null, "quota_status": "未采集", "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。", "evidence_refs": ["github:2589df58e97e2371afba373600c6174ab5a2683b", "github:785eac55a03814287318c2e42e73f94182537cb8", "github:fe441a51946f96dfae3d66f7def59a2a0ba2418a"], "missing_reasons": []}
+PASS: 3/3, exact seconds and counts; each minute rounding error <= 30 seconds
