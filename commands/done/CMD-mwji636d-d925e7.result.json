@@ -1,0 +1,11 @@
+{
+  "id": "CMD-mwji636d-d925e7",
+  "status": "done",
+  "by": "总控",
+  "at": "2026-11-16T16:56:13Z",
+  "detail": "已桥发 node-3，3 号回 OK（6.5 秒，无审批卡）。与 CMD-mwji5jy5-21ffd6 内容相同（重复提交）。入队 2026-11-16T16:53:39.349Z，处理 2026-11-16T16:56:13Z。",
+  "artifacts": [
+    "commands/done/CMD-mwji636d-d925e7.json",
+    "commands/done/CMD-mwji636d-d925e7.result.json"
+  ]
+}
