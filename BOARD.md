@@ -85,3 +85,4 @@
 | T-049 | Tower 前端静态快照模式（Control Tower 静态验收） | Codex | 完成 | muse-control-tower:frontend/ @ https://github.com/xy3293/muse-control-tower 34d37d2 | #46 |
 | T-050 | Tower L2 指令消费端（query 路径验证） | 总控 | 完成 | commands/done/（f3a2176, 5478133） | - |
 | T-051 | Tower 指令消费进巡逻 + 前端指令面板 + C11.2 补充 | 总控 + Codex | 完成 | muse-control-tower:frontend/ @ https://github.com/xy3293/muse-control-tower 60d00e9；tower-static/ fc290fa | #47 |
+| T-052 | T-039 恢复脚本真正恢复 snapshot timer（enable --now + 恢复后验证 active） | Codex | 进行中 | tasks/T-052-tower-repair-script-snapshot-timer-enable-now.md | #48 |
