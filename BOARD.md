@@ -86,3 +86,4 @@
 | T-050 | Tower L2 指令消费端（query 路径验证） | 总控 | 完成 | commands/done/（f3a2176, 5478133） | - |
 | T-051 | Tower 指令消费进巡逻 + 前端指令面板 + C11.2 补充 | 总控 + Codex | 完成 | muse-control-tower:frontend/ @ https://github.com/xy3293/muse-control-tower 60d00e9；tower-static/ fc290fa | #47 |
 | T-052 | T-039 恢复脚本真正恢复 snapshot timer（enable --now + 恢复后验证 active） | Codex | 完成 | muse-control-tower:deploy/repair-after-vm-replacement.sh @ https://github.com/xy3293/muse-control-tower 3756fed | #48 |
+| T-053 | Tower 指令面板进阶 — query 表单 + 列表自动刷新 + 最小鉴权 + 静态过期提示 | Codex | 进行中 | tasks/T-053-tower-command-panel-query-autorefresh-auth-stale.md | #49 |
