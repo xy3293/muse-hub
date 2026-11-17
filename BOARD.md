@@ -90,4 +90,4 @@
 | T-054 | 运行时监控显示 timer 状态（snapshot timer/兜底/两服务 active + 最近触发） | Codex | 完成 | muse-control-tower:backend/ + frontend/ + deploy/tower-runtime-sampler.sh @ https://github.com/xy3293/muse-control-tower 2cd89b1 | #50 |
 | T-055 | 快照健康度 — 顶部固定显示快照年龄（绿/黄/红 + 上次成功导出时间） | Codex | 完成 | muse-control-tower:frontend/ @ https://github.com/xy3293/muse-control-tower 91afdbc | #51 |
 | T-056 | 告警面板 — 看门狗与监督者日志汇总（倒序最近 50 条） | Codex | 完成 | muse-control-tower:backend/ + frontend/ @ https://github.com/xy3293/muse-control-tower 174baf7 | #52 |
-| T-058 | Tower 部署自检 deploy/verify.sh（一键 PASS/FAIL 清单） | Codex | 进行中 | tasks/T-058-tower-deploy-verify-script.md | #53 |
+| T-058 | Tower 部署自检 deploy/verify.sh（一键 PASS/FAIL 清单） | Codex | 完成 | muse-control-tower:deploy/verify.sh @ https://github.com/xy3293/muse-control-tower 5be230f | #53 |
