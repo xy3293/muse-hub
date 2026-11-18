@@ -96,4 +96,4 @@
 | T-061 | Tower 节点页显示“最近一次指令 + 最近一次桥发”（T10） | Codex | 完成 | muse-control-tower:backend/ + frontend/ @ https://github.com/xy3293/muse-control-tower c0df770 | #56 |
 | T-062 | Tower 任务中心加筛选/搜索（T11） | Codex | 完成 | muse-control-tower:frontend/ @ https://github.com/xy3293/muse-control-tower 597b32d | #57 |
 | T-063 | Tower verify.sh 结果可视化（T12） | Codex | 完成 | muse-control-tower:backend/ + frontend/ @ https://github.com/xy3293/muse-control-tower 68609e0 | #58 |
-| T-064 | Tower 快照失败要可见（T13） | Codex | 进行中 | tasks/T-064-tower-snapshot-failure-visible.md | [#59](https://github.com/xy3293/muse-hub/issues/59) |
+| T-064 | Tower 快照失败要可见（T13） | Codex | 完成 | muse-control-tower:backend/ + frontend/ @ https://github.com/xy3293/muse-control-tower 0948df1 | #59 |
