@@ -93,4 +93,4 @@
 | T-058 | Tower 部署自检 deploy/verify.sh（一键 PASS/FAIL 清单） | Codex | 完成 | muse-control-tower:deploy/verify.sh @ https://github.com/xy3293/muse-control-tower 5be230f | #53 |
 | T-059 | 恢复脚本补 T-054 采样器与 T-056 告警 ACL 检查 | Codex | 完成 | muse-control-tower:deploy/repair-after-vm-replacement.sh @ https://github.com/xy3293/muse-control-tower 2cf1946 | #54 |
 | T-060 | Tower 指令可取消 — pending 指令页面撤销（T9） | Codex | 完成 | muse-control-tower:frontend/ @ https://github.com/xy3293/muse-control-tower 71dc3c1 | #55 |
-| T-061 | Tower 节点页显示“最近一次指令 + 最近一次桥发”（T10） | Codex | 进行中 | tasks/T-061-tower-node-last-command-bridge.md | [#56](https://github.com/xy3293/muse-hub/issues/56) |
+| T-061 | Tower 节点页显示“最近一次指令 + 最近一次桥发”（T10） | Codex | 完成 | muse-control-tower:backend/ + frontend/ @ https://github.com/xy3293/muse-control-tower c0df770 | #56 |
