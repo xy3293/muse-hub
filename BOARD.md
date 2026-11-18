@@ -94,4 +94,4 @@
 | T-059 | 恢复脚本补 T-054 采样器与 T-056 告警 ACL 检查 | Codex | 完成 | muse-control-tower:deploy/repair-after-vm-replacement.sh @ https://github.com/xy3293/muse-control-tower 2cf1946 | #54 |
 | T-060 | Tower 指令可取消 — pending 指令页面撤销（T9） | Codex | 完成 | muse-control-tower:frontend/ @ https://github.com/xy3293/muse-control-tower 71dc3c1 | #55 |
 | T-061 | Tower 节点页显示“最近一次指令 + 最近一次桥发”（T10） | Codex | 完成 | muse-control-tower:backend/ + frontend/ @ https://github.com/xy3293/muse-control-tower c0df770 | #56 |
-| T-062 | Tower 任务中心加筛选/搜索（T11） | Codex | 进行中 | tasks/T-062-tower-task-filter-search.md | [#57](https://github.com/xy3293/muse-hub/issues/57) |
+| T-062 | Tower 任务中心加筛选/搜索（T11） | Codex | 完成 | muse-control-tower:frontend/ @ https://github.com/xy3293/muse-control-tower 597b32d | #57 |
