@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-11-18T03:27:43.364205+00:00",
+  "refreshed_at": "2026-11-18T03:36:45.734650+00:00",
   "overview": {
     "nodes": [
       {
@@ -37,9 +37,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-1",
-            "observed_at": "2026-11-18T03:27:42.949808Z",
+            "observed_at": "2026-11-18T03:36:45.378098Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-18T03:27:42.949808Z",
+            "fetched_at": "2026-11-18T03:36:45.378098Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -91,9 +91,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-2",
-            "observed_at": "2026-11-18T03:27:42.950011Z",
+            "observed_at": "2026-11-18T03:36:45.383168Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-18T03:27:42.950011Z",
+            "fetched_at": "2026-11-18T03:36:45.383168Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -145,9 +145,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-3",
-            "observed_at": "2026-11-18T03:27:42.950222Z",
+            "observed_at": "2026-11-18T03:36:45.389868Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-18T03:27:42.950222Z",
+            "fetched_at": "2026-11-18T03:36:45.389868Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -544,7 +544,7 @@
             "current_error_code": "SOURCE_UNAVAILABLE"
           }
         ],
-        "generated_at": "2026-11-18T03:27:42.954866Z",
+        "generated_at": "2026-11-18T03:36:45.412277Z",
         "partial": true
       }
     },
@@ -731,7 +731,7 @@
           "current_error_code": null
         }
       ],
-      "generated_at": "2026-11-18T03:27:42.954916Z",
+      "generated_at": "2026-11-18T03:36:45.412344Z",
       "partial": true
     }
   },
@@ -772,9 +772,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-1",
-            "observed_at": "2026-11-18T03:27:42.967415Z",
+            "observed_at": "2026-11-18T03:36:45.423568Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-18T03:27:42.967415Z",
+            "fetched_at": "2026-11-18T03:36:45.423568Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -826,9 +826,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-2",
-            "observed_at": "2026-11-18T03:27:42.967619Z",
+            "observed_at": "2026-11-18T03:36:45.423758Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-18T03:27:42.967619Z",
+            "fetched_at": "2026-11-18T03:36:45.423758Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -880,9 +880,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-3",
-            "observed_at": "2026-11-18T03:27:42.967936Z",
+            "observed_at": "2026-11-18T03:36:45.424004Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-18T03:27:42.967936Z",
+            "fetched_at": "2026-11-18T03:36:45.424004Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -956,9 +956,9 @@
         {
           "source": "vm_local",
           "source_ref": "vm:send_log:node-1",
-          "observed_at": "2026-11-18T03:27:42.967415Z",
+          "observed_at": "2026-11-18T03:36:45.423568Z",
           "last_success_at": null,
-          "fetched_at": "2026-11-18T03:27:42.967415Z",
+          "fetched_at": "2026-11-18T03:36:45.423568Z",
           "freshness": "fresh",
           "stale": false,
           "current_error_code": null
@@ -966,9 +966,9 @@
         {
           "source": "vm_local",
           "source_ref": "vm:send_log:node-2",
-          "observed_at": "2026-11-18T03:27:42.967619Z",
+          "observed_at": "2026-11-18T03:36:45.423758Z",
           "last_success_at": null,
-          "fetched_at": "2026-11-18T03:27:42.967619Z",
+          "fetched_at": "2026-11-18T03:36:45.423758Z",
           "freshness": "fresh",
           "stale": false,
           "current_error_code": null
@@ -976,15 +976,15 @@
         {
           "source": "vm_local",
           "source_ref": "vm:send_log:node-3",
-          "observed_at": "2026-11-18T03:27:42.967936Z",
+          "observed_at": "2026-11-18T03:36:45.424004Z",
           "last_success_at": null,
-          "fetched_at": "2026-11-18T03:27:42.967936Z",
+          "fetched_at": "2026-11-18T03:36:45.424004Z",
           "freshness": "fresh",
           "stale": false,
           "current_error_code": null
         }
       ],
-      "generated_at": "2026-11-18T03:27:42.967999Z",
+      "generated_at": "2026-11-18T03:36:45.424037Z",
       "partial": true
     }
   },
@@ -1163,7 +1163,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976404Z",
+          "generated_at": "2026-11-18T03:36:45.430744Z",
           "partial": true
         }
       },
@@ -1340,7 +1340,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976501Z",
+          "generated_at": "2026-11-18T03:36:45.430808Z",
           "partial": true
         }
       },
@@ -1517,7 +1517,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976580Z",
+          "generated_at": "2026-11-18T03:36:45.430845Z",
           "partial": true
         }
       },
@@ -1695,7 +1695,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976627Z",
+          "generated_at": "2026-11-18T03:36:45.430875Z",
           "partial": true
         }
       },
@@ -1872,7 +1872,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976672Z",
+          "generated_at": "2026-11-18T03:36:45.430904Z",
           "partial": true
         }
       },
@@ -2049,7 +2049,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976717Z",
+          "generated_at": "2026-11-18T03:36:45.430933Z",
           "partial": true
         }
       },
@@ -2226,7 +2226,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976759Z",
+          "generated_at": "2026-11-18T03:36:45.430962Z",
           "partial": true
         }
       },
@@ -2403,7 +2403,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976803Z",
+          "generated_at": "2026-11-18T03:36:45.431003Z",
           "partial": true
         }
       },
@@ -2580,7 +2580,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976846Z",
+          "generated_at": "2026-11-18T03:36:45.431031Z",
           "partial": true
         }
       },
@@ -2757,7 +2757,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976890Z",
+          "generated_at": "2026-11-18T03:36:45.431059Z",
           "partial": true
         }
       },
@@ -2934,7 +2934,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976933Z",
+          "generated_at": "2026-11-18T03:36:45.431088Z",
           "partial": true
         }
       },
@@ -3111,7 +3111,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.976974Z",
+          "generated_at": "2026-11-18T03:36:45.431117Z",
           "partial": true
         }
       },
@@ -3288,7 +3288,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977017Z",
+          "generated_at": "2026-11-18T03:36:45.431145Z",
           "partial": true
         }
       },
@@ -3466,7 +3466,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977062Z",
+          "generated_at": "2026-11-18T03:36:45.431173Z",
           "partial": true
         }
       },
@@ -3646,7 +3646,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977107Z",
+          "generated_at": "2026-11-18T03:36:45.431201Z",
           "partial": true
         }
       },
@@ -3823,7 +3823,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977152Z",
+          "generated_at": "2026-11-18T03:36:45.431229Z",
           "partial": true
         }
       },
@@ -4000,7 +4000,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977195Z",
+          "generated_at": "2026-11-18T03:36:45.431257Z",
           "partial": true
         }
       },
@@ -4177,7 +4177,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977238Z",
+          "generated_at": "2026-11-18T03:36:45.431285Z",
           "partial": true
         }
       },
@@ -4355,7 +4355,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977304Z",
+          "generated_at": "2026-11-18T03:36:45.431313Z",
           "partial": true
         }
       },
@@ -4532,7 +4532,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977349Z",
+          "generated_at": "2026-11-18T03:36:45.431342Z",
           "partial": true
         }
       },
@@ -4716,7 +4716,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977393Z",
+          "generated_at": "2026-11-18T03:36:45.431370Z",
           "partial": true
         }
       },
@@ -4893,7 +4893,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977437Z",
+          "generated_at": "2026-11-18T03:36:45.431397Z",
           "partial": true
         }
       },
@@ -5070,7 +5070,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977482Z",
+          "generated_at": "2026-11-18T03:36:45.431425Z",
           "partial": true
         }
       },
@@ -5249,7 +5249,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977584Z",
+          "generated_at": "2026-11-18T03:36:45.431479Z",
           "partial": true
         }
       },
@@ -5426,7 +5426,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977628Z",
+          "generated_at": "2026-11-18T03:36:45.431519Z",
           "partial": true
         }
       },
@@ -5642,7 +5642,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977674Z",
+          "generated_at": "2026-11-18T03:36:45.431548Z",
           "partial": true
         }
       },
@@ -5858,7 +5858,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977720Z",
+          "generated_at": "2026-11-18T03:36:45.431577Z",
           "partial": true
         }
       },
@@ -6035,7 +6035,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977540Z",
+          "generated_at": "2026-11-18T03:36:45.431452Z",
           "partial": true
         }
       },
@@ -6261,7 +6261,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977885Z",
+          "generated_at": "2026-11-18T03:36:45.431688Z",
           "partial": true
         }
       },
@@ -6440,7 +6440,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977930Z",
+          "generated_at": "2026-11-18T03:36:45.431716Z",
           "partial": true
         }
       },
@@ -6656,7 +6656,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.977973Z",
+          "generated_at": "2026-11-18T03:36:45.431743Z",
           "partial": true
         }
       },
@@ -6872,7 +6872,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978016Z",
+          "generated_at": "2026-11-18T03:36:45.431772Z",
           "partial": true
         }
       },
@@ -7050,7 +7050,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978059Z",
+          "generated_at": "2026-11-18T03:36:45.431799Z",
           "partial": true
         }
       },
@@ -7235,7 +7235,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978101Z",
+          "generated_at": "2026-11-18T03:36:45.431827Z",
           "partial": true
         }
       },
@@ -7412,7 +7412,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978143Z",
+          "generated_at": "2026-11-18T03:36:45.431855Z",
           "partial": true
         }
       },
@@ -7590,7 +7590,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978187Z",
+          "generated_at": "2026-11-18T03:36:45.431882Z",
           "partial": true
         }
       },
@@ -7767,7 +7767,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978230Z",
+          "generated_at": "2026-11-18T03:36:45.431911Z",
           "partial": true
         }
       },
@@ -7944,7 +7944,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978289Z",
+          "generated_at": "2026-11-18T03:36:45.431939Z",
           "partial": true
         }
       },
@@ -8121,7 +8121,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978334Z",
+          "generated_at": "2026-11-18T03:36:45.431967Z",
           "partial": true
         }
       },
@@ -8298,7 +8298,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978377Z",
+          "generated_at": "2026-11-18T03:36:45.432005Z",
           "partial": true
         }
       },
@@ -8477,7 +8477,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978419Z",
+          "generated_at": "2026-11-18T03:36:45.432033Z",
           "partial": true
         }
       },
@@ -8654,7 +8654,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978464Z",
+          "generated_at": "2026-11-18T03:36:45.432064Z",
           "partial": true
         }
       },
@@ -8831,7 +8831,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978523Z",
+          "generated_at": "2026-11-18T03:36:45.432093Z",
           "partial": true
         }
       },
@@ -9008,7 +9008,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978567Z",
+          "generated_at": "2026-11-18T03:36:45.432120Z",
           "partial": true
         }
       },
@@ -9186,7 +9186,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978609Z",
+          "generated_at": "2026-11-18T03:36:45.432147Z",
           "partial": true
         }
       },
@@ -9364,7 +9364,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978650Z",
+          "generated_at": "2026-11-18T03:36:45.432175Z",
           "partial": true
         }
       },
@@ -9541,7 +9541,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978693Z",
+          "generated_at": "2026-11-18T03:36:45.432202Z",
           "partial": true
         }
       },
@@ -9720,7 +9720,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978735Z",
+          "generated_at": "2026-11-18T03:36:45.432230Z",
           "partial": true
         }
       },
@@ -9897,7 +9897,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978777Z",
+          "generated_at": "2026-11-18T03:36:45.432257Z",
           "partial": true
         }
       },
@@ -10076,7 +10076,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978819Z",
+          "generated_at": "2026-11-18T03:36:45.432285Z",
           "partial": true
         }
       },
@@ -10253,7 +10253,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978861Z",
+          "generated_at": "2026-11-18T03:36:45.432312Z",
           "partial": true
         }
       },
@@ -10431,7 +10431,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978898Z",
+          "generated_at": "2026-11-18T03:36:45.432339Z",
           "partial": true
         }
       },
@@ -10609,7 +10609,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978927Z",
+          "generated_at": "2026-11-18T03:36:45.432367Z",
           "partial": true
         }
       },
@@ -10787,7 +10787,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978956Z",
+          "generated_at": "2026-11-18T03:36:45.432394Z",
           "partial": true
         }
       },
@@ -10965,7 +10965,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.978984Z",
+          "generated_at": "2026-11-18T03:36:45.432422Z",
           "partial": true
         }
       },
@@ -11143,7 +11143,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.979013Z",
+          "generated_at": "2026-11-18T03:36:45.432448Z",
           "partial": true
         }
       },
@@ -11321,7 +11321,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.979042Z",
+          "generated_at": "2026-11-18T03:36:45.432476Z",
           "partial": true
         }
       },
@@ -11499,7 +11499,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.979071Z",
+          "generated_at": "2026-11-18T03:36:45.432502Z",
           "partial": true
         }
       },
@@ -11676,7 +11676,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.979100Z",
+          "generated_at": "2026-11-18T03:36:45.432541Z",
           "partial": true
         }
       },
@@ -11854,7 +11854,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.979128Z",
+          "generated_at": "2026-11-18T03:36:45.432568Z",
           "partial": true
         }
       },
@@ -12032,7 +12032,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.979156Z",
+          "generated_at": "2026-11-18T03:36:45.432594Z",
           "partial": true
         }
       },
@@ -12210,7 +12210,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.979184Z",
+          "generated_at": "2026-11-18T03:36:45.432621Z",
           "partial": true
         }
       },
@@ -12388,7 +12388,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-18T03:27:42.979212Z",
+          "generated_at": "2026-11-18T03:36:45.432648Z",
           "partial": true
         }
       }
@@ -12507,7 +12507,7 @@
           "current_error_code": null
         }
       ],
-      "generated_at": "2026-11-18T03:27:43.239442Z",
+      "generated_at": "2026-11-18T03:36:45.615056Z",
       "partial": true
     }
   },
@@ -12833,7 +12833,7 @@
           "current_error_code": null
         }
       ],
-      "generated_at": "2026-11-18T03:27:43.339553Z",
+      "generated_at": "2026-11-18T03:36:45.698391Z",
       "partial": true
     }
   },
@@ -12933,7 +12933,7 @@
           "current_error_code": "SOURCE_UNAVAILABLE"
         }
       ],
-      "generated_at": "2026-11-18T03:27:43.348133Z",
+      "generated_at": "2026-11-18T03:36:45.704865Z",
       "partial": true
     }
   },
@@ -12946,11 +12946,11 @@
     "total": 0
   },
   "verify": {
-    "ran_at": "2026-11-18T03:27:42Z",
-    "exit_code": 0,
+    "ran_at": "2026-11-18T03:36:44Z",
+    "exit_code": 1,
     "total": 28,
-    "passed": 28,
-    "failed": 0,
+    "passed": 27,
+    "failed": 1,
     "warned": 0,
     "checks": [
       {
@@ -12980,8 +12980,8 @@
       },
       {
         "name": "快照 timer",
-        "status": "pass",
-        "detail": ""
+        "status": "fail",
+        "detail": "未 active 或下次触发时间无效"
       },
       {
         "name": "后端 service 单元",
