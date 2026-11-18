@@ -98,4 +98,4 @@
 | T-063 | Tower verify.sh 结果可视化（T12） | Codex | 完成 | muse-control-tower:backend/ + frontend/ @ https://github.com/xy3293/muse-control-tower 68609e0 | #58 |
 | T-064 | Tower 快照失败要可见（T13） | Codex | 完成 | muse-control-tower:backend/ + frontend/ @ https://github.com/xy3293/muse-control-tower 0948df1 | #59 |
 | T-065 | Tower 指令结果可回溯展开（T14） | Codex | 完成 | muse-control-tower:frontend/ @ https://github.com/xy3293/muse-control-tower 3a92bf7 | #60 |
-| T-066 | Tower 面板与仓库对账 — 一致性校验区块（T15） | Codex | 进行中 | — | #61 |
+| T-066 | Tower 面板与仓库对账 — 一致性校验区块（T15） | Codex | 完成 | muse-control-tower:integration @ https://github.com/xy3293/muse-control-tower aa3a2f0 | #61 |
