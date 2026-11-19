@@ -107,3 +107,4 @@
 | T-072 | Tower 面板鉴权落地验证（D3） | Codex | 完成 | muse-control-tower:integration @ https://github.com/xy3293/muse-control-tower 5abacfd（测试-only：无 token 401、真 key 404 无路由、零指令、key 未泄漏） | #67 |
 | T-073 | 恢复路径去 apt 依赖（换机恢复 <120 秒） | Codex | 完成 | muse-control-tower:integration @ https://github.com/xy3293/muse-control-tower d3d102c（apt 已去，离线 dpkg -i；实测 235.82/248.99 秒，<120 秒未达，卡点见 T-074） | #68 |
 | T-074 | 首轮快照导出 30 秒超时排查（恢复 <120 秒的卡点） | Codex | 完成 | muse-control-tower:integration @ https://github.com/xy3293/muse-control-tower c283827（根因：overview 冷启动 63 秒 vs 导出 30 秒超时；后台暖机并行，实测 91.101 秒 <120 秒） | #69 |
+| T-075 | P3 数据闭环：GitHub Trending 日榜/周榜抓取＋结构化存储 | Codex | 进行中 | tasks/T-075-trending-data-loop.md | [#70](https://github.com/xy3293/muse-hub/issues/70) |
