@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-11-19T19:33:39.333928+00:00",
+  "refreshed_at": "2026-11-19T19:43:36.715492+00:00",
   "overview": {
     "nodes": [
       {
@@ -37,9 +37,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-1",
-            "observed_at": "2026-11-19T19:33:38.877581Z",
+            "observed_at": "2026-11-19T19:43:34.422640Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-19T19:33:38.877581Z",
+            "fetched_at": "2026-11-19T19:43:34.422640Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -91,9 +91,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-2",
-            "observed_at": "2026-11-19T19:33:38.885486Z",
+            "observed_at": "2026-11-19T19:43:34.422846Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-19T19:33:38.885486Z",
+            "fetched_at": "2026-11-19T19:43:34.422846Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -145,9 +145,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-3",
-            "observed_at": "2026-11-19T19:33:38.894025Z",
+            "observed_at": "2026-11-19T19:43:34.423068Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-19T19:33:38.894025Z",
+            "fetched_at": "2026-11-19T19:43:34.423068Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -215,7 +215,7 @@
       "match": true,
       "diffs": [],
       "board_head": "97968de",
-      "checked_at": "2026-11-19T19:33:38.894241Z"
+      "checked_at": "2026-11-19T19:43:34.423218Z"
     },
     "recent_events": [
       {
@@ -580,7 +580,7 @@
             "current_error_code": "SOURCE_UNAVAILABLE"
           }
         ],
-        "generated_at": "2026-11-19T19:33:38.909316Z",
+        "generated_at": "2026-11-19T19:43:34.433430Z",
         "partial": true
       }
     },
@@ -767,7 +767,7 @@
           "current_error_code": null
         }
       ],
-      "generated_at": "2026-11-19T19:33:38.909375Z",
+      "generated_at": "2026-11-19T19:43:34.433484Z",
       "partial": true
     }
   },
@@ -808,9 +808,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-1",
-            "observed_at": "2026-11-19T19:33:38.920142Z",
+            "observed_at": "2026-11-19T19:43:34.443954Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-19T19:33:38.920142Z",
+            "fetched_at": "2026-11-19T19:43:34.443954Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -862,9 +862,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-2",
-            "observed_at": "2026-11-19T19:33:38.920302Z",
+            "observed_at": "2026-11-19T19:43:34.444124Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-19T19:33:38.920302Z",
+            "fetched_at": "2026-11-19T19:43:34.444124Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -916,9 +916,9 @@
           "source_meta": {
             "source": "vm_local",
             "source_ref": "vm:send_log:node-3",
-            "observed_at": "2026-11-19T19:33:38.920521Z",
+            "observed_at": "2026-11-19T19:43:34.444328Z",
             "last_success_at": null,
-            "fetched_at": "2026-11-19T19:33:38.920521Z",
+            "fetched_at": "2026-11-19T19:43:34.444328Z",
             "freshness": "fresh",
             "stale": false,
             "current_error_code": null
@@ -992,9 +992,9 @@
         {
           "source": "vm_local",
           "source_ref": "vm:send_log:node-1",
-          "observed_at": "2026-11-19T19:33:38.920142Z",
+          "observed_at": "2026-11-19T19:43:34.443954Z",
           "last_success_at": null,
-          "fetched_at": "2026-11-19T19:33:38.920142Z",
+          "fetched_at": "2026-11-19T19:43:34.443954Z",
           "freshness": "fresh",
           "stale": false,
           "current_error_code": null
@@ -1002,9 +1002,9 @@
         {
           "source": "vm_local",
           "source_ref": "vm:send_log:node-2",
-          "observed_at": "2026-11-19T19:33:38.920302Z",
+          "observed_at": "2026-11-19T19:43:34.444124Z",
           "last_success_at": null,
-          "fetched_at": "2026-11-19T19:33:38.920302Z",
+          "fetched_at": "2026-11-19T19:43:34.444124Z",
           "freshness": "fresh",
           "stale": false,
           "current_error_code": null
@@ -1012,15 +1012,15 @@
         {
           "source": "vm_local",
           "source_ref": "vm:send_log:node-3",
-          "observed_at": "2026-11-19T19:33:38.920521Z",
+          "observed_at": "2026-11-19T19:43:34.444328Z",
           "last_success_at": null,
-          "fetched_at": "2026-11-19T19:33:38.920521Z",
+          "fetched_at": "2026-11-19T19:43:34.444328Z",
           "freshness": "fresh",
           "stale": false,
           "current_error_code": null
         }
       ],
-      "generated_at": "2026-11-19T19:33:38.920556Z",
+      "generated_at": "2026-11-19T19:43:34.444379Z",
       "partial": true
     }
   },
@@ -1037,7 +1037,7 @@
           "commit_to_acceptance_seconds": 2281,
           "total_seconds": 4248,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -1046,7 +1046,9 @@
             "github:efcd49f667ea21b20d9b696adefaeaa0a5041cbf",
             "github:fd0ba0c8628af1b8f30bfd140634a8cb335e3920"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-001-tokenized-us-stocks.md",
@@ -1200,7 +1202,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.927974Z",
+          "generated_at": "2026-11-19T19:43:34.484998Z",
           "partial": true
         }
       },
@@ -1215,7 +1217,7 @@
           "commit_to_acceptance_seconds": 679,
           "total_seconds": 1250,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -1224,7 +1226,9 @@
             "github:c0eef6057309944aa08db43f14056ab92e5b5c75",
             "github:e77391c7297b764efe482e7955776d6c5141b84c"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-3",
         "task_book_path": "tasks/T-002-step6b-evidence-review.md",
@@ -1378,7 +1382,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928042Z",
+          "generated_at": "2026-11-19T19:43:34.485086Z",
           "partial": true
         }
       },
@@ -1393,7 +1397,7 @@
           "commit_to_acceptance_seconds": 280,
           "total_seconds": 1485,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -1402,7 +1406,9 @@
             "github:6dd3d0c7f22a2715bd3cf87c9ef867010430d1fd",
             "github:a7954444ddfea29276eed876fe7f04bf051c8774"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-003-kaggle-free-gpu-for-muse.md",
@@ -1556,7 +1562,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928078Z",
+          "generated_at": "2026-11-19T19:43:34.485127Z",
           "partial": true
         }
       },
@@ -1571,7 +1577,7 @@
           "commit_to_acceptance_seconds": 1045,
           "total_seconds": 5302,
           "delivery_commit_count": 2,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -1581,7 +1587,9 @@
             "github:b1012f82ea43c592417631a601e24127a25864b5",
             "github:fa4cee5c93c9304a494d348c9f878fe8fbf3e611"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-004-free-resources-for-chen.md",
@@ -1735,7 +1743,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928109Z",
+          "generated_at": "2026-11-19T19:43:34.485160Z",
           "partial": true
         }
       },
@@ -1750,7 +1758,7 @@
           "commit_to_acceptance_seconds": 543,
           "total_seconds": 860,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -1759,7 +1767,9 @@
             "github:496b973c127522b7e226d7543154d2ff6fb86861",
             "github:cd7823e089518bde0d0dc6aeda8fd7b52513d98f"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-005-rule-consistency-audit.md",
@@ -1913,7 +1923,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928138Z",
+          "generated_at": "2026-11-19T19:43:34.485191Z",
           "partial": true
         }
       },
@@ -1928,7 +1938,7 @@
           "commit_to_acceptance_seconds": 5873,
           "total_seconds": 8123,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -1937,7 +1947,9 @@
             "github:4e108f990fe88e7f5cefb91212a66f1718c41fdb",
             "github:b8d4981892463310c30d10b409d6279d41ddf520"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-006-control-tower-data-survey.md",
@@ -2091,7 +2103,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928167Z",
+          "generated_at": "2026-11-19T19:43:34.485222Z",
           "partial": true
         }
       },
@@ -2106,7 +2118,7 @@
           "commit_to_acceptance_seconds": 7140,
           "total_seconds": 8123,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -2115,7 +2127,9 @@
             "github:226c1a90ce0f6cb4278a1361e5b0bc7af6f8bd2c",
             "github:331e4c968eebc3014e3a616c709517bbf4dc6660"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-3",
         "task_book_path": "tasks/T-007-control-tower-architecture-review.md",
@@ -2269,7 +2283,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928195Z",
+          "generated_at": "2026-11-19T19:43:34.485251Z",
           "partial": true
         }
       },
@@ -2284,7 +2298,7 @@
           "commit_to_acceptance_seconds": 2473,
           "total_seconds": 3093,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -2293,7 +2307,9 @@
             "github:7f6fc99a12a0102211f1831a1e306551ff72098a",
             "github:a29832d4389a61ac116545d7e4bc95b4fe288499"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-008-worker-loss-stage0-capability-probe.md",
@@ -2447,7 +2463,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928223Z",
+          "generated_at": "2026-11-19T19:43:34.485280Z",
           "partial": true
         }
       },
@@ -2462,7 +2478,7 @@
           "commit_to_acceptance_seconds": 461,
           "total_seconds": 907,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -2471,7 +2487,9 @@
             "github:a30797c6e9ed40035e9a20854edeefc9200f40f2",
             "github:c340559b26b7ad13e3ef9be18d8ec65ef51570da"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-009-v2-stage0-db-patrol-probe.md",
@@ -2625,7 +2643,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928251Z",
+          "generated_at": "2026-11-19T19:43:34.485308Z",
           "partial": true
         }
       },
@@ -2640,7 +2658,7 @@
           "commit_to_acceptance_seconds": 182,
           "total_seconds": 468,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -2649,7 +2667,9 @@
             "github:cad11968ff4951275a162f5654fce7142e038dd8",
             "github:df8e6fdfa64edf34e9ac18a740a61786575f39bf"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-010-checkpoint-resume-validation.md",
@@ -2803,7 +2823,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928281Z",
+          "generated_at": "2026-11-19T19:43:34.485337Z",
           "partial": true
         }
       },
@@ -2818,7 +2838,7 @@
           "commit_to_acceptance_seconds": 404,
           "total_seconds": 657,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -2827,7 +2847,9 @@
             "github:45a09669092db24bba89226aa5cba77a7a7d1cf8",
             "github:a983b3531dde0ef7559862210164f9093d538b66"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-011-ai-agent-group-chat-comparison.md",
@@ -2981,7 +3003,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928308Z",
+          "generated_at": "2026-11-19T19:43:34.485366Z",
           "partial": true
         }
       },
@@ -2996,7 +3018,7 @@
           "commit_to_acceptance_seconds": 419,
           "total_seconds": 978,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -3005,7 +3027,9 @@
             "github:db921b8e28969a6e6e8e56517425500725ee8d62",
             "github:f2b8e86644bf1270be0c8f6d330facde1a558bd3"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-012-checkpoint-stage-b-resume.md",
@@ -3159,7 +3183,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928337Z",
+          "generated_at": "2026-11-19T19:43:34.485394Z",
           "partial": true
         }
       },
@@ -3174,7 +3198,7 @@
           "commit_to_acceptance_seconds": 557,
           "total_seconds": 998,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -3183,7 +3207,9 @@
             "github:bf0723c1a071f2e7ad13a488ae7cabe95cdc51f6",
             "github:eb66d622a0a16ac27e06f4fc38b6529777f151fe"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-013-pachat-instant-wake-verification.md",
@@ -3337,7 +3363,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928364Z",
+          "generated_at": "2026-11-19T19:43:34.485435Z",
           "partial": true
         }
       },
@@ -3352,7 +3378,7 @@
           "commit_to_acceptance_seconds": 1293,
           "total_seconds": 1927,
           "delivery_commit_count": 2,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -3362,7 +3388,9 @@
             "github:b332ed1997df0ca151ad953bcb70c717f574b442",
             "github:b425a98de2a0f47e006ced76665cd2bc332995de"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-014-node-patrol-180-pachat-hook.md",
@@ -3516,7 +3544,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928393Z",
+          "generated_at": "2026-11-19T19:43:34.485467Z",
           "partial": true
         }
       },
@@ -3531,7 +3559,7 @@
           "commit_to_acceptance_seconds": 7449,
           "total_seconds": 106472,
           "delivery_commit_count": 2,
-          "rejection_count": 2,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -3539,11 +3567,11 @@
             "github:0e329d7ab7ca3dcc6254287b2b91b13cf01c722d",
             "github:5f59846e9790d884bf502dd79cea9a922ca72b2c",
             "github:b332ed1997df0ca151ad953bcb70c717f574b442",
-            "github:c9bc8d3f5238e1507e515151b8849ce0c6d37f7e",
-            "receipts:result-T-015-node-2-0e329d7ab7ca3dcc6254287b2b91b13cf01c722d.json",
-            "receipts:result-T-015-node-2-c9bc8d3f5238e1507e515151b8849ce0c6d37f7e.json"
+            "github:c9bc8d3f5238e1507e515151b8849ce0c6d37f7e"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-2",
         "task_book_path": "tasks/T-015-node-patrol-180-pachat-hook.md",
@@ -3697,7 +3725,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928433Z",
+          "generated_at": "2026-11-19T19:43:34.485496Z",
           "partial": true
         }
       },
@@ -3712,7 +3740,7 @@
           "commit_to_acceptance_seconds": 102332,
           "total_seconds": 105694,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -3721,7 +3749,9 @@
             "github:b332ed1997df0ca151ad953bcb70c717f574b442",
             "github:c3cbb3c64760b3065b11372f44202275f8c2ab76"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-3",
         "task_book_path": "tasks/T-016-node-patrol-180-pachat-hook.md",
@@ -3875,7 +3905,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928462Z",
+          "generated_at": "2026-11-19T19:43:34.485526Z",
           "partial": true
         }
       },
@@ -3890,7 +3920,7 @@
           "commit_to_acceptance_seconds": 426,
           "total_seconds": 930,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -3899,7 +3929,9 @@
             "github:1e0e9871ff559360ef273a26effee7508026ee39",
             "github:3d83fabe4cb483ba1d83eaed24263571573b7dd0"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-017-node3-browser-poc-p0-verification.md",
@@ -4053,7 +4085,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928490Z",
+          "generated_at": "2026-11-19T19:43:34.485556Z",
           "partial": true
         }
       },
@@ -4068,7 +4100,7 @@
           "commit_to_acceptance_seconds": 290,
           "total_seconds": 1179,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -4077,7 +4109,9 @@
             "github:828240eb397fa73dd21b039dbddce47918a5494f",
             "github:cd34136379926ad7beffac8eed14184a2c67bca7"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-018-node1-background-survival.md",
@@ -4231,7 +4265,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928519Z",
+          "generated_at": "2026-11-19T19:43:34.485586Z",
           "partial": true
         }
       },
@@ -4246,7 +4280,7 @@
           "commit_to_acceptance_seconds": 1165,
           "total_seconds": 1621,
           "delivery_commit_count": 2,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -4256,7 +4290,9 @@
             "github:9589e0949aeb6154d2db9967540022213e642cd2",
             "github:c2c7936883e4319b0277037a27fc3e63072f6771"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-2",
         "task_book_path": "tasks/T-019-node2-autonomous-peer-proof.md",
@@ -4410,7 +4446,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928550Z",
+          "generated_at": "2026-11-19T19:43:34.485616Z",
           "partial": true
         }
       },
@@ -4425,7 +4461,7 @@
           "commit_to_acceptance_seconds": 571,
           "total_seconds": 2433,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -4434,7 +4470,9 @@
             "github:c2c7936883e4319b0277037a27fc3e63072f6771",
             "github:d9757ffaba7003c6fa313f268b1b20c94ded2324"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-3",
         "task_book_path": "tasks/T-020-node3-autonomous-peer-proof.md",
@@ -4588,7 +4626,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928578Z",
+          "generated_at": "2026-11-19T19:43:34.485645Z",
           "partial": true
         }
       },
@@ -4603,7 +4641,7 @@
           "commit_to_acceptance_seconds": 6186,
           "total_seconds": 6798,
           "delivery_commit_count": 5,
-          "rejection_count": 3,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -4614,12 +4652,11 @@
             "github:50de6070f30b23590dc24e1edd429ebe7420c86a",
             "github:bb31c7b645217651c45ab3095de3274a1764741b",
             "github:c208b141b7baf7f78a3d7ff58a5b4781277819eb",
-            "github:e2964ab3cf70d64d0d296518bf6875416b17382e",
-            "receipts:result-T-021-node-1-460105862453ff90bc7b9e8b0093c9950b56431f.json",
-            "receipts:result-T-021-node-1-c208b141b7baf7f78a3d7ff58a5b4781277819eb.json",
-            "receipts:result-T-021-node-1-e2964ab3cf70d64d0d296518bf6875416b17382e.json"
+            "github:e2964ab3cf70d64d0d296518bf6875416b17382e"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-021-node1-director-card-coverage.md",
@@ -4773,7 +4810,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928606Z",
+          "generated_at": "2026-11-19T19:43:34.485675Z",
           "partial": true
         }
       },
@@ -4788,7 +4825,7 @@
           "commit_to_acceptance_seconds": 387,
           "total_seconds": 32342,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -4797,7 +4834,9 @@
             "github:0f61a4a7b21c14a2c6432fc869dbf718e8abd433",
             "github:a1860ac52b00664941965f0ab94ec829b70463dd"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-3",
         "task_book_path": "tasks/T-022-control-tower-rc1-review-node3.md",
@@ -4951,7 +4990,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928635Z",
+          "generated_at": "2026-11-19T19:43:34.485705Z",
           "partial": true
         }
       },
@@ -4966,7 +5005,7 @@
           "commit_to_acceptance_seconds": 474,
           "total_seconds": 774,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -4975,7 +5014,9 @@
             "github:78ce4ee360dec5f56a92b5cf04ef87f0aaa4f7f8",
             "github:a77a7f156b526ccc63add297d6d71fcce80bc975"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-2",
         "task_book_path": "tasks/T-023-ab-tick.md",
@@ -5129,7 +5170,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928662Z",
+          "generated_at": "2026-11-19T19:43:34.485738Z",
           "partial": true
         }
       },
@@ -5144,7 +5185,7 @@
           "commit_to_acceptance_seconds": 1616,
           "total_seconds": 4338,
           "delivery_commit_count": 2,
-          "rejection_count": 1,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -5152,10 +5193,11 @@
             "github:3320032c96bd1cae4b0be300062c23cb6a63c96d",
             "github:3500116b88d5ec5a426bd0422acdd084a0b39dab",
             "github:3b76391a275aa9e337a060acd9de13c83e66e44f",
-            "github:db59b7fe16eb3f13cb4c61bbfccc64e62ed5ca50",
-            "receipts:result-T-024-node-3-db59b7fe16eb3f13cb4c61bbfccc64e62ed5ca50.json"
+            "github:db59b7fe16eb3f13cb4c61bbfccc64e62ed5ca50"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-3",
         "task_book_path": "tasks/T-024-t002-file-report-node3.md",
@@ -5309,7 +5351,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928809Z",
+          "generated_at": "2026-11-19T19:43:34.485959Z",
           "partial": true
         }
       },
@@ -5324,7 +5366,7 @@
           "commit_to_acceptance_seconds": 299,
           "total_seconds": 382,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -5333,7 +5375,9 @@
             "github:95513df769da394f9d35612222cda3fd242d0b32",
             "github:d980a5e30c27e93019df52b154de033c249e2990"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-025-code-prereq-node1.md",
@@ -5487,7 +5531,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928841Z",
+          "generated_at": "2026-11-19T19:43:34.485996Z",
           "partial": true
         }
       },
@@ -5502,7 +5546,7 @@
           "commit_to_acceptance_seconds": 123,
           "total_seconds": 9088,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -5511,7 +5555,9 @@
             "github:9dd9256540e414469ed98d3e47a8ebbecf1a0477",
             "github:f4b4cbcbda7bcb227ed442899c8cb5c8b99e8339"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-2",
         "task_book_path": "tasks/T-026-code-prereq-node2.md",
@@ -5704,7 +5750,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929063Z",
+          "generated_at": "2026-11-19T19:43:34.486035Z",
           "partial": true
         }
       },
@@ -5719,7 +5765,7 @@
           "commit_to_acceptance_seconds": 974,
           "total_seconds": 5783,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -5728,7 +5774,9 @@
             "github:8500075541cd89c3d43416c7e3c9494345004e6f",
             "github:a13ff1269fa757304f8b82549d99a98aae7b0b4d"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-3",
         "task_book_path": "tasks/T-027-code-prereq-node3.md",
@@ -5921,7 +5969,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929099Z",
+          "generated_at": "2026-11-19T19:43:34.486066Z",
           "partial": true
         }
       },
@@ -5936,7 +5984,7 @@
           "commit_to_acceptance_seconds": 2993,
           "total_seconds": 3298,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -5945,7 +5993,9 @@
             "github:785eac55a03814287318c2e42e73f94182537cb8",
             "github:fe441a51946f96dfae3d66f7def59a2a0ba2418a"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-028-step6b-evidence-review-node1.md",
@@ -6099,7 +6149,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.928690Z",
+          "generated_at": "2026-11-19T19:43:34.485769Z",
           "partial": true
         }
       },
@@ -6114,7 +6164,7 @@
           "commit_to_acceptance_seconds": 1000,
           "total_seconds": 2119,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -6123,7 +6173,9 @@
             "github:baf39aae26218d716d89d47ceeac096e080009eb",
             "github:fe29de4ee9ca90e96adf7b024068c5e5beb40737"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-3",
         "task_book_path": "tasks/T-029-patrol-update-node3.md",
@@ -6326,7 +6378,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929129Z",
+          "generated_at": "2026-11-19T19:43:34.486095Z",
           "partial": true
         }
       },
@@ -6341,7 +6393,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 3249,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -6351,7 +6403,8 @@
             "github:d5483ea99f0e60096e8f2bd6945eb6019e497d0e"
           ],
           "missing_reasons": [
-            "未采集：commit_to_acceptance_seconds 的 Git 时间次序冲突。"
+            "未采集：commit_to_acceptance_seconds 的 Git 时间次序冲突。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": "node-3",
@@ -6506,7 +6559,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929158Z",
+          "generated_at": "2026-11-19T19:43:34.486125Z",
           "partial": true
         }
       },
@@ -6521,7 +6574,7 @@
           "commit_to_acceptance_seconds": 1353,
           "total_seconds": 1557,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -6530,7 +6583,9 @@
             "github:a13ff1269fa757304f8b82549d99a98aae7b0b4d",
             "github:a9bad088f755e897b1ab92ba13b6fc153c0273a7"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-031-patrol-update-node1.md",
@@ -6723,7 +6778,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929187Z",
+          "generated_at": "2026-11-19T19:43:34.486156Z",
           "partial": true
         }
       },
@@ -6738,7 +6793,7 @@
           "commit_to_acceptance_seconds": 1015,
           "total_seconds": 1557,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -6747,7 +6802,9 @@
             "github:9943e5aa33ef5f1ce7529abc436ad4ce54cdeba7",
             "github:a13ff1269fa757304f8b82549d99a98aae7b0b4d"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-2",
         "task_book_path": "tasks/T-032-patrol-update-node2.md",
@@ -6940,7 +6997,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929216Z",
+          "generated_at": "2026-11-19T19:43:34.486185Z",
           "partial": true
         }
       },
@@ -6955,7 +7012,7 @@
           "commit_to_acceptance_seconds": 1226,
           "total_seconds": 2614,
           "delivery_commit_count": 2,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -6965,7 +7022,9 @@
             "github:d00bb60ee12f700d08a4f99cb102fc4a7ef5439a",
             "github:d77ddd935521584591f61353f8c419ad6b5bd377"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-033-control-tower-data-node1.md",
@@ -7119,7 +7178,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929244Z",
+          "generated_at": "2026-11-19T19:43:34.486214Z",
           "partial": true
         }
       },
@@ -7134,7 +7193,7 @@
           "commit_to_acceptance_seconds": 12643,
           "total_seconds": 12990,
           "delivery_commit_count": 6,
-          "rejection_count": 3,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -7146,12 +7205,11 @@
             "github:4ccd887a44f00b92870a9827b64a60e6b4b3018f",
             "github:51231c6b1c65e8dd1a237b88d6bd3dc46fbe7a8e",
             "github:aca61fe6d66ff407ec964fd8589697ff7b650804",
-            "github:c22d8397170ad60982fe4582f4a959c1ad794b37",
-            "receipts:result-T-034-node-2-164cb2126fe084a51e22732a36d2619c889845c8.json",
-            "receipts:result-T-034-node-2-51231c6b1c65e8dd1a237b88d6bd3dc46fbe7a8e.json",
-            "receipts:result-T-034-node-2-c22d8397170ad60982fe4582f4a959c1ad794b37.json"
+            "github:c22d8397170ad60982fe4582f4a959c1ad794b37"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-2",
         "task_book_path": "tasks/T-034-control-tower-browser-node2.md",
@@ -7305,7 +7363,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929272Z",
+          "generated_at": "2026-11-19T19:43:34.486243Z",
           "partial": true
         }
       },
@@ -7320,7 +7378,7 @@
           "commit_to_acceptance_seconds": 253,
           "total_seconds": 286,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -7329,7 +7387,9 @@
             "github:d3afaa31f45be96cfce493d61083522d5ae7f66f",
             "github:fdcf950d4df6deca11086c099de08c427844e01c"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-2",
         "task_book_path": "tasks/T-035-fix-skill-link-node2.md",
@@ -7483,7 +7543,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929301Z",
+          "generated_at": "2026-11-19T19:43:34.486271Z",
           "partial": true
         }
       },
@@ -7498,7 +7558,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 717,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -7507,7 +7567,8 @@
             "github:23bae4903c79fc7595627c44fffbafddd177743c"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -7662,7 +7723,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929329Z",
+          "generated_at": "2026-11-19T19:43:34.486301Z",
           "partial": true
         }
       },
@@ -7677,7 +7738,7 @@
           "commit_to_acceptance_seconds": 175,
           "total_seconds": 1522,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -7686,7 +7747,9 @@
             "github:39e8382b29bb55d8e422e0d769ed02459ac57a12",
             "tower:da2247c9678aacd5b3156a5c6bf91cd6b13291ec"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": "tasks/T-037-control-tower-stage4-systemd.md",
@@ -7840,7 +7903,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929358Z",
+          "generated_at": "2026-11-19T19:43:34.486332Z",
           "partial": true
         }
       },
@@ -7855,7 +7918,7 @@
           "commit_to_acceptance_seconds": 295,
           "total_seconds": 652,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -7864,7 +7927,9 @@
             "github:da262146a00b43717a267b804ff2744dcd05cc89",
             "tower:49466db295325b04424d1d4bb0fbc73d84bf02ef"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": "tasks/T-038-fix-events-503-t022-schema.md",
@@ -8018,7 +8083,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929386Z",
+          "generated_at": "2026-11-19T19:43:34.486362Z",
           "partial": true
         }
       },
@@ -8033,7 +8098,7 @@
           "commit_to_acceptance_seconds": 370,
           "total_seconds": 1117,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -8042,7 +8107,9 @@
             "github:9789300ec204794440a80d2c1126c095d6a8c17f",
             "tower:bc979215e49c3c56eb030d26bca189ad72664609"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": "tasks/T-039-tower-vm-replacement-auto-recovery.md",
@@ -8196,7 +8263,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929430Z",
+          "generated_at": "2026-11-19T19:43:34.486393Z",
           "partial": true
         }
       },
@@ -8211,7 +8278,7 @@
           "commit_to_acceptance_seconds": 417,
           "total_seconds": 1547,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -8220,7 +8287,9 @@
             "github:8b7a396adea3233335d314c9cdd9f0b519f9d72c",
             "tower:ab7985b2e890414d38f5e3e9903c4bae8bfcd630"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": "tasks/T-040-tower-trustworthy-status.md",
@@ -8374,7 +8443,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929459Z",
+          "generated_at": "2026-11-19T19:43:34.486436Z",
           "partial": true
         }
       },
@@ -8554,7 +8623,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929490Z",
+          "generated_at": "2026-11-19T19:43:34.486467Z",
           "partial": true
         }
       },
@@ -8569,7 +8638,7 @@
           "commit_to_acceptance_seconds": 286,
           "total_seconds": 311,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -8578,7 +8647,9 @@
             "github:612c6613593e61599c15c6e70598753b1f0329bd",
             "github:fb579bd7bf3009c91c1d19037627d8459d2a0291"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-1",
         "task_book_path": "tasks/T-042-prior-art-a.md",
@@ -8732,7 +8803,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929522Z",
+          "generated_at": "2026-11-19T19:43:34.486499Z",
           "partial": true
         }
       },
@@ -8747,7 +8818,7 @@
           "commit_to_acceptance_seconds": 169,
           "total_seconds": 311,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -8756,7 +8827,9 @@
             "github:28af8b2749fea3436732d885acaadbf4cd0a4b8d",
             "github:612c6613593e61599c15c6e70598753b1f0329bd"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-2",
         "task_book_path": "tasks/T-043-prior-art-b.md",
@@ -8910,7 +8983,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929551Z",
+          "generated_at": "2026-11-19T19:43:34.486530Z",
           "partial": true
         }
       },
@@ -8925,7 +8998,7 @@
           "commit_to_acceptance_seconds": 143,
           "total_seconds": 311,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -8934,7 +9007,9 @@
             "github:612c6613593e61599c15c6e70598753b1f0329bd",
             "github:d5bd39f9031c5cc496749dd7ea43c5f9f0a66fb5"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": "node-3",
         "task_book_path": "tasks/T-044-prior-art-c.md",
@@ -9088,7 +9163,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929580Z",
+          "generated_at": "2026-11-19T19:43:34.486560Z",
           "partial": true
         }
       },
@@ -9103,7 +9178,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 1352,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -9112,7 +9187,8 @@
             "github:869894b03de6aa8c96c308fc529b724309bdd678"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -9267,7 +9343,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929609Z",
+          "generated_at": "2026-11-19T19:43:34.486589Z",
           "partial": true
         }
       },
@@ -9282,7 +9358,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 1352,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -9291,7 +9367,8 @@
             "github:869894b03de6aa8c96c308fc529b724309bdd678"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -9446,7 +9523,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929638Z",
+          "generated_at": "2026-11-19T19:43:34.486619Z",
           "partial": true
         }
       },
@@ -9461,7 +9538,7 @@
           "commit_to_acceptance_seconds": 495,
           "total_seconds": 1352,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -9470,7 +9547,9 @@
             "github:869894b03de6aa8c96c308fc529b724309bdd678",
             "tower:d70c4056718d17f0bac9823818ad3919f9a28fd3"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": "tasks/T-047-tower-telemetry.md",
@@ -9624,7 +9703,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929667Z",
+          "generated_at": "2026-11-19T19:43:34.486648Z",
           "partial": true
         }
       },
@@ -9804,7 +9883,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929695Z",
+          "generated_at": "2026-11-19T19:43:34.486678Z",
           "partial": true
         }
       },
@@ -9819,7 +9898,7 @@
           "commit_to_acceptance_seconds": 481,
           "total_seconds": 1167,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -9828,7 +9907,9 @@
             "github:bd4fd2db3eeb32b0a20568ec90bdafce1d672547",
             "tower:34d37d2563c1fed16b7de0f7ec0a93eda7c4f533"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": null,
@@ -9982,7 +10063,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929825Z",
+          "generated_at": "2026-11-19T19:43:34.486708Z",
           "partial": true
         }
       },
@@ -10162,7 +10243,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929858Z",
+          "generated_at": "2026-11-19T19:43:34.486739Z",
           "partial": true
         }
       },
@@ -10177,7 +10258,7 @@
           "commit_to_acceptance_seconds": 355,
           "total_seconds": 804,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -10186,7 +10267,9 @@
             "github:f0e8320ef2c93ee27ad432be4aeacd0016c699cc",
             "tower:60d00e9b2a955c8867ea6f9c43f97402b39ebfc7"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": null,
@@ -10340,7 +10423,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929888Z",
+          "generated_at": "2026-11-19T19:43:34.486770Z",
           "partial": true
         }
       },
@@ -10355,7 +10438,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 510,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -10364,7 +10447,8 @@
             "github:36cf4a6bf207a921959b85f2683d237ed66fc25a"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -10519,7 +10603,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929916Z",
+          "generated_at": "2026-11-19T19:43:34.486810Z",
           "partial": true
         }
       },
@@ -10534,7 +10618,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 431,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -10543,7 +10627,8 @@
             "github:7bd68599fa88e04e909510624e460249edb2343f"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -10698,7 +10783,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929945Z",
+          "generated_at": "2026-11-19T19:43:34.486839Z",
           "partial": true
         }
       },
@@ -10713,7 +10798,7 @@
           "commit_to_acceptance_seconds": 812,
           "total_seconds": 2066,
           "delivery_commit_count": 2,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -10723,7 +10808,9 @@
             "tower:2cd89b19f2996119a419786e36d91a91fbde4de9",
             "tower:35b3e65bd11de304766851d926fa5c8ef2b43596"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": null,
@@ -10877,7 +10964,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.929974Z",
+          "generated_at": "2026-11-19T19:43:34.486869Z",
           "partial": true
         }
       },
@@ -10892,7 +10979,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 2433,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -10901,7 +10988,8 @@
             "github:ca3ca54ec0ee6ae1ad049df1e5f15c0d6d9a675b"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -11056,7 +11144,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930001Z",
+          "generated_at": "2026-11-19T19:43:34.486898Z",
           "partial": true
         }
       },
@@ -11071,7 +11159,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 3289,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -11080,7 +11168,8 @@
             "github:ca3ca54ec0ee6ae1ad049df1e5f15c0d6d9a675b"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -11235,7 +11324,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930029Z",
+          "generated_at": "2026-11-19T19:43:34.486926Z",
           "partial": true
         }
       },
@@ -11250,7 +11339,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 3904,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -11259,7 +11348,8 @@
             "github:ca3ca54ec0ee6ae1ad049df1e5f15c0d6d9a675b"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -11414,7 +11504,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930056Z",
+          "generated_at": "2026-11-19T19:43:34.486954Z",
           "partial": true
         }
       },
@@ -11429,7 +11519,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 512,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -11438,7 +11528,8 @@
             "github:42a81e026ce91c77392209e8558cb303762921cc"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -11593,7 +11684,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930084Z",
+          "generated_at": "2026-11-19T19:43:34.486984Z",
           "partial": true
         }
       },
@@ -11608,7 +11699,7 @@
           "commit_to_acceptance_seconds": 189,
           "total_seconds": 750,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -11617,7 +11708,9 @@
             "github:aec88ec64b44fa382bfc91263ac963d7c1cb1d9b",
             "tower:71dc3c1f55ddba5b0815d8b1e4b1decd574c4c41"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": null,
@@ -11771,7 +11864,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930112Z",
+          "generated_at": "2026-11-19T19:43:34.487013Z",
           "partial": true
         }
       },
@@ -11786,7 +11879,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 1017,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -11795,7 +11888,8 @@
             "github:eb3e890074c20d2b9cd04ddc8fbc351ef4dc9572"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -11950,7 +12044,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930140Z",
+          "generated_at": "2026-11-19T19:43:34.487041Z",
           "partial": true
         }
       },
@@ -11965,7 +12059,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 417,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -11974,7 +12068,8 @@
             "github:75a7118cc0e3913899bba5a952f1faeb3d87ea26"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -12129,7 +12224,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930167Z",
+          "generated_at": "2026-11-19T19:43:34.487071Z",
           "partial": true
         }
       },
@@ -12144,7 +12239,7 @@
           "commit_to_acceptance_seconds": 795,
           "total_seconds": 1304,
           "delivery_commit_count": 2,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -12154,7 +12249,9 @@
             "tower:68609e0c8c69834cae2a26fe2972cb728b09f94b",
             "tower:ca3647f9ba1987577796c474151e369f0f347e2b"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": null,
@@ -12308,7 +12405,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930274Z",
+          "generated_at": "2026-11-19T19:43:34.487170Z",
           "partial": true
         }
       },
@@ -12323,7 +12420,7 @@
           "commit_to_acceptance_seconds": 515,
           "total_seconds": 959,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -12332,7 +12429,9 @@
             "github:b070a0f8c356b973d6f19374ec8dd8c0c9f84238",
             "tower:0948df11362df5708ae1d4cfbdbbe07dfec9b0b8"
           ],
-          "missing_reasons": []
+          "missing_reasons": [
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
+          ]
         },
         "assignee": null,
         "task_book_path": null,
@@ -12486,7 +12585,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930303Z",
+          "generated_at": "2026-11-19T19:43:34.487200Z",
           "partial": true
         }
       },
@@ -12501,7 +12600,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 372,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -12510,7 +12609,8 @@
             "github:f94bc93c897532f7b0cd8ace6c198fd6d5a0fc4a"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -12665,7 +12765,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930332Z",
+          "generated_at": "2026-11-19T19:43:34.487229Z",
           "partial": true
         }
       },
@@ -12680,7 +12780,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 1542,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -12689,7 +12789,8 @@
             "github:f3623bc7f6477bb4aaefb60eb3624046c68f7eaf"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -12844,7 +12945,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930359Z",
+          "generated_at": "2026-11-19T19:43:34.487259Z",
           "partial": true
         }
       },
@@ -12859,7 +12960,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 400,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -12868,7 +12969,8 @@
             "github:8f0e71db305c3bf7092fb5c58f8c02dc712d4760"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -13023,7 +13125,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930389Z",
+          "generated_at": "2026-11-19T19:43:34.487289Z",
           "partial": true
         }
       },
@@ -13038,7 +13140,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 296,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -13047,7 +13149,8 @@
             "github:a49a49f0a82e2f1092916a053fca10b340f44f75"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -13202,7 +13305,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930428Z",
+          "generated_at": "2026-11-19T19:43:34.487318Z",
           "partial": true
         }
       },
@@ -13217,7 +13320,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 1010,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -13226,7 +13329,8 @@
             "github:14c61dff25ee8ed6c2f2ea0bc982f6de4fd97e64"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -13381,7 +13485,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930455Z",
+          "generated_at": "2026-11-19T19:43:34.487348Z",
           "partial": true
         }
       },
@@ -13396,7 +13500,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 555,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -13405,7 +13509,8 @@
             "github:c28a49bb17f102a2448dab198f1c2d40133546b3"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -13560,7 +13665,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930483Z",
+          "generated_at": "2026-11-19T19:43:34.487378Z",
           "partial": true
         }
       },
@@ -13575,7 +13680,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 711,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -13584,7 +13689,8 @@
             "github:46294d6d670cbc63ea31a9013f533bdb79231b33"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -13739,7 +13845,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930510Z",
+          "generated_at": "2026-11-19T19:43:34.487421Z",
           "partial": true
         }
       },
@@ -13754,7 +13860,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 638,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -13763,7 +13869,8 @@
             "github:e0842c0074015bc5ac54c22429a9bbf7178b7a2a"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -13918,7 +14025,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930538Z",
+          "generated_at": "2026-11-19T19:43:34.487448Z",
           "partial": true
         }
       },
@@ -13933,7 +14040,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 1500,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -13942,7 +14049,8 @@
             "github:5aa05f8d004a8ce45c4c9375aef4a9ddb3cf0b78"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -14097,7 +14205,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930566Z",
+          "generated_at": "2026-11-19T19:43:34.487476Z",
           "partial": true
         }
       },
@@ -14112,7 +14220,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 757,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -14121,7 +14229,8 @@
             "github:7c4e198a8ad1848f529cf848a3cd9cf4f3bd117a"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -14276,7 +14385,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930594Z",
+          "generated_at": "2026-11-19T19:43:34.487504Z",
           "partial": true
         }
       },
@@ -14291,7 +14400,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": null,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -14300,7 +14409,8 @@
           ],
           "missing_reasons": [
             "未采集：没有任务签名前缀且实际修改交付文件的提交。",
-            "未采集：尚无当前任务进入完成状态的 BOARD 记录。"
+            "未采集：尚无当前任务进入完成状态的 BOARD 记录。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -14459,7 +14569,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930623Z",
+          "generated_at": "2026-11-19T19:43:34.487533Z",
           "partial": true
         }
       },
@@ -14474,7 +14584,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": 1540,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -14483,7 +14593,8 @@
             "github:59c77bf1322fc339d22c2e764dfeadaffe00954b"
           ],
           "missing_reasons": [
-            "未采集：没有任务签名前缀且实际修改交付文件的提交。"
+            "未采集：没有任务签名前缀且实际修改交付文件的提交。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -14638,7 +14749,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930654Z",
+          "generated_at": "2026-11-19T19:43:34.487566Z",
           "partial": true
         }
       },
@@ -14653,7 +14764,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": null,
           "delivery_commit_count": 1,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -14662,7 +14773,8 @@
             "tower:d854cfae6cd18abcfa3aa2ea5a85b21ea2d16c2a"
           ],
           "missing_reasons": [
-            "未采集：尚无当前任务进入完成状态的 BOARD 记录。"
+            "未采集：尚无当前任务进入完成状态的 BOARD 记录。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -14817,7 +14929,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930683Z",
+          "generated_at": "2026-11-19T19:43:34.487596Z",
           "partial": true
         }
       },
@@ -14832,7 +14944,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": null,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -14841,7 +14953,8 @@
           ],
           "missing_reasons": [
             "未采集：没有任务签名前缀且实际修改交付文件的提交。",
-            "未采集：尚无当前任务进入完成状态的 BOARD 记录。"
+            "未采集：尚无当前任务进入完成状态的 BOARD 记录。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -14996,7 +15109,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930711Z",
+          "generated_at": "2026-11-19T19:43:34.487625Z",
           "partial": true
         }
       },
@@ -15011,7 +15124,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": null,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -15020,7 +15133,8 @@
           ],
           "missing_reasons": [
             "未采集：没有任务签名前缀且实际修改交付文件的提交。",
-            "未采集：尚无当前任务进入完成状态的 BOARD 记录。"
+            "未采集：尚无当前任务进入完成状态的 BOARD 记录。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -15175,7 +15289,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930750Z",
+          "generated_at": "2026-11-19T19:43:34.487655Z",
           "partial": true
         }
       },
@@ -15190,7 +15304,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": null,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -15199,7 +15313,8 @@
           ],
           "missing_reasons": [
             "未采集：没有任务签名前缀且实际修改交付文件的提交。",
-            "未采集：尚无当前任务进入完成状态的 BOARD 记录。"
+            "未采集：尚无当前任务进入完成状态的 BOARD 记录。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -15354,7 +15469,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930778Z",
+          "generated_at": "2026-11-19T19:43:34.487684Z",
           "partial": true
         }
       },
@@ -15369,7 +15484,7 @@
           "commit_to_acceptance_seconds": null,
           "total_seconds": null,
           "delivery_commit_count": 0,
-          "rejection_count": 0,
+          "rejection_count": null,
           "quota_used": null,
           "quota_status": "未采集",
           "quota_reason": "现有收据和任务书未提供可核验的任务累计消耗记录；余额或订阅百分比不等于任务消耗。",
@@ -15378,7 +15493,8 @@
           ],
           "missing_reasons": [
             "未采集：没有任务签名前缀且实际修改交付文件的提交。",
-            "未采集：尚无当前任务进入完成状态的 BOARD 记录。"
+            "未采集：尚无当前任务进入完成状态的 BOARD 记录。",
+            "未采集：派发或收据历史不完整，不能断言打回次数。"
           ]
         },
         "assignee": null,
@@ -15533,7 +15649,7 @@
               "current_error_code": null
             }
           ],
-          "generated_at": "2026-11-19T19:33:38.930805Z",
+          "generated_at": "2026-11-19T19:43:34.487712Z",
           "partial": true
         }
       }
@@ -15652,7 +15768,7 @@
           "current_error_code": null
         }
       ],
-      "generated_at": "2026-11-19T19:33:39.179574Z",
+      "generated_at": "2026-11-19T19:43:36.443625Z",
       "partial": true
     }
   },
@@ -15978,7 +16094,7 @@
           "current_error_code": null
         }
       ],
-      "generated_at": "2026-11-19T19:33:39.284447Z",
+      "generated_at": "2026-11-19T19:43:36.643815Z",
       "partial": true
     }
   },
@@ -16078,7 +16194,7 @@
           "current_error_code": "SOURCE_UNAVAILABLE"
         }
       ],
-      "generated_at": "2026-11-19T19:33:39.291248Z",
+      "generated_at": "2026-11-19T19:43:36.650216Z",
       "partial": true
     }
   },
@@ -16091,11 +16207,11 @@
     "total": 0
   },
   "verify": {
-    "ran_at": "2026-11-19T19:33:37Z",
+    "ran_at": "2026-11-19T19:43:29Z",
     "exit_code": 1,
     "total": 29,
-    "passed": 28,
-    "failed": 1,
+    "passed": 27,
+    "failed": 2,
     "warned": 0,
     "checks": [
       {
@@ -16130,8 +16246,8 @@
       },
       {
         "name": "快照 timer",
-        "status": "pass",
-        "detail": ""
+        "status": "fail",
+        "detail": "未 active 或下次触发时间无效"
       },
       {
         "name": "后端 service 单元",
