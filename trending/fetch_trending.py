@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Fetch public GitHub Trending snapshots with only the Python standard library."""
+import argparse
 import gzip
 import json
 import os
@@ -134,13 +135,23 @@ def atomic_write(path, content):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Fetch GitHub Trending snapshots for one UTC date.")
+    parser.add_argument("--date", default=None, help="UTC date (YYYY-MM-DD) to fetch for; defaults to today")
+    args = parser.parse_args()
+    if args.date is not None:
+        try:
+            target_date = datetime.strptime(args.date, "%Y-%m-%d").date()
+        except ValueError:
+            parser.error("--date must be YYYY-MM-DD")
+    else:
+        target_date = datetime.now(timezone.utc).date()
     started = datetime.now(timezone.utc)
     print(f"UID={os.getuid()} netns={os.readlink('/proc/self/ns/net')} "
           f"cgroup={Path('/proc/self/cgroup').read_text().splitlines()[0]} "
           f"Python={sys.version}", file=sys.stderr, flush=True)
     directory = ROOT / "data" / "trending"
     directory.mkdir(parents=True, exist_ok=True)
-    state = directory / f".state-{started.date()}.json"
+    state = directory / f".state-{target_date}.json"
     pages = json.loads(state.read_text(encoding="utf-8")) if state.exists() else {}
     if not state.exists():
         atomic_write(state, b"{}")
@@ -171,12 +182,12 @@ def main():
             atomic_write(state, json.dumps(pages, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
             rows.extend(entries)
             print(f"{period}/{dimension}: {len(entries)} entries", flush=True)
-    if datetime.now(timezone.utc).date() != started.date():
+    if args.date is None and datetime.now(timezone.utc).date() != started.date():
         raise RuntimeError("UTC date changed during fetch; no file written")
     content = "".join(json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n" for row in rows).encode("utf-8")
     if len(content) >= 200_000:
         raise RuntimeError(f"Daily data is {len(content)} bytes, at or above 200 KB; no file written")
-    output = directory / f"{started.date()}.jsonl"
+    output = directory / f"{target_date}.jsonl"
     atomic_write(output, content)
     state.unlink()
     print(f"Saved {len(rows)} entries from 10 lists to {output} ({len(content)} bytes)")
