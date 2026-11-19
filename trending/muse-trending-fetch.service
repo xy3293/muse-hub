@@ -8,4 +8,5 @@ Type=oneshot
 User=root
 WorkingDirectory=/home/hatch/workspace/muse-hub-git
 Environment=HOME=/home/hatch
+EnvironmentFile=/home/hatch/workspace/muse-control-tower/runtime/snapshot-proxy.env
 ExecStart=/home/hatch/workspace/muse-hub-git/trending/run_daily.sh
