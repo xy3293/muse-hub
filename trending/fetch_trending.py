@@ -8,7 +8,8 @@ import time
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.error import HTTPError
+from http.client import HTTPException
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -75,6 +76,12 @@ def fetch(url):
                 raise
             delay = 2 ** (attempt + 1)
             print(f"HTTP {exc.code}: retry in {delay}s ({attempt + 1}/3)", file=sys.stderr, flush=True)
+            time.sleep(delay)
+        except (URLError, HTTPException, TimeoutError, ConnectionError) as exc:
+            if attempt == 3:
+                raise
+            delay = 2 ** (attempt + 1)
+            print(f"Transport error {exc!r}: retry in {delay}s ({attempt + 1}/3)", file=sys.stderr, flush=True)
             time.sleep(delay)
 
 
