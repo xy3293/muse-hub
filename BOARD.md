@@ -109,7 +109,7 @@
 | T-074 | 首轮快照导出 30 秒超时排查（恢复 <120 秒的卡点） | Codex | 完成 | muse-control-tower:integration @ https://github.com/xy3293/muse-control-tower c283827（根因：overview 冷启动 63 秒 vs 导出 30 秒超时；后台暖机并行，实测 91.101 秒 <120 秒） | #69 |
 | T-075 | P3 数据闭环：GitHub Trending 日榜/周榜抓取＋结构化存储 | Codex | 进行中·等定时(11-20 10:00) | tasks/T-075-trending-data-loop.md | [#70](https://github.com/xy3293/muse-hub/issues/70) |
 | T-076 | BOARD 等待态：verify.sh 白名单校验 + Tower 快照 wait 字段 + 页面等待角标 | Codex | 完成 | tasks/T-076-board-waiting-states.md | [#71](https://github.com/xy3293/muse-hub/issues/71) |
-| T-077 | 顶栏快照年龄：改绑实际最新导出时间 + 相对时间（北京时间） | Codex | 进行中 | tasks/T-077-snapshot-age-field-fix.md | [#72](https://github.com/xy3293/muse-hub/issues/72) |
+| T-077 | 顶栏快照年龄：改绑实际最新导出时间 + 相对时间（北京时间） | Codex | 完成 | tasks/T-077-snapshot-age-field-fix.md | [#72](https://github.com/xy3293/muse-hub/issues/72) |
 | T-078 | 全景总览首屏重做：异常/任务/节点上移，数据源卡片下沉 | Codex | 待领 | tasks/T-078-overview-first-screen-rebuild.md | [#73](https://github.com/xy3293/muse-hub/issues/73) |
 | T-079 | 采样器停机全局静默态：预期停机与真实故障彻底隔离 | Codex | 待领 | tasks/T-079-sampler-expected-stop-quiet-state.md | [#74](https://github.com/xy3293/muse-hub/issues/74) |
 | T-080 | 全站时间统一：北京时间 + 相对时间，补齐事件页日期 | Codex | 待领 | tasks/T-080-unify-time-cst-relative.md | [#75](https://github.com/xy3293/muse-hub/issues/75) |
