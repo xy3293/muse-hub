@@ -102,3 +102,4 @@
 | T-067 | Tower 任务中心多日趋势（T16） | Codex | 完成 | muse-control-tower:integration @ https://github.com/xy3293/muse-control-tower d7270c1 | #62 |
 | T-068 | Tower 指令模板一键填表（T17） | Codex | 完成 | muse-control-tower:integration @ https://github.com/xy3293/muse-control-tower b389e4b | #63 |
 | T-069 | Tower 移动端可用（T18） | Codex | 完成 | muse-control-tower:integration @ https://github.com/xy3293/muse-control-tower c1311b9 | #64 |
+| T-070 | Tower 待决策清单进页面（D1） | Codex | 进行中 | muse-control-tower:integration @ https://github.com/xy3293/muse-control-tower — | #65 |
