@@ -2,6 +2,7 @@
 Description=Fetch GitHub Trending daily at 10:00 China Standard Time
 
 [Timer]
+Unit=muse-trending-fetch.service
 OnCalendar=*-*-* 10:00:00 Asia/Shanghai
 Persistent=true
 
