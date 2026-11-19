@@ -7,10 +7,6 @@ if [[ "$(git branch --show-current)" != "main" ]]; then
     echo "Run the daily job from the main branch" >&2
     exit 1
 fi
-if [[ -n "$(git status --porcelain)" ]]; then
-    echo "Working tree must be clean before the daily job" >&2
-    exit 1
-fi
 python3 trending/fetch_trending.py
 data_file="data/trending/$(date -u +%F).jsonl"
 git add -- "$data_file"
