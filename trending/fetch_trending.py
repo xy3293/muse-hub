@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Fetch public GitHub Trending snapshots with only the Python standard library."""
+import gzip
 import json
 import random
 import re
@@ -65,10 +66,18 @@ class TrendingParser(HTMLParser):
 def fetch(url):
     for attempt in range(4):
         try:
-            request = Request(url, headers={"User-Agent": "muse-hub-trending/1.0"})
+            request = Request(url, headers={
+                "User-Agent": "muse-hub-trending/1.0",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Encoding": "gzip, deflate",
+                "Connection": "keep-alive",
+            })
             with urlopen(request, timeout=30) as response:
                 print(f"HTTP {response.status} {url}", flush=True)
-                return response.read().decode("utf-8")
+                raw = response.read()
+                if response.headers.get("Content-Encoding") == "gzip":
+                    raw = gzip.decompress(raw)
+                return raw.decode("utf-8")
         except HTTPError as exc:
             if exc.code != 429 and not 500 <= exc.code <= 599:
                 raise
