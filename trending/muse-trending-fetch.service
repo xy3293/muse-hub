@@ -1,0 +1,11 @@
+[Unit]
+Description=Fetch and publish GitHub Trending snapshots
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/home/hatch/workspace/muse-hub-git
+Environment=HOME=/home/hatch
+ExecStart=/home/hatch/workspace/muse-hub-git/trending/run_daily.sh
