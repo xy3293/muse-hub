@@ -115,5 +115,5 @@
 | T-080 | 全站时间统一：北京时间 + 相对时间，补齐事件页日期 → 并入 T-083 | Codex | PARKED | tasks/T-080-unify-time-cst-relative.md | [#75](https://github.com/xy3293/muse-hub/issues/75) |
 | T-081 | 任务中心：表前移、统计后移、排序、合并重复状态列（第二批：任务页） | Codex | 待领 | tasks/T-081-tasks-table-first-sort-dedup.md | [#76](https://github.com/xy3293/muse-hub/issues/76) |
 | T-082 | 值班台首屏（重设计第一批第 1 件） | Codex | 完成 | tasks/T-082-duty-desk-first-screen.md | [#77](https://github.com/xy3293/muse-hub/issues/77) |
-| T-083 | 状态与时间语义（重设计第一批第 2 件） | Codex | 进行中 | tasks/T-083-status-time-semantics.md | [#78](https://github.com/xy3293/muse-hub/issues/78) |
+| T-083 | 状态与时间语义（重设计第一批第 2 件） | Codex | 完成 | tasks/T-083-status-time-semantics.md | [#78](https://github.com/xy3293/muse-hub/issues/78) |
 | T-084 | 文案清理（重设计第一批第 3 件） | Codex | 待领 | tasks/T-084-copy-cleanup.md | [#79](https://github.com/xy3293/muse-hub/issues/79) |
