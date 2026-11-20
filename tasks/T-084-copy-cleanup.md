@@ -1,6 +1,6 @@
 # T-084 文案清理（重设计第一批第 3 件）
 
-- Owner: Codex（前端文案与实现）。Antigravity 只做简单审核：功能一致性、数据对不对、构建/测试过不过。**不评价设计与美感，不许改设计。**
+- Owner: Antigravity（前端文案与实现）。**注意：Codex 因 ChatGPT 订阅到期不可用（Chen 2026-11-21 定：干活用 Antigravity）；本次 Antigravity 是实现方，不做自审；验收由总控自验（diff＋测试＋grep＋浏览器核对）承担。**
 - 设计稿：`~/workspace/muse-hub-git/design/control-tower-redesign-gemini.md`（§5 文案规范人话对照表），按它实施，不另起设计。
 - 前置：T-082、T-083 已验收。本任务从 integration 分支。
 - 顺序：第一批三件按顺序派（T-082 → T-083 → T-084），文件重叠，并行会撞合并冲突。
