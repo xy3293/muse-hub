@@ -1,6 +1,6 @@
 # T-084 文案清理（重设计第一批第 3 件）
 
-- Owner: Antigravity（前端文案与实现）。**注意：Codex 因 ChatGPT 订阅到期不可用（Chen 2026-11-21 定：干活用 Antigravity）；本次 Antigravity 是实现方，不做自审；验收由总控自验（diff＋测试＋grep＋浏览器核对）承担。**
+- Owner: Antigravity（前端文案与实现）。**注意：Codex 因 ChatGPT 订阅到期不可用（Chen 2026-11-21 定：干活用 Antigravity）；本次 Antigravity 是实现方，不做自审；验收审查由 node-3（独立核验）承担，总控不自审（Chen 2026-11-21 02:28 直令）。**
 - 设计稿：`~/workspace/muse-hub-git/design/control-tower-redesign-gemini.md`（§5 文案规范人话对照表），按它实施，不另起设计。
 - 前置：T-082、T-083 已验收。本任务从 integration 分支。
 - 顺序：第一批三件按顺序派（T-082 → T-083 → T-084），文件重叠，并行会撞合并冲突。
@@ -31,7 +31,7 @@
 
 ## 验收（第一批统一口径）
 设计稿第六节 6 条 + Chen 加 3 条 + 两条修正（见 T-082）中与本任务相关的：
-- c. 首屏与主列表**零工程术语**（哈希、Stage、SQLite/WAL/503/CH-11 全不出现）——验收时总控用 grep 全站扫首屏与主列表渲染文本；
+- c. 首屏与主列表**零工程术语**（哈希、Stage、SQLite/WAL/503/CH-11 全不出现）——验收时 node-3 用 grep 全站扫首屏与主列表渲染文本；
 - 工程味清零：首屏与主列表无哈希、Stage 版本号、SQLite/WAL/503/CH-11 等内部工程术语；
 - a. 数字口径不变（本任务不改数字）；b. 首屏可点元素都有反应。
 
