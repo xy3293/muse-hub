@@ -118,3 +118,4 @@
 | T-083 | 状态与时间语义（重设计第一批第 2 件） | Codex | 完成 | tasks/T-083-status-time-semantics.md | [#78](https://github.com/xy3293/muse-hub/issues/78) |
 | T-084 | 文案清理（重设计第一批第 3 件） | Antigravity | 进行中 | tasks/T-084-copy-cleanup.md | [#79](https://github.com/xy3293/muse-hub/issues/79) |
 | T-085 | T-084 验收审查（node-3 独立核验） | node-3 | 待领 | tasks/T-085-t084-review-node3.md | [#80](https://github.com/xy3293/muse-hub/issues/80) |
+| T-086 | node-1 agy 登录（PTY OAuth，Chen 配合） | node-1 | 待领 | tasks/T-086-node1-agy-login.md | [#81](https://github.com/xy3293/muse-hub/issues/81) |
