@@ -87,3 +87,9 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 03:41 JST 巡检再次唤醒 T-086（BOARD 仍显示“待领”，属 BOARD 滞后）。复核发现 Issue #81 已有 [node-1] 成功评论：**登录已在主聊里由 Chen 直接配合浏览器授权完成**，以该条为准。
 - 本地复核（03:42 JST）：`~/.local/bin/agy --version` → `1.5.13`；`agy -p 'say ok'` 直接回答 `ok`，不再弹授权；`agy models` 正常列出模型，前 5 行与 Issue #81 成功评论一致（gemini-4-neon-high/xhigh/medium/low、gemini-4-argon-medium）。
 - 结论：**T-086 已完成，无需重跑**。此前两次超时只是因为当时链路另一端无人实时配合；Chen 在主聊直接配合后一次成功。本次唤醒未产生新 URL、未发新 Issue 评论（成功评论已存在），仅更新本报告并同步 Pachat。
+
+## 再唤醒复核（2026-11-21 05:30 JST，巡检）
+
+- 唤醒事件 T-086@v1@bad47b4，HEAD 即为上条补记提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。
+- 本地复核：`~/.local/bin/agy --version` → `1.5.13`；`agy -p 'say ok'` 直接回答 `ok`（exit 0）；`agy models` 正常，前 5 行与成功评论一致。
+- 结论：登录仍有效，**无需重跑，不产生新 URL，不发新 Issue 评论**；仅追加本条复核记录。
