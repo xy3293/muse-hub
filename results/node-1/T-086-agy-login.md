@@ -141,3 +141,9 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 唤醒事件 T-086@v1@6c87766fc8ad10b6fcacb88dae1befb8d1491606，HEAD 即为 07:15 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。
 - 本地复核：`~/.local/bin/agy --version` → `1.5.13`；`agy -p 'say ok'` 直接回答 `ok`（exit 0）；`agy models` 正常，前 5 行与成功评论一致。
 - 结论：登录仍有效，**无需重跑，不产生新 URL，不发新 Issue 评论**；仅追加本条复核记录。
+
+## 再唤醒复核（2026-11-21 07:45 JST，巡检）
+
+- 唤醒事件 T-086@v1@17de4cfb19d671c0b3b7f39b03754a292c1aaa5a，HEAD 即为 07:30 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。
+- 本地复核：`~/.local/bin/agy --version` → `1.5.13`；`agy -p 'say ok'` 直接回答 `ok`（exit 0）；`agy models` 正常，前 5 行与成功评论一致。
+- 结论：登录仍有效，**无需重跑，不产生新 URL，不发新 Issue 评论**；仅追加本条复核记录。
