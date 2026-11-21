@@ -195,3 +195,9 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 唤醒事件 T-086@v1@d403cfbdf020cab1f8d34310c7bc857b78a1dcb5，HEAD 即为 09:30 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。
 - 本地复核：`~/.local/bin/agy -p 'say ok'` 直接回答 `ok`（exit 0）。
 - 结论：登录仍有效，**无需重跑，不产生新 URL，不发新 Issue 评论**；仅追加本条复核记录。
+
+## 再唤醒复核（2026-11-21 10:00 JST，巡检）
+
+- 唤醒事件 T-086@v1@ccce66b8108d6b9a5a22c8424524a2084e29382d，HEAD 即为 09:45 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。
+- 本地复核：`~/.local/bin/agy --version` → `1.5.13`；`agy -p 'say ok'` 直接回答 `ok`（exit 0）；`agy models` 正常列出模型（gemini-4-neon-high/xhigh/medium/low、gemini-4-argon-medium/high/low 等，与成功评论一致）。
+- 结论：登录仍有效，**无需重跑，不产生新 URL，不发新 Issue 评论**；仅追加本条复核记录。
