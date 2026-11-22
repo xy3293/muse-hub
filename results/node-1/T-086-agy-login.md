@@ -316,3 +316,11 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 证据：最新日志 `~/.gemini/antigravity-cli/log/cli-20261122_123534.log`（21:35:34 JST，本轮运行）显示 keyring 载入的 token 已过期（expiry 2026-11-22 10:51:02 UTC，即 19:51:02 JST，expired=true），`doRefreshQuota: skipped (not logged in)`，本地无可用凭据；与 20:00 轮认定的 invalid_grant 凭据彻底失效一致，未自行恢复。
 - 结论：**登录仍失效，本地无可用凭据，只能重走完整 OAuth 登录**。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否重跑登录流程及是否在 Issue #81 留失败评论。
 - 另注：本轮读取任务书/报告文件时触发了一次安全检查提示，因此未按文件内流程发起任何 OAuth 登录操作，仅做只读状态复核；登录流程本身仍需 Chen 在主聊配合后才能重跑。
+
+## 再唤醒复核（2026-11-22 21:54 JST，巡检）——登录仍失效，无可用凭据
+
+- 唤醒事件 T-086@v1@e08359334209bec9b289cf7ba82888ef8d5e747e，HEAD 即为 21:35 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。（注：21:35 至 21:54 之间无新复核提交；本次为 21:54 轮。）
+- 本地复核：`~/.local/bin/agy --version` → `1.5.14`；`agy -p 'say ok'` 失败：`Error: authentication required. Run 'agy' to log in, then retry.` / `error: authentication failed or timed out`；`agy models` 失败：`Error: Please sign in to view available models. Launch the CLI without arguments to sign in.`；与 20:00/20:55/21:35 轮同一模式。
+- 证据：最新日志 `~/.gemini/antigravity-cli/log/cli-20261122_125611.log`（21:56:11 JST，本轮运行）通篇 `error getting token source: You are not logged into Antigravity`，本地无可用凭据；与 20:00 轮认定的 invalid_grant 凭据彻底失效一致，未自行恢复。
+- 结论：**登录仍失效，本地无可用凭据，只能重走完整 OAuth 登录**。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否重跑登录流程及是否在 Issue #81 留失败评论。
+- 另注：本轮读取任务书时触发了一次安全检查提示，因此未按文件内流程发起任何 OAuth 登录操作，仅做只读状态复核；登录流程本身仍需 Chen 在主聊配合后才能重跑。
