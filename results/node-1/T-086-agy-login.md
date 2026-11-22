@@ -301,3 +301,10 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 本地复核：`~/.local/bin/agy --version` → `1.5.14`；`agy -p 'say ok'` 失败：`Error: authentication required. Run 'agy' to log in, then retry.` / `error: authentication failed or timed out`（exit 1）；`agy models` 失败：`Error: Please sign in to view available models. Launch the CLI without arguments to sign in.`
 - 与 19:06/19:44 轮不同：不再是 Google 返回 401，而是本地已无可用凭据。证据：最新日志 `~/.gemini/antigravity-cli/log/cli-20261122_110113.log`（20:01:13 JST，本轮运行）显示 keyring 载入的 token 已过期（expiry 2026-11-22 10:51:02 UTC，即 19:51:02 JST，与 18:51 刷新得到的过期时间一致），刷新失败：`token refresh failed: oauth2: "invalid_grant" "Bad Request"`，并记为 `saved token invalid`。19:10 与 19:45 的日志已出现 `error getting token source: You are not logged into Antigravity`；token 文件最后写入时间为 18:51 JST（即 18:51 那次刷新），此后未再更新。
 - 结论：**登录仍失效，且已从“访问 token 被 401 拒绝”恶化为“刷新 token 被 Google 以 invalid_grant 拒绝”——凭据彻底失效，无法自行恢复，只能重走完整 OAuth 登录**。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。Chen 已于 19:10 JST 获知失效，等他决定是否重跑登录流程及是否在 Issue #81 留失败评论。
+
+## 再唤醒复核（2026-11-22 20:55 JST，巡检）——登录仍失效，无可用凭据
+
+- 唤醒事件 T-086@v1@76604be616d73956e68105236f435b2a1639c53e，HEAD 即为 20:00 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。（注：20:00 至 20:55 之间无新复核提交；本次为 20:55 轮。日志目录另有 20:15、20:34 的 agy 运行日志，未产生新提交。）
+- 本地复核：`~/.local/bin/agy --version` → `1.5.14`；`agy -p 'say ok'` 失败：`Error: authentication required. Run 'agy' to log in, then retry.` / `error: authentication failed or timed out`；与 20:00 轮同一模式，非 AGENTS.md 记录的沙盒 403 `policy_denied`。
+- 证据：最新日志 `~/.gemini/antigravity-cli/log/cli-20261122_115528.log`（20:55:28 JST，本轮运行）通篇 `error getting token source: You are not logged into Antigravity`，本地无可用凭据；与 20:00 轮认定的 invalid_grant 凭据彻底失效一致，未自行恢复。
+- 结论：**登录仍失效，本地无可用凭据，只能重走完整 OAuth 登录**。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否重跑登录流程及是否在 Issue #81 留失败评论。
