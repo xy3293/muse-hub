@@ -279,3 +279,11 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 唤醒事件 T-086@v1@f237504ae6a26d17dd2d565613bb313cb58a2d18，HEAD 即为 01:02 复核提交；BOARD 仍显示"待领"，属 BOARD 滞后，非新任务。（注：01:02 至 14:40 之间无新复核提交；本次为 14:40 轮。）
 - 本地复核：`~/.local/bin/agy --version` → `1.5.14`；`agy -p 'say ok'` 直接回答 `ok`（exit 0）；`agy models` 正常列出模型（gemini-4-neon-high/xhigh/medium/low、gemini-4-argon-medium/high/low 等，与成功评论一致）。
 - 结论：登录仍有效，**无需重跑，不产生新 URL，不发新 Issue 评论**；仅追加本条复核记录。
+
+## 再唤醒复核（2026-11-22 19:06 JST，巡检）——登录失效
+
+- 唤醒事件 T-086@v1@df070e4dcb75fdda9b5827b626af5e0a77930731，HEAD 即为 14:40 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。
+- 本地复核：`~/.local/bin/agy --version` → `1.5.14`；`agy -p 'say ok'` 两次均失败：`error: Eligibility check failed: UNAUTHENTICATED (code 401): Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential.`；`agy models` 同样 401。
+- 证据：`~/.gemini/antigravity-cli/log/cli-20261122_100653.log` 显示请求已到达 `daily-cloudcode-pa.googleapis.com/v1internal:loadCodeAssist` 并收到 Google 返回的 401 JSON，同时用户信息获取与遥测上报也 401。这与 AGENTS.md 记录的沙盒 403 `policy_denied` 模式不同，是 Google 侧拒绝凭据，非沙盒出口拦截。
+- 时间线：上次验证通过为 2026-11-22 14:40 JST（提交 df070e4）；17:32、18:21、18:51 JST 的 agy 运行日志中无 UNAUTHENTICATED；18:51 JST 的日志显示 token 曾刷新成功（新过期 19:51 JST），但 19:06 JST 同一凭据即被 401 拒绝。失效发生在 18:51–19:06 JST 之间。
+- 结论：**登录已失效，需重新登录**。重登录需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。后续由总控/Chen 决定是否重跑登录流程。
