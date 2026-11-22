@@ -294,3 +294,10 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 本地复核：`~/.local/bin/agy --version` → `1.5.14`；`agy -p 'say ok'` 仍失败：`error: Eligibility check failed: UNAUTHENTICATED (code 401): Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential.`（exit 1）；`agy models` 同样 401。
 - 证据：`~/.gemini/antigravity-cli/log/cli-20261122_104548.log`（19:45:48 JST）显示请求已到达 `daily-cloudcode-pa.googleapis.com/v1internal:loadCodeAssist` 并收到 Google 返回的 401，与 19:06 轮同一模式，非 AGENTS.md 记录的沙盒 403 `policy_denied`。
 - 结论：**登录仍失效，未自行恢复**。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。
+
+## 再唤醒复核（2026-11-22 20:00 JST，巡检）——登录仍失效，错误模式变化：刷新凭据亦被拒
+
+- 唤醒事件 T-086@v1@557b83be8eb4c36b9a64cb8e0b2beacc28df818f，HEAD 即为 19:44 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。
+- 本地复核：`~/.local/bin/agy --version` → `1.5.14`；`agy -p 'say ok'` 失败：`Error: authentication required. Run 'agy' to log in, then retry.` / `error: authentication failed or timed out`（exit 1）；`agy models` 失败：`Error: Please sign in to view available models. Launch the CLI without arguments to sign in.`
+- 与 19:06/19:44 轮不同：不再是 Google 返回 401，而是本地已无可用凭据。证据：最新日志 `~/.gemini/antigravity-cli/log/cli-20261122_110113.log`（20:01:13 JST，本轮运行）显示 keyring 载入的 token 已过期（expiry 2026-11-22 10:51:02 UTC，即 19:51:02 JST，与 18:51 刷新得到的过期时间一致），刷新失败：`token refresh failed: oauth2: "invalid_grant" "Bad Request"`，并记为 `saved token invalid`。19:10 与 19:45 的日志已出现 `error getting token source: You are not logged into Antigravity`；token 文件最后写入时间为 18:51 JST（即 18:51 那次刷新），此后未再更新。
+- 结论：**登录仍失效，且已从“访问 token 被 401 拒绝”恶化为“刷新 token 被 Google 以 invalid_grant 拒绝”——凭据彻底失效，无法自行恢复，只能重走完整 OAuth 登录**。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。Chen 已于 19:10 JST 获知失效，等他决定是否重跑登录流程及是否在 Issue #81 留失败评论。
