@@ -378,3 +378,11 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 证据：最新日志 `~/.gemini/antigravity-cli/log/cli-20261122_165622.log`（01:56:22 JST，本轮运行）通篇 `error getting token source: You are not logged into Antigravity`（9 行）；与 20:00 轮认定的 invalid_grant 凭据彻底失效一致，未自行恢复。
 - 结论：**登录仍失效，本地无可用凭据，只能重走完整 OAuth 登录**。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否重跑登录流程及是否在 Issue #81 留失败评论。
 - 另注：本轮读取任务书时触发了一次安全检查提示，因此未按文件内流程发起任何 OAuth 登录操作，仅做只读状态复核；登录流程本身仍需 Chen 在主聊配合后才能重跑。
+
+## 再唤醒复核（2026-11-23 02:34 JST，巡检）——登录已恢复有效，凭据自行刷新成功
+
+- 唤醒事件 T-086@v1@b69294974906b47f907abd65eb652007b443b239，HEAD 即为 01:54 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。（注：01:54 至 02:34 之间无新复核提交；本次为 02:34 轮。）
+- 本地复核：`~/.local/bin/agy --version` → `1.5.14`；`agy -p 'say ok'` 直接回答 `ok`（exit 0，两次独立运行一致）；`agy models` 列出模型（含 gemini-4-neon / gemini-4-argon 系列，即新 Google AI Pro 账号模型）。与 20:00–01:54 轮的失效模式相反。
+- 恢复机制（日志证据）：01:56 至 02:34 之间无任何新 cli 日志，即本轮之前无人重跑登录流程；本轮首跑日志 `~/.gemini/antigravity-cli/log/cli-20261122_173454.log`（02:34:54 JST）显示 keyring 载入的仍是同一过期 token（expiry 2026-11-22 10:51:02 UTC，即 19:51:02 JST，expired=true），随后 `token refreshed, new expiry=2026-11-22 18:34:54 UTC`（即 03:34:54 JST），`ChainedAuth: authenticated via keyring`，`OAuth: authenticated successfully as uuiby503@gmail.com`。即：**同一 refresh token 本轮刷新成功，凭据自行恢复，未重走 OAuth 登录**。
+- 结论与更正：**登录已恢复有效**。20:00 轮“refresh token 已死、只能重走完整 OAuth 登录”的认定被本次实证推翻——此前多轮的 invalid_grant 并非永久失效（原因未明，可能是 Google 侧瞬时问题或刷新竞态，不再推测）。新 access token 有效期至 03:34:54 JST，之后仍需观察是否再次失效。BOARD 仍显示“待领”，待总控更新为完成；本轮未发 Issue 评论。
+- 另注：本轮读取任务书时触发了一次安全检查提示，因此未按文件内流程发起任何 OAuth 登录操作，仅做只读状态复核；本次也无需登录操作（登录已自行恢复）。
