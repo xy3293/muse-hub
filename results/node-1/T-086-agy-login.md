@@ -788,3 +788,11 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 本地复核：`~/.local/bin/agy --version` → `1.5.15`；`agy -p 'say ok'` 返回 `ok`（exit 0）；`agy models` 正常列出 Gemini 4 Neon/Argon。非 AGENTS.md 记录的沙盒 403 `policy_denied`。
 - 证据：凭据文件 `~/.gemini/antigravity-cli/antigravity-oauth-token` mtime 为 2026-11-23 18:15:46 UTC（03:15:46 JST），即本轮探针触发刷新所写；本轮最新日志 cli-20261123_181552.log 显示 keyring 载入的新 token `expiry=2026-11-23 19:15:45 UTC`（即 2026-11-24 04:15:45 JST），`expired=false`，`OAuth: authenticated successfully as uuiby503@gmail.com`；本轮日志无 `invalid_grant`、无 `UNAUTHENTICATED`（grep 命中均为 2026-11-22 旧日志，属已知失效期记录）。
 - 结论：**登录仍有效**。第二次自行恢复（20:54）后约 6.4 小时仍有效，刷新链已连续越过六个到期点（21:54、22:55、23:55、01:05、02:07、03:15）；当前 token 将于 04:15:45 JST 到期，到期后刷新是否成功是下一个观察点。重登录暂不需要 Chen 配合；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否仍需重跑登录流程及是否在 Issue #81 留言。
+
+## 再唤醒复核（2026-11-24 03:34 JST，巡检）——登录仍有效，04:15 到期点前约 40 分钟
+
+- 唤醒事件 T-086@v1@43e9ffadc32c0401f96dafa892448ec5c4f2a0b0，HEAD 即为 03:16 复核提交 43e9ffa；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。
+- 本轮为只读状态复核（fresh 探针 `agy -p` / `agy models`，未发起任何 OAuth 登录操作，未发 Issue 评论）。
+- 本地复核：`~/.local/bin/agy --version` → `1.5.15`；`agy -p 'say ok'` 返回 `ok`（exit 0）；`agy models` 正常列出 Gemini 4 Neon/Argon。非 AGENTS.md 记录的沙盒 403 `policy_denied`。
+- 证据：凭据文件 `~/.gemini/antigravity-cli/antigravity-oauth-token` mtime 仍为 2026-11-23 18:15:46 UTC（03:15:46 JST，03:16 轮刷新所写），本轮未写入新 token；本轮探针日志 cli-20261123_183506.log 显示 keyring 载入的 token `expiry=2026-11-23 19:15:45 UTC`（即 2026-11-24 04:15:45 JST），`expired=false`，`OAuth: authenticated successfully as uuiby503@gmail.com`；本轮日志无 `invalid_grant`、无 `UNAUTHENTICATED`。
+- 结论：**登录仍有效**。第二次自行恢复（20:54）后约 6.7 小时仍有效，刷新链已连续越过六个到期点（21:54、22:55、23:55、01:05、02:07、03:15）；当前 token 将于 04:15:45 JST 到期，到期后刷新是否成功是下一个观察点。重登录暂不需要 Chen 配合；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否仍需重跑登录流程及是否在 Issue #81 留言。
