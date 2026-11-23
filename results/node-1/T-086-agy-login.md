@@ -676,3 +676,11 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 恢复证据：凭据文件 `~/.gemini/antigravity-cli/antigravity-oauth-token` mtime 由 2026-11-22 18:36:43 UTC（03:36:43 JST，03:36 刷新所写）变为 2026-11-23 11:54:46 UTC（20:54:46 JST，本轮探针期间写入新 token）；新日志 `cli-20261123_115445.log`（11:54:45 UTC）含 `token refreshed` 1 行，`keyringAuth: loaded token, expiry=2026-11-23 12:54:45 UTC expired=false`，即新 access token 有效期至 21:54:45 JST；本轮两份探针日志均无 `invalid_grant`、无 `UNAUTHENTICATED`。20:35 轮记录的“全天 `token refreshed` 0 行、`invalid_grant` 累计 60 行”已被本轮刷新打破（全天 `token refreshed` 现为 1 行）。
 - 结论：**登录已自行恢复（第二次），本地凭据当前有效**。自 03:56 失效以来约 17 小时，02:34 式自行恢复再次出现：同一 refresh token 在连续约 17 小时 invalid_grant 拒绝后，于 20:54 成功刷新出新 access token。凭据在“刷新失败 invalid_grant”与“刷新成功可用”之间摆动，既不能认定彻底失效，也不能认定稳定——上次恢复（02:34）仅维持约 1.5 小时即于 03:56 再次失效，本次恢复能维持多久需继续观察（新 token 21:54:45 JST 到期）。重登录暂不需要 Chen 配合；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否仍需重跑登录流程及是否在 Issue #81 留言。
 - 另注：本轮未读任务书（前几轮读取任务书触发了安全检查；任务书的可执行内容为需 Chen 浏览器配合的 OAuth 重登录，本 worker 无法独立执行，且当前登录已恢复，无需重登录）。本轮探针（`agy -p` / `agy models`）为只读状态检查，采用 MEMORY.md 与本报告历史中已确立的复核方法，未按任务书发起任何登录操作。
+
+## 再唤醒复核（2026-11-23 21:14 JST，巡检）——登录仍有效（第二次自行恢复后 20 分钟），fresh 探针确认
+
+- 唤醒事件 T-086@v1@f3efb0fb983d2a5f427814cee3fa8458ff84b367，HEAD 即为 20:54 复核提交 f3efb0f；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。
+- 本轮说明：任务书读取未通过安全检查，因此未按其内容发起任何 OAuth 登录操作；本轮复核为只读状态检查，采用 MEMORY.md 与本报告历史中已确立的复核方法（fresh 探针 `agy -p` / `agy models`）。
+- 本地复核（fresh 探针）：`~/.local/bin/agy --version` → `1.5.15`（与 20:54 轮核实一致，未变）；`agy -p 'say ok'` 返回 `ok`（exit 0）；`agy models` 正常列出 Gemini 4 Neon/Argon/Hydrogen。非 AGENTS.md 记录的沙盒 403 `policy_denied`。
+- 证据：凭据文件 `~/.gemini/antigravity-cli/antigravity-oauth-token` mtime 仍为 2026-11-23 11:54:46 UTC（20:54:46 JST，20:54 恢复时所写），本轮未写入新 token；新 access token 有效期至 21:54:45 JST（约 40 分钟后到期）；本轮两份探针日志（21:14:45/21:15:21 JST）无 `invalid_grant`、无 `UNAUTHENTICATED`。
+- 结论：**登录仍有效**。第二次自行恢复（20:54）后 20 分钟仍有效；上次恢复仅维持约 1.5 小时，本次能维持多久需继续观察（新 token 21:54:45 JST 到期，到期后刷新是否成功是下一个观察点）。重登录暂不需要 Chen 配合；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否仍需重跑登录流程及是否在 Issue #81 留言。
