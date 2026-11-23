@@ -451,3 +451,10 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 另见 07:45:05 一份日志（`cli-20261122_224505.log`），2 行 invalid_grant、0 行 UNAUTHENTICATED、11 行 `error getting token source`，与本轮同一失效模式，但无对应复核提交，疑为一次未完成记录的中间唤醒；不影响本轮结论。
 - 结论：**登录仍失效，本地无可用凭据**。自 03:56 失效以来已约 4.2 小时，02:34 式自行恢复未再出现；凭据在“刷新失败 invalid_grant”与“刷新成功但 401 拒收”两种模式之间摆动，既不能认定彻底失效，也不能认定会自行恢复。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否重跑登录流程及是否在 Issue #81 留失败评论。
 - 另注：本轮读取任务书时触发了一次安全检查提示，因此未按文件内流程发起任何登录操作，仅做只读状态复核；登录流程本身仍需 Chen 在主聊配合后才能重跑。
+
+## 再唤醒复核（2026-11-23 09:14 JST，巡检）——登录仍失效，刷新失败 invalid_grant（与 04:35/04:58/05:24/05:45/06:05/06:54/08:14 轮同一模式）
+
+- 唤醒事件 T-086@v1@3a79b4edfda47f6643608e4ee8f2277d42220d52，HEAD 即为 08:14 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。（注：08:14 至 09:14 之间无新复核提交；本次为 09:14 轮。）
+- 本地复核：`~/.local/bin/agy --version` → `1.5.14`；`agy -p 'say ok'` 失败：`Error: authentication required. Run 'agy' to log in, then retry.` / `error: authentication failed or timed out`；`agy models` 失败：`Error: Please sign in to view available models. Launch the CLI without arguments to sign in.`；非 AGENTS.md 记录的沙盒 403 `policy_denied`。
+- 证据：本轮两份日志 `~/.gemini/antigravity-cli/log/cli-20261123_001505.log`（`agy -p`，09:15:05 JST）与 `cli-20261123_001507.log`（`agy models`，09:15:07 JST）均显示 keyring 载入同一 token（expiry 2026-11-22 19:36:42 UTC，即 04:36:42 JST，expired=true），随后刷新失败：`token refresh failed: oauth2: "invalid_grant" "Bad Request"`（两份日志中各 2 行），另有 11 / 9 行 `error getting token source`；本轮日志无 `UNAUTHENTICATED`（0 行）。token 文件 mtime 仍为 2026-11-22 18:36:43 UTC（03:36:43 JST，03:36 刷新所写），本轮未写入新 token。与 04:35/04:58/05:24/05:45/06:05/06:54/08:14 轮同一模式。
+- 结论：**登录仍失效，本地无可用凭据**。自 03:56 失效以来已约 5.3 小时，02:34 式自行恢复未再出现；凭据在“刷新失败 invalid_grant”与“刷新成功但 401 拒收”两种模式之间摆动，既不能认定彻底失效，也不能认定会自行恢复。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否重跑登录流程及是否在 Issue #81 留失败评论。
