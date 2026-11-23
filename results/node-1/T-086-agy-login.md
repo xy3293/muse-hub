@@ -527,3 +527,10 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 本轮说明：读取任务书的结果未通过安全检查，因此未按文件内流程发起任何 OAuth 登录操作，也未执行文件内点名的 agy 探针命令（`agy -p` / `agy models`）；本轮复核仅凭文件状态证据（只读），不代表一次新的 agy 探针。
 - 文件状态证据（13:26 JST 检查）：凭据文件 `~/.gemini/antigravity-cli/antigravity-oauth-token` mtime 仍为 2026-11-22 18:36:43 UTC（03:36:43 JST，03:36 刷新所写），自 12:46 轮以来未写入新 token；2026-11-23 全天日志中无 `token refreshed`，上次刷新成功仍为 03:36 JST。12:46 至 13:26 之间出现一份新日志 `cli-20261123_040452.log`（13:04 JST，一次 agy server 模式运行，非本轮探针）：其中 2 行 `token refresh failed: oauth2: "invalid_grant" "Bad Request"`（`saved token invalid`），11 行 `error getting token source: You are not logged into Antigravity`，无 `UNAUTHENTICATED`（0 行），无 `token refreshed`（0 行）；日志首行显示语言服务器版本 1.5.14，二进制未变。一次自行恢复必然伴随 token 刷新写盘（如 02:34 恢复时），本轮无此迹象。
 - 结论：**登录仍失效，本地无可用凭据**（承接 12:14/12:30/12:46 轮结论，状态无变化）。自 03:56 失效以来已约 9.5 小时，02:34 式自行恢复未再出现。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否重跑登录流程及是否在 Issue #81 留失败评论。
+
+## 再唤醒复核（2026-11-23 13:44 JST，巡检）——登录仍失效；本轮未做 fresh agy 探针，凭文件状态证据判定无变化
+
+- 唤醒事件 T-086@v1@bc5aad95de86daba2fc24c637e7444ed8196f211，HEAD 即为 13:24 复核提交 bc5aad9；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。（注：13:24 至 13:44 之间无新复核提交；本次为 13:44 轮。）
+- 本轮说明：读取任务书的结果未通过安全检查，因此未按文件内流程发起任何 OAuth 登录操作，也未执行文件内点名的 agy 探针命令（`agy -p` / `agy models`）；本轮复核仅凭文件状态证据（只读），不代表一次新的 agy 探针。
+- 文件状态证据（13:45 JST 检查）：凭据文件 `~/.gemini/antigravity-cli/antigravity-oauth-token` mtime 仍为 2026-11-22 18:36:43 UTC（03:36:43 JST，03:36 刷新所写），自 13:24 轮以来未写入新 token；日志目录最新文件仍为 13:24 轮已覆盖的 `cli-20261123_040452.log`（13:04 JST，一次 agy server 模式运行），13:26 至 13:45 之间无新日志、无 agy 活动；2026-11-23 全天日志中无 `token refreshed`（0 份），`invalid_grant` 累计 30 行；agy 二进制 mtime 仍为 2026-11-21 08:10:51 UTC（1.5.14，未变）。一次自行恢复必然伴随 token 刷新写盘（如 02:34 恢复时），本轮无此迹象。
+- 结论：**登录仍失效，本地无可用凭据**（承接 12:14/12:30/12:46/13:24 轮结论，状态无变化）。自 03:56 失效以来已约 9.8 小时，02:34 式自行恢复未再出现。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否重跑登录流程及是否在 Issue #81 留失败评论。
