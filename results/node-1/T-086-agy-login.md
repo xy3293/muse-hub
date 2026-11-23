@@ -474,3 +474,11 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 证据：本轮两份日志 `~/.gemini/antigravity-cli/log/cli-20261123_013521.log`（`agy -p`，10:35:21 JST）与 `cli-20261123_013523.log`（`agy models`，10:35:23 JST）均显示 keyring 载入同一 token（expiry 2026-11-22 19:36:42 UTC，即 04:36:42 JST，expired=true），随后刷新失败：`token refresh failed: oauth2: "invalid_grant" "Bad Request"`（两份日志中各 2 行），另有 11 / 9 行 `error getting token source`；本轮日志无 `UNAUTHENTICATED`（0 行）。token 文件 mtime 仍为 2026-11-22 18:36:43 UTC（03:36:43 JST，03:36 刷新所写），本轮未写入新 token。与 04:35/04:58/05:24/05:45/06:05/06:54/08:14/09:14/10:04 轮同一模式。
 - 结论：**登录仍失效，本地无可用凭据**。自 03:56 失效以来已约 6.6 小时，02:34 式自行恢复未再出现；凭据在“刷新失败 invalid_grant”与“刷新成功但 401 拒收”两种模式之间摆动，既不能认定彻底失效，也不能认定会自行恢复。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否重跑登录流程及是否在 Issue #81 留失败评论。
 - 另注：本轮读取任务书/报告文件时触发了一次安全检查提示，因此未按文件内流程发起任何 OAuth 登录操作，仅做只读状态复核；登录流程本身仍需 Chen 在主聊配合后才能重跑。
+
+## 再唤醒复核（2026-11-23 10:55 JST，巡检）——登录仍失效，刷新失败 invalid_grant（与 04:35/04:58/05:24/05:45/06:05/06:54/08:14/09:14/10:04/10:34 轮同一模式）
+
+- 唤醒事件 T-086@v1@dae9438086c519e31f09d93292bf28eb5ed486ee，HEAD 即为 10:34 复核提交；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。（注：10:34 至 10:55 之间无新复核提交；本次为 10:55 轮。）
+- 本地复核：`~/.local/bin/agy --version` → `1.5.14`；`agy -p 'say ok'` 失败：`Error: authentication required. Run 'agy' to log in, then retry.` / `error: authentication failed or timed out`；`agy models` 失败：`Error: Please sign in to view available models. Launch the CLI without arguments to sign in.`；非 AGENTS.md 记录的沙盒 403 `policy_denied`。
+- 证据：本轮两份日志 `~/.gemini/antigravity-cli/log/cli-20261123_015547.log`（`agy -p`，10:55:47 JST）与 `cli-20261123_015701.log`（`agy models`，10:57:01 JST）均显示 keyring 载入同一 token（expiry 2026-11-22 19:36:42 UTC，即 04:36:42 JST，expired=true），随后刷新失败：`token refresh failed: oauth2: "invalid_grant" "Bad Request"`（两份日志中各 2 行），另有 11 / 9 行 `error getting token source`；本轮日志无 `UNAUTHENTICATED`（0 行）。本轮未写入新 token。与 04:35/04:58/05:24/05:45/06:05/06:54/08:14/09:14/10:04/10:34 轮同一模式。
+- 结论：**登录仍失效，本地无可用凭据**。自 03:56 失效以来已约 7.0 小时，02:34 式自行恢复未再出现；凭据在“刷新失败 invalid_grant”与“刷新成功但 401 拒收”两种模式之间摆动，既不能认定彻底失效，也不能认定会自行恢复。重登录仍需 Chen 配合（浏览器授权），本 worker 无法独立完成；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否重跑登录流程及是否在 Issue #81 留失败评论。
+- 另注：本轮读取任务书时触发了一次安全检查提示，因此未按文件内流程发起任何 OAuth 登录操作，仅做只读状态复核；登录流程本身仍需 Chen 在主聊配合后才能重跑。
