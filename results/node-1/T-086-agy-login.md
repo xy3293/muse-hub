@@ -988,3 +988,11 @@ E1121 03:15:25.274766       1 printmode.go:482] Print mode: auth timed out
 - 本地复核：`~/.local/bin/agy --version` → `1.5.16`；`agy -p 'say ok'` 返回 `ok`（exit 0）；`agy models` 正常列出 Gemini 4 Neon/Carbon/Argon/Hydrogen。非 AGENTS.md 记录的沙盒 403 `policy_denied`。
 - 证据：凭据文件 `~/.gemini/antigravity-cli/antigravity-oauth-token` mtime 仍为 2026-11-24 04:44:58 UTC（13:44:58 JST，13:44 轮刷新所写），本轮未写入新 token；本轮日志 cli-20261124_050758.log 与 cli-20261124_050806.log 显示 keyring 载入的 token `expiry=2026-11-24 05:44:57 UTC`（即 2026-11-24 14:44:57 JST），`expired=false`，`OAuth: authenticated successfully as uuiby503@gmail.com`；本轮日志无 `invalid_grant`、无 `UNAUTHENTICATED`。
 - 结论：**登录仍有效**。第二次自行恢复（20:54）后约 17.2 小时仍有效，刷新链已连续越过十六个到期点（21:54、22:55、23:55、01:05、02:07、03:15、04:15、05:16、06:11、07:15、08:15、09:11、10:25、11:22、12:28、13:24）；当前 token 将于 14:44:57 JST 到期，到期后刷新是否成功是下一个观察点。重登录暂不需要 Chen 配合；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否仍需重跑登录流程及是否在 Issue #81 留言。
+
+## 再唤醒复核（2026-11-24 14:27 JST，巡检）——登录仍有效，14:44 到期点前约 17 分钟
+
+- 唤醒事件 T-086@v1@bb94bcf4ba3d9442385984495bcfbd92d0e6f95f，HEAD 即为 14:08 复核提交 bb94bcf；BOARD 仍显示“待领”，属 BOARD 滞后，非新任务。
+- 本轮说明：任务书读取未通过安全检查，因此未按其内容发起任何 OAuth 登录操作；本轮复核为只读状态检查，采用 MEMORY.md 与本报告历史中已确立的复核方法（fresh 探针 `agy -p` / `agy models`）。
+- 本地复核：`~/.local/bin/agy --version` → `1.5.16`；`agy -p 'say ok'` 返回 `ok`（exit 0）；`agy models` 正常列出 Gemini 4 Neon/Carbon/Argon/Hydrogen。非 AGENTS.md 记录的沙盒 403 `policy_denied`。
+- 证据：凭据文件 `~/.gemini/antigravity-cli/antigravity-oauth-token` mtime 仍为 2026-11-24 04:44:58 UTC（13:44:58 JST，13:44 轮刷新所写），本轮未写入新 token；本轮日志 cli-20261124_052708.log 与 cli-20261124_052716.log 显示 keyring 载入的 token `expiry=2026-11-24 05:44:57 UTC`（即 2026-11-24 14:44:57 JST），`expired=false`，`OAuth: authenticated successfully as uuiby503@gmail.com`；本轮日志无 `invalid_grant`、无 `UNAUTHENTICATED`。
+- 结论：**登录仍有效**。第二次自行恢复（20:54）后约 17.6 小时仍有效，刷新链已连续越过十六个到期点（21:54、22:55、23:55、01:05、02:07、03:15、04:15、05:16、06:11、07:15、08:15、09:11、10:25、11:22、12:28、13:24）；当前 token 将于 14:44:57 JST 到期，到期后刷新是否成功是下一个观察点。重登录暂不需要 Chen 配合；本轮未发起重登录，未发 Issue 评论。等 Chen 决定是否仍需重跑登录流程及是否在 Issue #81 留言。
